@@ -57,10 +57,10 @@
 | **🔍 فیلتر هوشمند** | انتخاب پروتکل‌های دلخواه (VLESS، VMess، Trojan، SS، Hysteria، Hysteria2) و ترانسپورت‌های مورد نظر (WS، gRPC، TCP، TLS، HTTPUpgrade، SplitHTTP، XHTTP، H2، QUIC) |
 | **📊 سیستم امتیازدهی** | امتیازدهی خودکار بر اساس نوع پروتکل، امنیت (Reality/TLS)، ترانسپورت و پورت برای انتخاب بهترین کانفیگ‌ها |
 | **🧹 حذف تکراری** | تشخیص و حذف کانفیگ‌های تکراری بر اساس کلید یکتا (پروتکل+آدرس+پورت) |
-| **🎨 شخصی‌سازی کامل** | تغییر تم، رنگ‌ها، فونت، شدت درخشش، شفافیت، گردی گوشه‌ها، ارتفاع ترمینال و ... |
+| **🎨 شخصی‌سازی کامل** | تغییر فونت (Jakarta Sans و JetBrains Mono)، تنظیم شعاع حاشیه (Border Radius)، رنگ پس‌زمینه و رنگ‌های گرادینت/گلو (Primary & Secondary)، تنظیم شدت بلور و ارتفاع کنسول |
 | **📤 خروجی‌های متنوع** | کپی یک‌کلیک در کلیپ‌بورد، دانلود فایل TXT با نام پویا |
 | **🖥️ ترمینال زنده** | نمایش لاگ‌های عملیات با کدهای رنگی، وضعیت پیشرفت و نوار پیشرفت |
-| **🌍 چندزبانه** | پشتیبانی کامل از فارسی و انگلیسی (رابط به‌صورت پیش‌فرض انگلیسی) |
+| **🌍 چندزبانه** | پشتیبانی کامل از فارسی و انگلیسی |
 | **🛡️ حریم خصوصی** | تمام عملیات در مرورگر انجام می‌شود و هیچ داده‌ای ارسال نمی‌گردد |
 | **📱 واکنش‌گرا** | سازگار با تمام دستگاه‌ها از موبایل تا دسکتاپ |
 
@@ -76,7 +76,7 @@
    - **پورت**: ۴۴۳، ۸۴۴۳، ۲۰۵۳، ۲۰۸۳ (۱۵+)
 5. **فیلتر**: کانفیگ‌هایی که پروتکل یا ترانسپورت آن‌ها انتخاب نشده باشد، حذف می‌شوند.
 6. **حذف تکراری**: کانفیگ‌های تکراری بر اساس کلید یکتا (پروتکل+آدرس+پورت) حذف می‌شوند و بهترین نسخه (با بالاترین امتیاز) حفظ می‌شود.
-7. **مرتب‌سازی و برش**: کانفیگ‌ها بر اساس امتیاز (نزولی) مرتب شده و تعداد مشخص‌شده (پیش‌فرض ۲۰۰۰) برش داده می‌شوند.
+7. **مرتب‌سازی و برش**: کانفیگ‌ها بر اساس امتیاز (نزولی) مرتب شده و تعداد مشخص‌شده (پیش‌فرض ۲۵۰۰) برش داده می‌شوند.
 8. **اعمال تگ**: تگ دلخواه کاربر روی تمام کانفیگ‌ها اعمال می‌شود.
 9. **خروجی**: نتایج نهایی برای کپی یا دانلود آماده می‌شوند.
 ---
@@ -85,38 +85,40 @@
 2. **ورودی داده**:
    - می‌توانید لینک‌های سابسکریپشن (HTTP/HTTPS) را در باکس متنی وارد کنید.
    - یا متن خام حاوی کانفیگ‌های Base64 یا URI را جایگذاری کنید.
-   - یا با کلیک روی دکمه‌ی **Attach**، فایل متنی (TXT، CONF، JSON) را بارگذاری کنید.
+   - یا با کلیک روی دکمه‌ی آپلود، فایل متنی را بارگذاری کنید.
    - در صورت خالی بودن ورودی، سیستم از **۵۰+ منبع پیش‌فرض** استفاده می‌کند.
-3. **تگ دلخواه**: یک تگ برای کانفیگ‌های خروجی وارد کنید (پیش‌فرض: `MatinTech🏴‍☠️`).
-4. **تعداد حداکثر نود**: تعداد کانفیگ‌های نهایی را تعیین کنید (پیش‌فرض ۲۰۰۰).
+3. **تگ دلخواه**: یک تگ برای کانفیگ‌های خروجی وارد کنید (پیش‌فرض: `MatinTech ⚡`).
+4. **تعداد حداکثر نود**: تعداد کانفیگ‌های نهایی را تعیین کنید (پیش‌فرض ۲۵۰۰).
 5. **انتخاب پروتکل‌ها**: پروتکل‌های مورد نظر خود را انتخاب کنید (VLESS، VMess، Trojan، SS، Hysteria، Hysteria2).
 6. **انتخاب ترانسپورت‌ها**: ترانسپورت‌های دلخواه را انتخاب کنید (WS، gRPC، TCP، TLS، HTTPUpgrade، SplitHTTP، XHTTP، H2، QUIC).
-7. روی دکمه‌ی **INITIALIZE SEQUENCE** کلیک کنید.
-8. عملیات در ترمینال نمایش داده می‌شود و پیشرفت آن با نوار پیشرفت نشان داده می‌شود.
-9. پس از اتمام، تعداد کانفیگ‌های استخراج‌شده در بخش **NODES ACQUIRED** نمایش داده می‌شود.
-10. با دکمه‌های **COPY SECURE DATA** و **DOWNLOAD .TXT** می‌توانید خروجی را کپی یا دانلود کنید.
+7. روی دکمه‌ی **INITIALIZE PROCESSING ENGINE** کلیک کنید.
+8. عملیات در ترمینال نمایش داده می‌شود و پیشرفت آن نشان داده می‌شود.
+9. پس از اتمام، تعداد کانفیگ‌های استخراج‌شده نمایش داده می‌شود.
+10. با دکمه‌های مربوطه می‌توانید خروجی را کپی یا دانلود کنید.
 ---
-### 🎛️ شخصی‌سازی محیط (دکمه‌ی ⚙️)
-با کلیک روی دکمه‌ی چرخ‌دنده در هدر، پنل تنظیمات باز می‌شود:
+### 🎛️ شخصی‌سازی پنل (Quantum UI Themes)
+با کلیک روی دکمه‌ی تنظیمات (آیکون ویرایش در هدر)، پنل شخصی‌سازی باز می‌شود که امکانات زیر را در اختیار شما می‌گذارد:
 
-| دسته‌بندی | تنظیمات |
+| بخش تنظیمات | قابلیت‌ها و گزینه‌ها |
 | :--- | :--- |
-| **🎨 ظاهر** | فونت (Rajdhani، Orbitron، Inter)، گردی گوشه‌ها، شدت درخشش، ارتفاع ترمینال |
-| **🎨 رنگ‌ها** | رنگ پس‌زمینه، رنگ اصلی (آبی-فیروزه‌ای)، رنگ ثانویه (صورتی)، رنگ متن |
-| **🔮 شفافیت‌ها** | شفافیت پنل‌ها، شفافیت گرید پس‌زمینه، شدت محو (Blur) |
-| **↩️ بازنشانی** | دکمه‌ی **FACTORY RESET** برای بازگشت به تنظیمات پیش‌فرض |
+| **System Font** | انتخاب فونت‌های **Jakarta Sans (Modern Pro)** و **JetBrains Mono (Cyberpunk)** |
+| **Border Radius** | تنظیم میزان گردی و انحنای المان‌ها با اسلایدر (پیش‌فرض ۱۶px) |
+| **Background Core Color** | انتخاب رنگ اصلی پس‌زمینه پنل |
+| **Primary Accent Glow / Secondary Accent Tone** | انتخاب رنگ‌های نئونی و درخشش اصلی و ثانویه از پالت رنگی استاندارد (سبز، آبی، فیروزه‌ای، قرمز، سفید، مشکی، زرد، صورتی) یا پالت سفارشی |
+| **Glass Blur Intensity** | تنظیم شدت افکت محو شدگی شیشه‌ای (Glassmorphism) |
+| **Console Height** | تنظیم ارتفاع باکس ترمینال زنده |
+| **Reset Default Theme** | دکمه‌ی بازنشانی به تنظیمات پیش‌فرض کارخانه |
 
-همه‌ی تنظیمات به‌طور خودکار در **Local Storage** ذخیره می‌شوند و پس از بازآوری صفحه حفظ می‌شوند.
+تمامی تنظیمات گرافیکی به طور خودکار در **Local Storage** مرورگر ذخیره شده و باقی می‌مانند.
 ---
 ### 🗄️ منابع پیش‌فرض (۵۰+ منبع معتبر)
 در صورت خالی بودن ورودی، سیستم از لیست گسترده‌ای از منابع زیر استفاده می‌کند:
 - مخازن گیت‌هاب: `shervinofpersia`، `igareck`، `Mosifree`، `ShadowException`، `F0rc3Run`، `barry-far`، `ebrasha`، `MohammadBahemmat`، `ALIILAPRO`، `Pawdroid`، `mfuu`، `ermaozi`، `pytimusprime`، `ThomasJasperthecat`، `masir-sefid`، `AmyraxVPN-Main`، `MahsaNetConfigTopic`، `MahanKenway`، `MatinGhanbari`، `Epodonios`، `R3ZARAHIMI` و ...
 - سرویس‌های Cloudflare Worker و Pages
 - لینک‌های مستقیم سابسکریپشن
-> **توجه**: این منابع به‌روز هستند و به‌طور مرتب کانفیگ‌های جدید را ارائه می‌دهند.
 ---
 ### 📦 وابستگی‌ها
-این پروژه **هیچ وابستگی خارجی** ندارد و فقط از **Google Fonts** (Rajdhani، Orbitron، Inter، JetBrains Mono) از طریق CDN استفاده می‌کند. بقیه‌ی کدها به‌طور کامل در یک فایل HTML قرار دارند.
+این پروژه **هیچ وابستگی خارجی** ندارد و فقط از فونت‌های استاندارد از طریق CDN استفاده می‌کند. بقیه‌ی کدها به‌طور کامل در یک فایل HTML قرار دارند.
 ---
 ### 🚀 راه‌اندازی در GitHub Pages
 1. ریپازیتوری جدید (public) ایجاد کنید.
@@ -165,10 +167,10 @@ All processing happens locally in your browser – **no data is ever sent to any
 | **🔍 Smart Filtering** | Choose desired protocols (VLESS, VMess, Trojan, SS, Hysteria, Hysteria2) and transports (WS, gRPC, TCP, TLS, HTTPUpgrade, SplitHTTP, XHTTP, H2, QUIC) |
 | **📊 Scoring System** | Automatic scoring based on protocol type, security (Reality/TLS), transport, and port to select the best configs |
 | **🧹 Deduplication** | Detect and remove duplicate configs using a unique key (protocol+address+port) |
-| **🎨 Full Customization** | Change theme, colors, font, glow intensity, opacity, border radius, terminal height, and more |
+| **🎨 Full Customization** | Change fonts (Jakarta Sans & JetBrains Mono), border radius, background core color, primary/secondary accent glow, glass blur intensity, and console height |
 | **📤 Flexible Output** | One‑click copy to clipboard, download as TXT file with dynamic filename |
 | **🖥️ Live Terminal** | Real‑time operation logs with colour‑coded badges, status updates, and progress bar |
-| **🌍 Bilingual** | Full Persian and English support (UI default is English) |
+| **🌍 Bilingual** | Full Persian and English support |
 | **🛡️ Privacy** | All operations are client‑side; no data is transmitted |
 | **📱 Responsive** | Compatible with all devices from mobile to desktop |
 
@@ -184,7 +186,7 @@ All processing happens locally in your browser – **no data is ever sent to any
    - **Port**: 443, 8443, 2053, 2083 (+15)
 5. **Filtering**: Configs whose protocol or transport is not selected are dropped.
 6. **Deduplication**: Duplicate configs (based on protocol+address+port) are removed, keeping only the highest‑scoring version.
-7. **Sorting & Truncation**: Configs are sorted by score (descending) and truncated to the specified limit (default 2000).
+7. **Sorting & Truncation**: Configs are sorted by score (descending) and truncated to the specified limit (default 2500).
 8. **Remark Application**: The user's custom remark tag is applied to all configs.
 9. **Output**: Final results are ready for copy or download.
 ---
@@ -193,38 +195,40 @@ All processing happens locally in your browser – **no data is ever sent to any
 2. **Data Input**:
    - Paste subscription links (HTTP/HTTPS) into the text box.
    - Or paste raw text containing Base64 or URI configs.
-   - Or click the **Attach** button to upload a text file (TXT, CONF, JSON).
+   - Or click the upload button to upload a text file.
    - If left empty, the system will use **over 50 default sources**.
-3. **Custom Remark**: Enter a remark tag for the output configs (default: `MatinTech🏴‍☠️`).
-4. **Max Nodes**: Set the maximum number of configs to output (default 2000).
+3. **Custom Remark**: Enter a remark tag for the output configs (default: `MatinTech ⚡`).
+4. **Max Nodes**: Set the maximum number of configs to output (default 2500).
 5. **Select Protocols**: Choose the desired protocols (VLESS, VMess, Trojan, SS, Hysteria, Hysteria2).
 6. **Select Transports**: Choose the desired transports (WS, gRPC, TCP, TLS, HTTPUpgrade, SplitHTTP, XHTTP, H2, QUIC).
-7. Click the **INITIALIZE SEQUENCE** button.
+7. Click the **INITIALIZE PROCESSING ENGINE** button.
 8. The operation will be displayed in the terminal with a progress bar.
-9. Upon completion, the number of extracted configs will be shown under **NODES ACQUIRED**.
-10. Use the **COPY SECURE DATA** and **DOWNLOAD .TXT** buttons to copy or download the output.
+9. Upon completion, the number of extracted configs will be shown.
+10. Use the copy and download buttons to manage your output.
 ---
-### 🎛️ UI Customisation (⚙️ Button)
-Click the gear icon in the header to open the settings panel:
+### 🎛️ UI Customisation (Quantum UI Themes)
+Click the settings gear icon in the header to open the customisation panel:
 
-| Category | Settings |
+| Setting Category | Options & Controls |
 | :--- | :--- |
-| **🎨 Appearance** | Font (Rajdhani, Orbitron, Inter), Border Radius, Glow Intensity, Terminal Height |
-| **🎨 Colors** | Background Color, Primary Accent (Cyan), Secondary Accent (Pink), Text Color |
-| **🔮 Transparency** | Panel Opacity, Grid Opacity, Glass Blur Intensity |
-| **↩️ Reset** | **FACTORY RESET** button to restore default settings |
+| **System Font** | Switch between **Jakarta Sans (Modern Pro)** and **JetBrains Mono (Cyberpunk)** |
+| **Border Radius** | Adjust interface curvature with a smooth slider (default 16px) |
+| **Background Core Color** | Set the core background tone |
+| **Primary Accent Glow / Secondary Accent Tone** | Customise glowing neon accents via preset color palettes (Green, Blue, Cyan, Red, White, Black, Yellow, Magenta) or custom color pickers |
+| **Glass Blur Intensity** | Fine-tune the glassmorphism blur effect |
+| **Console Height** | Adjust live terminal console height |
+| **Reset Default Theme** | Factory reset button to restore default styles |
 
-All settings are automatically saved in **Local Storage** and persist across page reloads.
+All configurations are automatically saved to **Local Storage** and persist across reloads.
 ---
 ### 🗄️ Default Sources (50+ Trusted Sources)
 When input is empty, the system uses an extensive list of sources including:
 - GitHub repositories: `shervinofpersia`, `igareck`, `Mosifree`, `ShadowException`, `F0rc3Run`, `barry-far`, `ebrasha`, `MohammadBahemmat`, `ALIILAPRO`, `Pawdroid`, `mfuu`, `ermaozi`, `pytimusprime`, `ThomasJasperthecat`, `masir-sefid`, `AmyraxVPN-Main`, `MahsaNetConfigTopic`, `MahanKenway`, `MatinGhanbari`, `Epodonios`, `R3ZARAHIMI` and more.
 - Cloudflare Worker and Pages services.
 - Direct subscription links.
-> **Note**: These sources are regularly updated and provide fresh configs.
 ---
 ### 📦 Dependencies
-This project has **zero external libraries** besides **Google Fonts** (Rajdhani, Orbitron, Inter, JetBrains Mono) loaded via CDN. All logic is contained in a single HTML file.
+This project has **zero external libraries** besides standard web fonts loaded via CDN. All logic is contained in a single HTML file.
 ---
 ### 🚀 Deploy to GitHub Pages
 1. Create a new public repository.
