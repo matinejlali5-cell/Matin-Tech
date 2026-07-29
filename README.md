@@ -130,7 +130,7 @@
 ### 📄 مجوز
 این پروژه تحت مجوز **MIT** منتشر شده است. برای جزئیات به فایل `LICENSE` مراجعه کنید.
 ---
-### 🙏 تشکر و ارتباط
+###  با تشکر از استاد گرامی its-thesaz 🙏
 <p align="center">
   <a href="https://t.me/Mr_Matin_official">
     <img src="https://img.shields.io/badge/Telegram-@Mr_Matin_official-26A5E4?style=for-the-badge&logo=telegram&logoColor=white&labelColor=05040a" alt="Telegram">
