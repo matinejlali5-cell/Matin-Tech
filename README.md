@@ -1,112 +1,100 @@
 <!-- ============================================================ -->
-<!--   README – MATIN TECH – Professional Edition                -->
+<!--   README – MATIN TECH v1.0 – Professional Edition            -->
 <!-- ============================================================ -->
 
 <p align="center">
+  <!-- Animated SVG Banner with Typewriter Effect -->
   <a href="https://github.com/matinejlali5-cell/">
-    <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=34&pause=1000&color=00D9FF&center=true&vCenter=true&width=750&height=80&lines=MATIN+TECH;Advanced+Technology+Projects;Professional+Cyber+Solutions;Premium+Edition" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=34&pause=1000&color=00F0FF&center=true&vCenter=true&width=750&height=80&lines=MATIN+TECH;Advanced+Technology+Engine;Professional+Cyber+Tools;v1.0+-+Professional+Edition" alt="Typing SVG" />
   </a>
 </p>
 
 <p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/version-1.0-blue?style=for-the-badge&logo=github&logoColor=white&color=00f0ff&labelColor=05040a" alt="Version">
+  </a>
 
-<img src="https://img.shields.io/badge/Brand-Matin%20Tech-00D9FF?style=for-the-badge&logo=github&logoColor=white&labelColor=050505">
+  <a href="#">
+    <img src="https://img.shields.io/badge/platform-web-brightgreen?style=for-the-badge&logo=html5&logoColor=white&color=00f0ff&labelColor=05040a" alt="Platform">
+  </a>
 
-<img src="https://img.shields.io/badge/Status-Active-8B5CF6?style=for-the-badge&logo=statuspage&logoColor=white&labelColor=050505">
+  <a href="#">
+    <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge&logo=opensourceinitiative&logoColor=white&color=ff0055&labelColor=05040a" alt="License">
+  </a>
 
-<img src="https://img.shields.io/badge/Developer-Matin%20Ejlali-FFD700?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=050505">
+  <a href="#">
+    <img src="https://img.shields.io/badge/status-stable-success?style=for-the-badge&logo=statuspage&logoColor=white&color=39ff14&labelColor=05040a" alt="Status">
+  </a>
 
+  <a href="#">
+    <img src="https://img.shields.io/badge/cyber-tool-8B5CF6?style=for-the-badge&logo=matrix&logoColor=white&color=00f0ff&labelColor=05040a" alt="Cyber Tool">
+  </a>
 </p>
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+  <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 </p>
-
-
-## 🚀 About Matin Tech
-
-**Matin Tech** is a professional technology brand focused on creating modern, powerful and innovative digital projects.
-
-Our goal is to build clean, efficient and advanced solutions with a premium design and high performance.
-
-
----
-
-## ✨ Features
-
-| Category | Details |
-|----------|---------|
-| ⚡ Performance | Fast, optimized and modern architecture |
-| 🎨 Design | Premium dark cyber interface |
-| 🔒 Security | Focus on privacy and safe development |
-| 🚀 Innovation | Modern technologies and creative solutions |
-| 📱 Compatibility | Designed for multiple platforms |
-
-
----
-
-## 🛠 Technologies
-
-- Linux
-- GitHub
-- Web Technologies
-- Networking
-- Modern Development Tools
-
-
----
-
-## 📊 Project Status
-
-🟢 Active Development
-
----
-
-## 👨‍💻 Developer
 
 <p align="center">
-
-<b>Matin Ejlali</b>
-
-<br>
-
-Matin Tech
-
+  <a href="#-فارسی">🇮🇷 فارسی</a> •
+  <a href="#-english">🇬🇧 English</a>
 </p>
 
 
+## 🇮🇷 فارسی
+
+### 🚀 معرفی
+
+**MATIN TECH** یک مجموعه حرفه‌ای از ابزارهای پیشرفته تکنولوژی، توسعه نرم‌افزار و راهکارهای دیجیتال است که با تمرکز روی طراحی مدرن، عملکرد بالا و تجربه کاربری حرفه‌ای ساخته شده است.
+
+این پروژه با هدف ارائه ابزارهای سریع، امن و کاربردی برای کاربران و توسعه‌دهندگان طراحی شده است.
+
+ویژگی‌های اصلی:
+
+- طراحی مدرن با رابط کاربری سایبرپانک
+- عملکرد سریع و بهینه
+- ساختار حرفه‌ای و قابل توسعه
+- تمرکز روی امنیت و تجربه کاربری
+- توسعه کامل توسط **Matin Tech**
+
+تمامی بخش‌های پروژه شامل طراحی، توسعه و ایده‌پردازی توسط تیم **Matin Tech** انجام شده است.
+
 ---
 
-## 📞 Contact
+### ✨ ویژگی‌های کلیدی
+
+| دسته‌بندی | قابلیت‌ها |
+|-----------|-----------|
+| ⚡ Performance | عملکرد سریع، بهینه و سبک |
+| 🎨 Design | طراحی مدرن، حرفه‌ای و قابل شخصی‌سازی |
+| 🔧 Development | کدنویسی ساختاریافته و قابل توسعه |
+| 🛡️ Security | تمرکز روی امنیت و حفظ حریم خصوصی |
+| 🌍 Compatibility | سازگار با دستگاه‌ها و محیط‌های مختلف |
+| 📱 Responsive | پشتیبانی کامل از موبایل و دسکتاپ |
+
+---
+
+### 🙏 توسعه‌دهنده و ارتباط
 
 <p align="center">
 
 <a href="https://t.me/Mr_Matin_official">
-<img src="https://img.shields.io/badge/Telegram-@Mr_Matin_official-00D9FF?style=for-the-badge&logo=telegram&logoColor=white&labelColor=050505">
+<img src="https://img.shields.io/badge/Telegram-@Mr_Matin_official-26A5E4?style=for-the-badge&logo=telegram&logoColor=white&labelColor=05040a" alt="Telegram">
 </a>
-
-<br>
 
 <a href="https://github.com/matinejlali5-cell/">
-<img src="https://img.shields.io/badge/GitHub-MatinEjlali5--cell-8B5CF6?style=for-the-badge&logo=github&logoColor=white&labelColor=050505">
+<img src="https://img.shields.io/badge/GitHub-Matin%20Tech-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=05040a" alt="GitHub">
 </a>
 
 </p>
 
-
----
-
-## 🌟 About Developer
-
-> Developed and designed by **Matin Tech**
+> **Developer:** Matin Tech  
 >
-> Creating professional technology projects with modern design, creativity and innovation.
-
-
----
-
-<p align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:8B5CF6,100:FFD700&height=120&section=footer">
-
-</p>
+> **طراح و توسعه‌دهنده پروژه:** Matin  
+>
+> تمامی طراحی‌ها، ایده‌ها و توسعه این پروژه توسط Matin Tech انجام شده است.
+>
+> راه‌های ارتباطی رسمی:
+>
+> 📱 Telegram: @Mr_Matin_official  
+> 🌐 GitHub: https://github.com/matinejlali5-cell/
