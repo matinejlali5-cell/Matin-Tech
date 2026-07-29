@@ -1,301 +1,600 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل سفارشی‌سازی کانفیگ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>MATIN TECH // QUANTUM CORE ENGINE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #030407;
-            --panel: rgba(10, 12, 19, 0.85);
-            --border: rgba(0, 242, 254, 0.25);
-            --accent: #00f2fe;
-            --accent-glow: rgba(0, 242, 254, 0.3);
-            --text: #f8fafc;
-            --muted: rgba(248, 250, 252, 0.5);
+            --bg-color: #030407;
+            --panel-rgb: 10, 12, 19;
+            --panel-opacity: 0.85;
+            --accent-hex: #00f2fe; 
+            --accent-rgb: 0, 242, 254;
+            --accent2-hex: #4facfe; 
+            --text-color: #f8fafc;
+            --grid-opacity: 0.2;
+            --blur-intensity: 22px;
+            --radius-val: 16px;
+            --glow-intensity: 1.2;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --term-height: 440px;
+            
+            --bg: var(--bg-color);
+            --card: rgb(var(--panel-rgb));
+            --panel: rgba(var(--panel-rgb), var(--panel-opacity));
+            --border: rgba(var(--accent-rgb), 0.25);
+            --border-glow: rgba(var(--accent-rgb), calc(0.6 * var(--glow-intensity)));
+            --text: var(--text-color);
+            --muted: rgba(248, 250, 252, 0.45);
+            --accent: var(--accent-hex);
+            --accent2: var(--accent2-hex);
+            --accent-glow: rgba(var(--accent-rgb), calc(0.45 * var(--glow-intensity)));
+            
+            --good: #10b981;
+            --bad: #ef4444;
+            --info: #06b6d4;
+            
+            --mono: 'JetBrains Mono', ui-monospace, monospace;
+            --sans: var(--font-main);
+            --radius: var(--radius-val);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
         }
 
-        body {
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html, body {
+            height: 100%;
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Vazirmatn', 'Plus Jakarta Sans', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            font-family: var(--sans);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .container {
-            background: var(--panel);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            width: 100%;
-            max-width: 650px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .header-box {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 14px;
-        }
-
-        .brand-logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 1px solid var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .brand-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .brand-subtitle {
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 2px;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .input-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--muted);
-        }
-
-        textarea {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 14px;
-            font-family: monospace;
-            font-size: 12px;
-            color: #cbd5e1;
-            height: 140px;
-            resize: vertical;
-            outline: none;
-            line-height: 1.5;
-        }
-
-        textarea:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
-        }
-
-        .row {
-            display: flex;
-            gap: 12px;
-        }
-
-        .row input {
-            flex: 1;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 12px 14px;
-            color: #fff;
-            font-family: inherit;
-            font-size: 13px;
-            outline: none;
-        }
-
-        .row input:focus {
-            border-color: var(--accent);
-        }
-
-        .code-box {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 16px;
-            font-family: monospace;
-            font-size: 12px;
-            color: #cbd5e1;
-            max-height: 180px;
-            overflow-y: auto;
-            word-break: break-all;
-            line-height: 1.6;
-            direction: ltr;
-            text-align: left;
-        }
-
-        .code-box::-webkit-scrollbar {
-            width: 5px;
-        }
-        .code-box::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 4px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #4facfe);
-            color: #030407;
-            border: none;
-            border-radius: 12px;
-            padding: 14px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px var(--accent-glow);
-            font-family: inherit;
-        }
-
-        .btn-primary:hover {
-            filter: brightness(1.15);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px var(--accent-glow);
-        }
-
-        .toast {
+        /* Holographic Cyber Grid */
+        body::before {
+            content: '';
             position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: rgba(10, 12, 19, 0.95);
-            border: 1px solid var(--accent);
-            color: #fff;
-            padding: 12px 24px;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(to right, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+            opacity: var(--grid-opacity);
+        }
+
+        /* Ambient Glow Spheres */
+        .ambient-glow {
+            position: fixed;
+            width: 45vw; height: 45vw;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.09) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0; pointer-events: none;
+            filter: blur(90px);
+            border-radius: 50%;
+        }
+        .ambient-1 { top: -15%; left: -10%; }
+        .ambient-2 { bottom: -15%; right: -10%; background: radial-gradient(circle, rgba(79, 172, 254, 0.08) 0%, rgba(0,0,0,0) 70%); }
+
+        /* --- LUXURY HEADER --- */
+        .app-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(10, 12, 19, 0.75);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-logo-box {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
             border-radius: 12px;
-            font-size: 13px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
-            opacity: 0;
-            z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 20px var(--accent-glow);
+            color: #030407; font-weight: 800; font-size: 20px;
         }
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+
+        .header-title-group { display: flex; flex-direction: column; gap: 2px; }
+
+        .header-title {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-transform: uppercase;
         }
+
+        .header-title span {
+            color: var(--accent);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+        
+        .header-subtitle {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .header-actions { display: flex; align-items: center; gap: 12px; }
+
+        .header-btn {
+            background: rgba(var(--accent-rgb), 0.08);
+            border: 1px solid rgba(var(--accent-rgb), 0.3);
+            color: var(--accent);
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-btn:hover {
+            background: var(--accent);
+            color: #030407;
+            border-color: var(--accent);
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* --- MAIN LAYOUT --- */
+        main {
+            position: relative; z-index: 2;
+            max-width: 1400px;
+            margin: 36px auto;
+            padding: 0 24px;
+            display: grid;
+            gap: 32px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1024px) {
+            main { grid-template-columns: 1.05fr 0.95fr; }
+        }
+
+        /* Glass Cards */
+        .panel {
+            background: var(--panel);
+            backdrop-filter: blur(var(--blur-intensity));
+            -webkit-backdrop-filter: blur(var(--blur-intensity));
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .panel:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(var(--accent-rgb), 0.1);
+        }
+
+        .panel-header {
+            padding: 22px 26px;
+            background: rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .panel-title {
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 700; font-size: 13px; color: var(--text);
+            letter-spacing: 0.08em; text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.85); } 100% { opacity: 1; transform: scale(1); } }
+
+        .panel-body { padding: 26px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1; }
+
+        /* Form Controls */
+        .input-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
+        .input-label {
+            font-size: 11px; font-weight: 700; color: var(--muted);
+            letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;
+            text-transform: uppercase;
+        }
+
+        textarea, input[type="text"], input[type="number"] {
+            width: 100%; background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;
+            padding: 14px 18px; color: var(--text);
+            font-family: var(--mono); font-size: 13px;
+            line-height: 1.5; outline: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        textarea { min-height: 140px; resize: vertical; padding-right: 56px; }
+
+        textarea:focus, input:focus {
+            border-color: var(--accent);
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15), inset 0 0 10px rgba(var(--accent-rgb), 0.05);
+        }
+        
+        .attach-btn {
+            position: absolute; right: 10px; bottom: 10px;
+            width: 38px; height: 38px; border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04);
+            color: var(--text); cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: all 0.25s;
+        }
+        .attach-btn:hover { background: var(--accent); color: #030407; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+        .attach-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; }
+
+        .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+
+        /* Checkbox Grid System */
+        .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
+        
+        .check-box {
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 11px; border-radius: 12px;
+            cursor: pointer; transition: all 0.25s ease; user-select: none;
+        }
+        .check-box:has(input:checked) {
+            background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.15);
+        }
+        .check-box input { display: none; }
+        .check-box span { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); transition: color 0.2s; }
+        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
+
+        /* Action Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent2)); 
+            color: #030407;
+            border: none; border-radius: 14px;
+            padding: 18px; font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
+            text-transform: uppercase; cursor: pointer;
+            box-shadow: 0 8px 30px var(--accent-glow);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            font-family: var(--sans);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            filter: brightness(1.15);
+            box-shadow: 0 12px 35px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); box-shadow: none; cursor: not-allowed; }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text);
+            padding: 14px; font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; gap: 10px;
+            border-radius: 12px;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(var(--accent-rgb), 0.1); border-color: var(--accent);
+            color: #fff; box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.15); transform: translateY(-1px);
+        }
+        .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* Terminal Console */
+        .terminal-panel {
+            background: #020305; border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px; display: flex; flex-direction: column; overflow: hidden;
+            position: relative; height: var(--term-height); transition: height 0.3s ease;
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .term-header {
+            background: rgba(0, 0, 0, 0.5); padding: 12px 18px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .term-status-box { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+        .blink { animation: blink 1s step-end infinite; color: var(--accent); font-weight: bold; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .btn-clear {
+            background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); color: var(--bad);
+            font-family: var(--mono); font-size: 10px; padding: 4px 10px; cursor: pointer; transition: 0.2s;
+            border-radius: 6px; font-weight: 700;
+        }
+        .btn-clear:hover { background: rgba(239, 68, 68, 0.15); box-shadow: 0 0 10px rgba(239,68,68,0.2); }
+
+        .term-body {
+            padding: 16px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
+            font-size: 12px; line-height: 1.6;
+        }
+        
+        .term-body::-webkit-scrollbar { width: 5px; }
+        .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+        .log-line {
+            display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .log-time { color: rgba(255,255,255,0.25); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
+        .log-badge {
+            font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px;
+            text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.05em;
+        }
+        
+        .badge-info { background: rgba(6, 182, 212, 0.12); color: var(--info); border: 1px solid rgba(6,182,212,0.3); }
+        .badge-scan { background: rgba(79, 172, 254, 0.12); color: var(--accent2); border: 1px solid rgba(79,172,254,0.3); }
+        .badge-ok { background: rgba(16, 185, 129, 0.12); color: var(--good); border: 1px solid rgba(16,185,129,0.3); }
+        .badge-err { background: rgba(239, 68, 68, 0.12); color: var(--bad); border: 1px solid rgba(239,68,68,0.3); }
+
+        .log-msg { color: #cbd5e1; }
+
+        /* Progress Bar */
+        .scan-progress { height: 3px; background: rgba(255,255,255,0.03); width: 100%; position: relative; overflow: hidden; }
+        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.3s ease; box-shadow: 0 0 10px var(--accent); }
+
+        /* Results Box */
+        .results-box {
+            background: rgba(0, 0, 0, 0.3); border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 26px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        
+        .score-display {
+            font-size: clamp(42px, 5.5vw, 68px); font-weight: 800; font-family: var(--sans); color: #fff;
+            line-height: 1; margin-bottom: 20px;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-shadow: 0 0 30px rgba(var(--accent-rgb), 0.25);
+        }
+        .score-display.bump { transform: scale(1.12); color: var(--accent); }
+
+        /* Watermark */
+        .matin-watermark {
+            text-align: center; font-family: var(--sans); font-size: 11px; font-weight: 700;
+            letter-spacing: 3px; padding: 30px 0; color: var(--muted); text-transform: uppercase;
+        }
+        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 10px var(--accent-glow); }
+
+        /* Toast Notification Popup */
+        #toast {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: rgba(10, 12, 19, 0.95); backdrop-filter: blur(20px);
+            border: 1px solid var(--accent); color: #fff; padding: 14px 28px;
+            border-radius: 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px var(--accent-glow);
+            z-index: 9999; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+            opacity: 0; display: flex; align-items: center; gap: 10px;
+        }
+        #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        #toast svg { width: 18px; height: 18px; stroke: var(--accent); }
+
+        /* Settings Drawer Sidebar */
+        .settings-panel {
+            position: fixed; top: 0; right: -420px;
+            width: 380px; max-width: 100vw; height: 100vh;
+            background: rgba(8, 10, 16, 0.96); backdrop-filter: blur(30px);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: -30px 0 60px rgba(0,0,0,0.9); z-index: 1001;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column;
+        }
+        .settings-panel.open { right: 0; }
+
+        .settings-head {
+            padding: 22px 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .settings-head h2 { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 1.5px; text-transform: uppercase; }
+        .close-settings { background: none; border: none; color: var(--muted); font-size: 26px; cursor: pointer; transition: 0.2s; }
+        .close-settings:hover { color: #fff; }
+
+        .settings-body-panel { padding: 24px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+        
+        .setting-item { display: flex; flex-direction: column; gap: 8px; }
+        .setting-item label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; letter-spacing: 0.05em; }
+
+        .setting-select {
+            width: 100%; background: rgba(0,0,0,0.5); color: var(--text); border: 1px solid rgba(255,255,255,0.08);
+            padding: 12px; border-radius: 12px; font-family: var(--sans); font-size: 12px; outline: none; cursor: pointer;
+        }
+
+        input[type="range"] { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.1); outline: none; border-radius: 3px; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
+
+        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 38px; border-radius: 12px; cursor: pointer; background: rgba(0,0,0,0.4); padding: 2px; border: 1px solid rgba(255,255,255,0.1); }
+        input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+        input[type="color"]::-webkit-color-swatch { border: none; border-radius: 10px; }
+
+        .btn-reset { margin-top: 10px; padding: 14px }
     </style>
 </head>
 <body>
+    <div class="ambient-glow ambient-1"></div>
+    <div class="ambient-glow ambient-2"></div>
 
-    <div class="container">
-        <div class="header-box">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Logo" class="brand-logo" id="brandLogo">
-            <div>
-                <div class="brand-title">ماتین وی‌پی‌ان // شخصی‌ساز کانفیگ</div>
-                <div class="brand-subtitle">Custom Config Generator</div>
+    <header class="app-header">
+        <div class="header-brand">
+            <div class="brand-logo-box">M</div>
+            <div class="header-title-group">
+                <h1 class="header-title">Matin <span>Tech</span></h1>
+                <span class="header-subtitle">Quantum Core Engine</span>
             </div>
         </div>
-
-        <div class="input-group">
-            <label class="input-label">ورودی کانفیگ‌های خام (Custom Links)</label>
-            <textarea id="rawInput" placeholder="vless://... یا ss://... لینک‌های خود را اینجا وارد کنید">vless://e51796bb-3305-ac88-f39d-22fd9dd63b4f@170.168.99.3:443?mode=auto&path=%2F&security=reality&encryption=none&pbk=R8Mogel1wypEIpcUXnGmG1cuzT9POghNhqJcw4-CLx0&fp=chrome&type=xhttp&sni=cdn.steamstatic.com#OldName
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@146.70.222.126:1080#OldName2</textarea>
+        <div class="header-actions">
+            <button class="header-btn" id="settings-toggle" title="Settings">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </button>
         </div>
+    </header>
 
-        <div class="row">
-            <div class="input-group" style="flex: 1;">
-                <label class="input-label">تگ سفارشی نام (Custom Remark)</label>
-                <input type="text" id="remarkInput" value="MatinVPN⚡️">
+    <main>
+        <section class="panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <div class="status-dot"></div>
+                    Input & Configuration Stream
+                </div>
             </div>
-            <div style="display: flex; align-items: flex-end;">
-                <button class="btn-primary" onclick="processConfigs()" style="height: 47px; padding: 0 20px;">پردازش</button>
+            <div class="panel-body">
+                <div class="input-group">
+                    <label class="input-label" for="config-input"><span>Configs Payload</span><span id="config-count">0 Loaded</span></label>
+                    <textarea id="config-input" placeholder="Paste your vless://, ss://, trojan://, hysteria2:// configs here...">vless://e51796bb-3305-ac88-f39d-22fd9dd63b4f@170.168.99.3:443?mode=auto&path=%2F&security=reality&encryption=none&pbk=R8Mogel1wypEIpcUXnGmG1cuzT9POghNhqJcw4-CLx0&fp=chrome&type=xhttp&sni=cdn.steamstatic.com#MatinTech%E2%9A%A1%20%231174
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@146.70.222.126:1080#MatinTech%E2%9A%A1%20%23176
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.26:8080#MatinTech%E2%9A%A1%20%23430
+vless://e996abc7-cff3-4d9f-a9dc-0d717048a345@germany2.avrilon.us:443?security=reality&encryption=mlkem768x25519plus.native.0rtt.IU93_zTVl-948HR94z9259IKoTU_qSM_0ttmIUamVh8&pbk=rA_ItMaIiG_OUjcaTLpxOoF-OHh4WJsNUfWh7QUn_xU&headerType=none&fp=chrome&spx=%2F49b9d6fab1f9e6c&type=tcp&flow=xtls-rprx-vision&sni=image.semiconductor.samsung.com&sid=2f3178a1d747#MatinTech%E2%9A%A1%20%231277
+vless://5e243126-4a2a-84b6-782a-73b14797fb5f@170.168.97.3:8443?mode=gun&security=reality&encryption=none&pbk=D2SXHZRRYM0WcFChGWd57XB-U73aIsGfMpe2-Gq5XSs&fp=chrome&type=grpc&serviceName=TunService&sni=download.nvidia.com#MatinTech%E2%9A%A1%20%231296
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.174:443#MatinTech%E2%9A%A1%20%23419
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.28:8080#MatinTech%E2%9A%A1%20%23439
+hysteria2://pBrV8FUdJf@91.107.178.22:43913?security=tls&obfs=salamander&obfs-password=V2RayyNGvpn&insecure=0&pinSHA256=990e8a1ca2efec24a7de4373c7123a78b23e9c3d18e10f0e026ddebf85e5b774&sni=assets.gateway-stream.com#MatinTech%E2%9A%A1%20%2348
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.174:8080#MatinTech%E2%9A%A1%20%23426
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@188.119.149.27:1080#MatinTech%E2%9A%A1%20%23202
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.29:443#MatinTech%E2%9A%A1%20%23440
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.198:8080#MatinTech%E2%9A%A1%20%23324
+ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M@158.173.24.73:443#MatinTech%E2%9A%A1%20%23523
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@185.253.97.206:1080#MatinTech%E2%9A%A1%20%23196
+vless://5e243126-4a2a-84b6-782a-73b14797fb5f@170.168.97.3:443?mode=auto&path=%2F&security=reality&encryption=none&pbk=D2SXHZRRYM0WcFChGWd57XB-U73aIsGfMpe2-Gq5XSs&fp=chrome&type=xhttp&sni=download.nvidia.com#MatinTech%E2%9A%A1%20%231297
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqR21sTEcyM0ZkTVZ0d0Fx@4.210.66.168:443#MatinTech%E2%9A%A1%20%23286
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.3:8080#MatinTech%E2%9A%A1%20%23453
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.57:443#MatinTech%E2%9A%A1%20%23462
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@84.247.48.78:1080#MatinTech%E2%9A%A1%20%23234
+vless://784974f6-6289-4988-a51d-7d54f9e6915c@31.77.149.177:1997?mode=auto&path=%2F&security=reality&encryption=none&extra=%7B%0A%2B%2B%22mode%22%2B%3A%2B%22auto%22%2C%0A%2B%2B%22xPaddingBytes%22%2B%3A%2B%22100-1000%22%0A%7D&pbk=G62WBAi-xUaN8_cArNygz5RQWsljCHOPJlPVMh-Qwm8&fp=chrome&spx=%2Fyl178Tplf8CQEky&type=xhttp&sni=www.samsung.com&sid=71607c0fba717d33#MatinTech%E2%9A%A1%20%231316
+vless://e315526f-c838-44db-9bd4-01ccb03450b9@77.42.83.112:8443?mode=auto&path=%2F%3Fed%3D1024&security=reality&encryption=none&extra=%7B%22mode%22%3A%22auto%22%2C%22xPaddingBytes%22%3A%22100-1000%22%7D&pbk=SpAT1bZbRpAZa_gf61IapZMZ0CUMz4HTT5Yxvn7Nw1k&host=www.speedtest.net&fp=chrome&spx=%2FHVYCFcqMFAQQp2z&type=xhttp&sni=p-y3-www-amazon-com-kalias.amazon.com&sid=3d#MatinTech%E2%9A%A1%20%231067
+vless://0b9bcbc1-b289-4a64-86fa-a5b731b65384@93.152.205.216:444?mode=gun&security=reality&encryption=none&pbk=X-YL5VNtlMNIaBrwaHt3hJCeF_gMT9gPRDDlK1Qg7Tc&fp=chrome&type=grpc&serviceName=web.max.ru&sni=web.max.ru&sid=8321461729abcdef#MatinTech%E2%9A%A1%20%231260
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.216:8080#MatinTech%E2%9A%A1%20%23364
+vless://0b9bcbc1-b289-4a64-86fa-a5b731b65384@93.152.205.216:444?mode=gun&security=reality&encryption=none&pbk=X-YL5VNtlMNIaBrwaHt3hJCeF_gMT9gPRDDlK1Qg7Tc&fp=chrome&type=grpc&serviceName=web.max.ru&sni=web.max.ru&sid=8321461729abcdef#MatinTech%E2%9A%A1%20%231190
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.207:8080#MatinTech%E2%9A%A1%20%23351
+vless://7968c546-02dc-4f8c-b791-934591a94cb2@cf.levikogjgfdd.ir:443?path=%2Fcbasur&security=tls&encryption=none&insecure=0&host=hhvl.hhapp.kdns.fr&type=ws&allowInsecure=0&sni=hhvl.hhapp.kdns.fr#MatinTech%E2%9A%A1%20%231066
+vless://e7961655-9674-4cbd-a36f-ec0d5d7d660c@one-for-all.levikogjgfdd.ir:2053?path=%2F&security=tls&alpn=h3%2Ch2&encryption=none&insecure=0&host=po.fastbrokencompony.com&fp=chrome&type=ws&allowInsecure=0&sni=po.fastbrokencompony.com#MatinTech%E2%9A%A1%20%231079
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@91.193.5.112:1080#MatinTech%E2%9A%A1%20%23238
+vless://14b59caf-a196-4ec2-8c70-c7b388062f5b@162.159.38.119:443?path=%2Frdfgtws&security=tls&encryption=none&insecure=1&host=vangoghhh.info&type=ws&allowInsecure=1&sni=vangoghhh.info#MatinTech%E2%9A%A1%20%231152
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.18:8080#MatinTech%E2%9A%A1%20%23429
+vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@qq.utiltools.ru:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231173
+vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@78.159.250.214:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&host=%2F%3Fi10VPN&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231268
+trojan://humanity@162.159.38.119:443?path=%2Fassignment&security=tls&insecure=0&host=www.calmloud.com&type=ws&allowInsecure=0&sni=www.calmloud.com#MatinTech%E2%9A%A1%20%23909
+vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@qq.utiltools.ru:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&headerType=none&fp=qq&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231195
+vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@78.159.250.214:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231191
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo5dHFoTWRJclRrZ1E0NlB2aHlBdE1I@92.112.126.90:443#MatinTech%E2%9A%A1%20%23118
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@us1.levikogjgfdd.ir:1080#MatinTech%E2%9A%A1%20%23248
+vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@qq.utiltools.ru:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&host=%2F%3FBIA_TELEGRAM%40ShadowProxy66&headerType=none&fp=qq&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231172
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.162:443#MatinTech%E2%9A%A1%20%23414
+trojan://humanity@162.159.38.119:443?path=%2Fassignment&security=tls&insecure=0&host=www.gossipglove.com&type=ws&allowInsecure=0&sni=www.gossipglove.com#MatinTech%E2%9A%A1%20%23928
+vless://b2f6aa3a-2550-4a1c-b2c0-1c94b1207217@162.159.38.119:443?path=%2Fhdgrbws&security=tls&encryption=none&insecure=0&host=terazhediii.info&type=ws&allowInsecure=0&sni=terazhediii.info#MatinTech%E2%9A%A1%20%231213
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@72.10.173.91:1080#MatinTech%E2%9A%A1%20%23232
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpHeU8ycExTOHJMcGxGSElEbldNNFhN@104.192.227.164:443#MatinTech%E2%9A%A1%20%23144
+trojan://humanity@162.159.38.119:443?path=%2Fassignment&security=tls&insecure=0&host=www.creationlong.org&type=ws&allowInsecure=0&sni=www.creationlong.org#MatinTech%E2%9A%A1%20%23908
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.204:8080#MatinTech%E2%9A%A1%20%23337
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpsaHVVTFJ3TzRzbE02azI2MnBBQzRjYnE1QTFINno4ZWFPSFYyN3ZpN1l3PQ@47.81.56.202:44617#MatinTech%E2%9A%A1%20%23386
+vless://901fc0c9-ae4c-4d06-9fed-253b25b68a0e@one-for-all.levikogjgfdd.ir:8443?path=%2F&security=tls&encryption=none&insecure=0&host=ad-004.vector9nmb3.info&type=ws&allowInsecure=0&sni=ad-004.vector9nmb3.info#MatinTech%E2%9A%A1%20%231253
+vless://14b59caf-a196-4ec2-8c70-c7b388062f5b@cf.levikogjgfdd.ir:443?path=%2Frdfgtws&security=tls&encryption=none&insecure=0&host=vangoghhh.info&type=ws&allowInsecure=0&sni=vangoghhh.info#MatinTech%E2%9A%A1%20%231278
+vless://da97d2d7-d255-4efd-8398-7101d698768e@195.133.18.161:30153?security=&encryption=none&headerType=none&type=tcp#MatinTech%E2%9A%A1%20%231347
+vless://29ca503d-e6b8-4509-b666-48133f450857@one-for-all.levikogjgfdd.ir:443?path=%2Ffdip&security=tls&encryption=none&insecure=0&host=learn00.evany.de5.net&type=ws&allowInsecure=0&sni=learn00.evany.de5.net#MatinTech%E2%9A%A1%20%231355
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTczMWVjMy1mOGUxLTQzZjYtOTJjZi0zOTc4ZDE0NzA1YzQ@61.231.49.100:50099#MatinTech%E2%9A%A1%20%23105
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.203:8080#MatinTech%E2%9A%A1%20%23336
+vless://e911c552-3a98-41e0-b5fb-0dd3879887b7@162.159.38.119:443?path=%2Fapi%2Fv1%2Firc&security=tls&alpn=http%2F1.1&encryption=none&insecure=0&host=vod.ensf.top&type=ws&allowInsecure=0&sni=vod.ensf.top#MatinTech%E2%9A%A1%20%231254
+hysteria2://p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR@130.49.161.70:443?security=tls&obfs=salamander&obfs-password=rG07s3COMIEvdnQipRyWzx_H_2xygNC3&insecure=1&sni=hy2.aspidnet.xyz#MatinTech%E2%9A%A1%20%2347
+vless://1b73f053-2709-4698-bbec-cb20e8a5f288@gr4.levikogjgfdd.ir:3031?security=&encryption=none&host=play.google.com&headerType=http&type=tcp#MatinTech%E2%9A%A1%20%231062
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.49:8080#MatinTech%E2%9A%A1%20%23460
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.47:8080#MatinTech%E2%9A%A1%20%23457
+trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2086?path=%2FeyJqdW5rIjoiQmY3YktLejQ5cldPaSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2038%20-%20Trojan%20-%20IPv4%20%3A%202086
+trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:8080?path=%2FeyJqdW5rIjoiUXo3WldxeVNDWExNV2h6aSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2014%20-%20Trojan%20-%20Clean%20IP%20%3A%208080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2082?path=%2FeyJqdW5rIjoiWjZIMXhranRCejk3dWlpUCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2031%20-%20VLESS%20-%20IPv4%20%3A%202082
+trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:80?path=%2FeyJqdW5rIjoiNFZhQmRCdWdEUjQzdyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%203%20-%20Trojan%20-%20IPv4%20%3A%2080
+trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:8880?path=%2FeyJqdW5rIjoiSTRyRHdlZm54ZSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2017%20-%20Trojan%20-%20IPv4%20%3A%208880
+trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:8080?path=%2FeyJqdW5rIjoib2VrejVoSVVTREk3U0dEIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2011%20-%20Trojan%20-%20IPv4%20%3A%208080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2052?path=%2FeyJqdW5rIjoiYkJRMFVmMWFxd2JSIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2022%20-%20VLESS%20-%20Domain%20%3A%202052
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2052?path=%2FeyJqdW5rIjoiUnVYbGRaRGdDIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2023%20-%20VLESS%20-%20Domain%20%3A%202052
+trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2082?path=%2FeyJqdW5rIjoiVjRLWnFUTHY5TSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2029%20-%20Trojan%20-%20Domain%20%3A%202082
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2095?path=%2FeyJqdW5rIjoiaEN2a0kzb2xCQTIybyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2045%20-%20VLESS%20-%20IPv4%20%3A%202095
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:80?path=%2FeyJqdW5rIjoiVVRweTBZMnEiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%201%20-%20VLESS%20-%20Domain%20%3A%2080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:8880?path=%2FeyJqdW5rIjoiU2dUVkZ2aDJ2V2pVeTFUSiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2018%20-%20VLESS%20-%20IPv4%20%3A%208880
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2052?path=%2FeyJqdW5rIjoibUdoVlFCcDRPZWcyZFVnRSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2024%20-%20VLESS%20-%20IPv4%20%3A%202052
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2052?path=%2FeyJqdW5rIjoiS25zbW84cDFTMXI5UzJGIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2028%20-%20VLESS%20-%20Clean%20IP%20%3A%202052
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2095?path=%2FeyJqdW5rIjoiSzBlblJxS1diM045RHhOIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2046%20-%20VLESS%20-%20IPv4%20%3A%202095
+trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:8880?path=%2FeyJqdW5rIjoiVzNxWnBTM3pvIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2018%20-%20Trojan%20-%20IPv4%20%3A%208880
+trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:8880?path=%2FeyJqdW5rIjoiTU9jWHR1SUp4U0NkIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2015%20-%20Trojan%20-%20Domain%20%3A%208880
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:8880?path=%2FeyJqdW5rIjoiaVQxM05OdlR3byIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2017%20-%20VLESS%20-%20IPv4%20%3A%208880
+trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:80?path=%2FeyJqdW5rIjoiczYwelJKa3ZERlFYUWZRIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%201%20-%20Trojan%20-%20Domain%20%3A%2080
+trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2095?path=%2FeyJqdW5rIjoibWhWcDIyWWJvaSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2043%20-%20Trojan%20-%20Domain%20%3A%202095
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2086?path=%2FeyJqdW5rIjoibWwzWUFEcEFSWEtJTW9sIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2036%20-%20VLESS%20-%20Domain%20%3A%202086
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:8080?path=%2FeyJqdW5rIjoiMXUzWkI3Zm1KZTdmRyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%208%20-%20VLESS%20-%20Domain%20%3A%208080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2086?path=%2FeyJqdW5rIjoiVkNXZnhzRVQiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2038%20-%20VLESS%20-%20IPv4%20%3A%202086
+trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:8080?path=%2FeyJqdW5rIjoiY1d0d1ZEMXZOcUxRUSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2010%20-%20Trojan%20-%20IPv4%20%3A%208080
+trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2082?path=%2FeyJqdW5rIjoiMW5ucWpydlpHaXciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2031%20-%20Trojan%20-%20IPv4%20%3A%202082
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:8880?path=%2FeyJqdW5rIjoiSFdLZ01uNjBPZ1M3cGwiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2015%20-%20VLESS%20-%20Domain%20%3A%208880
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2082?path=%2FeyJqdW5rIjoiVmphYnoyNFBZVk12VW9neiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2035%20-%20VLESS%20-%20Clean%20IP%20%3A%202082
+trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2086?path=%2FeyJqdW5rIjoiQTlJOHc5NjgiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2036%20-%20Trojan%20-%20Domain%20%3A%202086
+trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2086?path=%2FeyJqdW5rIjoiQjdJcUdjYUUxcTEyIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2039%20-%20Trojan%20-%20IPv4%20%3A%202086
+trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2052?path=%2FeyJqdW5rIjoiS05OOWFYT0ZjYTRYajAiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2023%20-%20Trojan%20-%20Domain%20%3A%202052
+trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2082?path=%2FeyJqdW5rIjoiWEVaMVRWN1puRkNtRXZDIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2030%20-%20Trojan%20-%20Domain%20%3A%202082
+trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2082?path=%2FeyJqdW5rIjoiTkNMM0tteUt6ODYwIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2035%20-%20Trojan%20-%20Clean%20IP%20%3A%202082
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:80?path=%2FeyJqdW5rIjoiYnBFdkNxdUUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%202%20-%20VLESS%20-%20Domain%20%3A%2080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:8880?path=%2FeyJqdW5rIjoidmtJdVJTdzljRENxZHciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2021%20-%20VLESS%20-%20Clean%20IP%20%3A%208880
+trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:8880?path=%2FeyJqdW5rIjoiWmFmdmtxdkppa051TyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2016%20-%20Trojan%20-%20Domain%20%3A%208880
+trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2086?path=%2FeyJqdW5rIjoiOWpuVVVNdWFCWUwyT1dFIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2037%20-%20Trojan%20-%20Domain%20%3A%202086
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:80?path=%2FeyJqdW5rIjoiVGpickRzTzBWaTlLdEoiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%204%20-%20VLESS%20-%20IPv4%20%3A%2080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:8880?path=%2FeyJqdW5rIjoiY1ZDSUo5c3RMRVp4YUpRRiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2016%20-%20VLESS%20-%20Domain%20%3A%208880
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2086?path=%2FeyJqdW5rIjoiaVhRN1dUVDh5NCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2039%20-%20VLESS%20-%20IPv4%20%3A%202086
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2095?path=%2FeyJqdW5rIjoiajFUMjc2Qk9LbnFTQWsiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2049%20-%20VLESS%20-%20Clean%20IP%20%3A%202095
+trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:8880?path=%2FeyJqdW5rIjoiMlFDTWZrUXA3Y0p6M3oiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2021%20-%20Trojan%20-%20Clean%20IP%20%3A%208880
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2082?path=%2FeyJqdW5rIjoic0RsU09uMEhvdVAiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2030%20-%20VLESS%20-%20Domain%20%3A%202082
+trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2082?path=%2FeyJqdW5rIjoiTkhrMnY2RTFjdjA5NFZPYSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2032%20-%20Trojan%20-%20IPv4%20%3A%202082
+trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2086?path=%2FeyJqdW5rIjoiVHd0enlwb2w0enBNcFVKZSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2042%20-%20Trojan%20-%20Clean%20IP%20%3A%202086
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:80?path=%2FeyJqdW5rIjoiMzMxaHdzNkxFWktiWSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%203%20-%20VLESS%20-%20IPv4%20%3A%2080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2052?path=%2FeyJqdW5rIjoiSDFsV3NOVUYiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2025%20-%20VLESS%20-%20IPv4%20%3A%202052
+trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:80?path=%2FeyJqdW5rIjoic2dVWlpGQnhjQzZ1YyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%202%20-%20Trojan%20-%20Domain%20%3A%2080
+trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:8080?path=%2FeyJqdW5rIjoiblZjdFFOMXNYYSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%208%20-%20Trojan%20-%20Domain%20%3A%208080
+trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2052?path=%2FeyJqdW5rIjoiWENwQ2lNVHdMSFM1UHA4IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2028%20-%20Trojan%20-%20Clean%20IP%20%3A%202052
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:8080?path=%2FeyJqdW5rIjoiRnZCN1M0N3lNIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%209%20-%20VLESS%20-%20Domain%20%3A%208080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2082?path=%2FeyJqdW5rIjoiM3plNnVPc0QwIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2029%20-%20VLESS%20-%20Domain%20%3A%202082
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:8080?path=%2FeyJqdW5rIjoiMjZXR1dXSXRtIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2010%20-%20VLESS%20-%20IPv4%20%3A%208080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2082?path=%2FeyJqdW5rIjoiMHk2OGNEc0xwRDFRN1ciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2032%20-%20VLESS%20-%20IPv4%20%3A%202082
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2086?path=%2FeyJqdW5rIjoieVNVYjFabmQiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2037%20-%20VLESS%20-%20Domain%20%3A%202086
+trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2052?path=%2FeyJqdW5rIjoiZlgwNnRIcmtMIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2025%20-%20Trojan%20-%20IPv4%20%3A%202052
+trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2052?path=%2FeyJqdW5rIjoicHlqaWdwbzc3Z3hwQzZKQSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2022%20-%20Trojan%20-%20Domain%20%3A%202052
+trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2095?path=%2FeyJqdW5rIjoiRGdiZXFSbHpFUGlWcHdUIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2046%20-%20Trojan%20-%20IPv4%20%3A%202095
+trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:80?path=%2FeyJqdW5rIjoiTEdleWxIUWRmMTZpeUt1ViIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%207%20-%20Trojan%20-%20Clean%20IP%20%3A%2080
+trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2095?path=%2FeyJqdW5rIjoiQlVwVlpWVXRrNGNHOWYiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2049%20-%20Trojan%20-%20Clean%20IP%20%3A%202095
+trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2095?path=%2FeyJqdW5rIjoieE1McEpQYUNDIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2045%20-%20Trojan%20-%20IPv4%20%3A%202095
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:8080?path=%2FeyJqdW5rIjoibUlYNEdLalI3Q3lNejMiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2011%20-%20VLESS%20-%20IPv4%20%3A%208080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:80?path=%2FeyJqdW5rIjoibXJVWDM2ZkhNd1QiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%207%20-%20VLESS%20-%20Clean%20IP%20%3A%2080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2095?path=%2FeyJqdW5rIjoiQ0dpSERTcUtoWlBhNHUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2043%20-%20VLESS%20-%20Domain%20%3A%202095
+trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:8080?path=%2FeyJqdW5rIjoiYmNKeEd3Mjgyc2l6NnBDIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%209%20-%20Trojan%20-%20Domain%20%3A%208080
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:8080?path=%2FeyJqdW5rIjoiWG1oUDA0eGJ6N2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2014%20-%20VLESS%20-%20Clean%20IP%20%3A%208080
+trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:80?path=%2FeyJqdW5rIjoiWmVSWkRPRGZ1S1QiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%204%20-%20Trojan%20-%20IPv4%20%3A%2080
+trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2052?path=%2FeyJqdW5rIjoiNHZleFFuN0VQdFFBbnZJMiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2024%20-%20Trojan%20-%20IPv4%20%3A%202052
+trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2095?path=%2FeyJqdW5rIjoiY1hrMFVEanNaNVdCIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2044%20-%20Trojan%20-%20Domain%20%3A%202095
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2095?path=%2FeyJqdW5rIjoiZ2h2NTlMNFZVUlUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2044%20-%20VLESS%20-%20Domain%20%3A%202095
+vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2086?path=%2FeyJqdW5rIjoiNzVqazBGWnZBakUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2042%20-%20VLESS%20-%20Clean%20IP%20%3A%202086</textarea>
+                </div>
             </div>
-        </div>
-
-        <div class="input-group">
-            <label class="input-label">خروجی نهایی کانفیگ‌ها</label>
-            <div class="code-box" id="contentBox">کانفیگ‌های سفارشی‌شده پس از پردازش اینجا نمایش داده می‌شوند...</div>
-        </div>
-
-        <button class="btn-primary" onclick="copyContent()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            کپی کردن تمام کانفیگ‌ها
-        </button>
-    </div>
-
-    <div class="toast" id="toast">کانفیگ‌ها با موفقیت کپی شدند!</div>
-
-    <script>
-        // قرار دادن عکس آپلود شده به صورت Base64 روی لوگو
-        const uploadedImageBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="; 
-        // در اینجا برای اطمینان از نمایش صحیح تصویر ارسالی شما، آدرس جایگزین می‌شود:
-        document.getElementById('brandLogo').src = "https://i.ibb.co/3ykWvW1/1000003203-2.png"; // یا می‌توانید از تگ تصویر خود کاربر استفاده کنید
-
-        function processConfigs() {
-            const rawText = document.getElementById('rawInput').value.trim();
-            const remark = document.getElementById('remarkInput').value.trim() || 'MatinVPN';
-            
-            if (!rawText) {
-                document.getElementById('contentBox').innerText = 'لطفاً حداقل یک کانفیگ وارد کنید.';
-                return;
-            }
-
-            const lines = rawText.split(/\r?\n/);
-            let processed = [];
-            let index = 1;
-
-            lines.forEach(line => {
-                let trimmed = line.trim();
-                if (!trimmed || !trimmed.includes('://')) return;
-
-                let cleanUri = trimmed.split('#')[0];
-                let customName = `${remark} %23${index++}`;
-                
-                if (trimmed.startsWith('vmess://')) {
-                    try {
-                        let base64Part = trimmed.replace('vmess://', '').split('#')[0];
-                        let json = JSON.parse(atob(base64Part));
-                        json.ps = decodeURIComponent(customName);
-                        let newVmess = 'vmess://' + btoa(unescape(encodeURIComponent(JSON.stringify(json))));
-                        processed.push(newVmess);
-                        return;
-                    } catch(e) {}
-                }
-                
-                processed.push(cleanUri + '#' + customName);
-            });
-
-            document.getElementById('contentBox').innerText = processed.join('\n');
-        }
-
-        function copyContent() {
-            const text = document.getElementById('contentBox').innerText;
-            if (!text || text.startsWith('لطفاً')) return;
-
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('toast');
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2500);
-            }).catch(err => {
-                console.error('خطا در کپی کردن متن: ', err);
-            });
-        }
-
-        // پردازش اولیه روی نمونه پیش‌فرض
-        processConfigs();
-    </script>
+        </section>
+    </main>
 </body>
 </html>
 
