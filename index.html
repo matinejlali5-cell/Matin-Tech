@@ -431,10 +431,12 @@
         input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
         input[type="color"]::-webkit-color-swatch { border: none; border-radius: 10px; }
 
-        .btn-reset { margin-top: 10px; padding: 14px }
+        .btn-reset { margin-top: 10px; padding: 14px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); color: var(--bad); border-radius: 12px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: 0.25s; }
+        .btn-reset:hover { background: rgba(239, 68, 68, 0.18); box-shadow: 0 0 15px rgba(239,68,68,0.2); }
     </style>
 </head>
 <body>
+
     <div class="ambient-glow ambient-1"></div>
     <div class="ambient-glow ambient-2"></div>
 
@@ -442,13 +444,15 @@
         <div class="header-brand">
             <div class="brand-logo-box">M</div>
             <div class="header-title-group">
-                <h1 class="header-title">Matin <span>Tech</span></h1>
-                <span class="header-subtitle">Quantum Core Engine</span>
+                <h1 class="header-title">MATIN <span>TECH</span></h1>
+                <div class="header-subtitle">Quantum Core Engine v3.5</div>
             </div>
         </div>
         <div class="header-actions">
-            <button class="header-btn" id="settings-toggle" title="Settings">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <button class="header-btn" onclick="toggleSettings()" title="UI Customization">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
             </button>
         </div>
     </header>
@@ -456,145 +460,441 @@
     <main>
         <section class="panel">
             <div class="panel-header">
-                <div class="panel-title">
-                    <div class="status-dot"></div>
-                    Input & Configuration Stream
-                </div>
+                <div class="panel-title"><div class="status-dot"></div>Node Source Engine</div>
             </div>
+            
             <div class="panel-body">
                 <div class="input-group">
-                    <label class="input-label" for="config-input"><span>Configs Payload</span><span id="config-count">0 Loaded</span></label>
-                    <textarea id="config-input" placeholder="Paste your vless://, ss://, trojan://, hysteria2:// configs here...">vless://e51796bb-3305-ac88-f39d-22fd9dd63b4f@170.168.99.3:443?mode=auto&path=%2F&security=reality&encryption=none&pbk=R8Mogel1wypEIpcUXnGmG1cuzT9POghNhqJcw4-CLx0&fp=chrome&type=xhttp&sni=cdn.steamstatic.com#MatinTech%E2%9A%A1%20%231174
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@146.70.222.126:1080#MatinTech%E2%9A%A1%20%23176
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.26:8080#MatinTech%E2%9A%A1%20%23430
-vless://e996abc7-cff3-4d9f-a9dc-0d717048a345@germany2.avrilon.us:443?security=reality&encryption=mlkem768x25519plus.native.0rtt.IU93_zTVl-948HR94z9259IKoTU_qSM_0ttmIUamVh8&pbk=rA_ItMaIiG_OUjcaTLpxOoF-OHh4WJsNUfWh7QUn_xU&headerType=none&fp=chrome&spx=%2F49b9d6fab1f9e6c&type=tcp&flow=xtls-rprx-vision&sni=image.semiconductor.samsung.com&sid=2f3178a1d747#MatinTech%E2%9A%A1%20%231277
-vless://5e243126-4a2a-84b6-782a-73b14797fb5f@170.168.97.3:8443?mode=gun&security=reality&encryption=none&pbk=D2SXHZRRYM0WcFChGWd57XB-U73aIsGfMpe2-Gq5XSs&fp=chrome&type=grpc&serviceName=TunService&sni=download.nvidia.com#MatinTech%E2%9A%A1%20%231296
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.174:443#MatinTech%E2%9A%A1%20%23419
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.28:8080#MatinTech%E2%9A%A1%20%23439
-hysteria2://pBrV8FUdJf@91.107.178.22:43913?security=tls&obfs=salamander&obfs-password=V2RayyNGvpn&insecure=0&pinSHA256=990e8a1ca2efec24a7de4373c7123a78b23e9c3d18e10f0e026ddebf85e5b774&sni=assets.gateway-stream.com#MatinTech%E2%9A%A1%20%2348
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.174:8080#MatinTech%E2%9A%A1%20%23426
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@188.119.149.27:1080#MatinTech%E2%9A%A1%20%23202
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.29:443#MatinTech%E2%9A%A1%20%23440
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.198:8080#MatinTech%E2%9A%A1%20%23324
-ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M@158.173.24.73:443#MatinTech%E2%9A%A1%20%23523
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@185.253.97.206:1080#MatinTech%E2%9A%A1%20%23196
-vless://5e243126-4a2a-84b6-782a-73b14797fb5f@170.168.97.3:443?mode=auto&path=%2F&security=reality&encryption=none&pbk=D2SXHZRRYM0WcFChGWd57XB-U73aIsGfMpe2-Gq5XSs&fp=chrome&type=xhttp&sni=download.nvidia.com#MatinTech%E2%9A%A1%20%231297
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqR21sTEcyM0ZkTVZ0d0Fx@4.210.66.168:443#MatinTech%E2%9A%A1%20%23286
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.3:8080#MatinTech%E2%9A%A1%20%23453
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.57:443#MatinTech%E2%9A%A1%20%23462
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@84.247.48.78:1080#MatinTech%E2%9A%A1%20%23234
-vless://784974f6-6289-4988-a51d-7d54f9e6915c@31.77.149.177:1997?mode=auto&path=%2F&security=reality&encryption=none&extra=%7B%0A%2B%2B%22mode%22%2B%3A%2B%22auto%22%2C%0A%2B%2B%22xPaddingBytes%22%2B%3A%2B%22100-1000%22%0A%7D&pbk=G62WBAi-xUaN8_cArNygz5RQWsljCHOPJlPVMh-Qwm8&fp=chrome&spx=%2Fyl178Tplf8CQEky&type=xhttp&sni=www.samsung.com&sid=71607c0fba717d33#MatinTech%E2%9A%A1%20%231316
-vless://e315526f-c838-44db-9bd4-01ccb03450b9@77.42.83.112:8443?mode=auto&path=%2F%3Fed%3D1024&security=reality&encryption=none&extra=%7B%22mode%22%3A%22auto%22%2C%22xPaddingBytes%22%3A%22100-1000%22%7D&pbk=SpAT1bZbRpAZa_gf61IapZMZ0CUMz4HTT5Yxvn7Nw1k&host=www.speedtest.net&fp=chrome&spx=%2FHVYCFcqMFAQQp2z&type=xhttp&sni=p-y3-www-amazon-com-kalias.amazon.com&sid=3d#MatinTech%E2%9A%A1%20%231067
-vless://0b9bcbc1-b289-4a64-86fa-a5b731b65384@93.152.205.216:444?mode=gun&security=reality&encryption=none&pbk=X-YL5VNtlMNIaBrwaHt3hJCeF_gMT9gPRDDlK1Qg7Tc&fp=chrome&type=grpc&serviceName=web.max.ru&sni=web.max.ru&sid=8321461729abcdef#MatinTech%E2%9A%A1%20%231260
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.216:8080#MatinTech%E2%9A%A1%20%23364
-vless://0b9bcbc1-b289-4a64-86fa-a5b731b65384@93.152.205.216:444?mode=gun&security=reality&encryption=none&pbk=X-YL5VNtlMNIaBrwaHt3hJCeF_gMT9gPRDDlK1Qg7Tc&fp=chrome&type=grpc&serviceName=web.max.ru&sni=web.max.ru&sid=8321461729abcdef#MatinTech%E2%9A%A1%20%231190
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.207:8080#MatinTech%E2%9A%A1%20%23351
-vless://7968c546-02dc-4f8c-b791-934591a94cb2@cf.levikogjgfdd.ir:443?path=%2Fcbasur&security=tls&encryption=none&insecure=0&host=hhvl.hhapp.kdns.fr&type=ws&allowInsecure=0&sni=hhvl.hhapp.kdns.fr#MatinTech%E2%9A%A1%20%231066
-vless://e7961655-9674-4cbd-a36f-ec0d5d7d660c@one-for-all.levikogjgfdd.ir:2053?path=%2F&security=tls&alpn=h3%2Ch2&encryption=none&insecure=0&host=po.fastbrokencompony.com&fp=chrome&type=ws&allowInsecure=0&sni=po.fastbrokencompony.com#MatinTech%E2%9A%A1%20%231079
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@91.193.5.112:1080#MatinTech%E2%9A%A1%20%23238
-vless://14b59caf-a196-4ec2-8c70-c7b388062f5b@162.159.38.119:443?path=%2Frdfgtws&security=tls&encryption=none&insecure=1&host=vangoghhh.info&type=ws&allowInsecure=1&sni=vangoghhh.info#MatinTech%E2%9A%A1%20%231152
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.18:8080#MatinTech%E2%9A%A1%20%23429
-vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@qq.utiltools.ru:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231173
-vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@78.159.250.214:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&host=%2F%3Fi10VPN&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231268
-trojan://humanity@162.159.38.119:443?path=%2Fassignment&security=tls&insecure=0&host=www.calmloud.com&type=ws&allowInsecure=0&sni=www.calmloud.com#MatinTech%E2%9A%A1%20%23909
-vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@qq.utiltools.ru:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&headerType=none&fp=qq&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231195
-vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@78.159.250.214:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231191
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo5dHFoTWRJclRrZ1E0NlB2aHlBdE1I@92.112.126.90:443#MatinTech%E2%9A%A1%20%23118
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@us1.levikogjgfdd.ir:1080#MatinTech%E2%9A%A1%20%23248
-vless://eb78e1f0-d921-4ca9-a889-261fcc5a0547@qq.utiltools.ru:443?security=reality&encryption=none&pbk=drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI&host=%2F%3FBIA_TELEGRAM%40ShadowProxy66&headerType=none&fp=qq&type=tcp&flow=xtls-rprx-vision&sni=qq.utiltools.ru#MatinTech%E2%9A%A1%20%231172
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.162:443#MatinTech%E2%9A%A1%20%23414
-trojan://humanity@162.159.38.119:443?path=%2Fassignment&security=tls&insecure=0&host=www.gossipglove.com&type=ws&allowInsecure=0&sni=www.gossipglove.com#MatinTech%E2%9A%A1%20%23928
-vless://b2f6aa3a-2550-4a1c-b2c0-1c94b1207217@162.159.38.119:443?path=%2Fhdgrbws&security=tls&encryption=none&insecure=0&host=terazhediii.info&type=ws&allowInsecure=0&sni=terazhediii.info#MatinTech%E2%9A%A1%20%231213
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR@72.10.173.91:1080#MatinTech%E2%9A%A1%20%23232
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpHeU8ycExTOHJMcGxGSElEbldNNFhN@104.192.227.164:443#MatinTech%E2%9A%A1%20%23144
-trojan://humanity@162.159.38.119:443?path=%2Fassignment&security=tls&insecure=0&host=www.creationlong.org&type=ws&allowInsecure=0&sni=www.creationlong.org#MatinTech%E2%9A%A1%20%23908
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.204:8080#MatinTech%E2%9A%A1%20%23337
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpsaHVVTFJ3TzRzbE02azI2MnBBQzRjYnE1QTFINno4ZWFPSFYyN3ZpN1l3PQ@47.81.56.202:44617#MatinTech%E2%9A%A1%20%23386
-vless://901fc0c9-ae4c-4d06-9fed-253b25b68a0e@one-for-all.levikogjgfdd.ir:8443?path=%2F&security=tls&encryption=none&insecure=0&host=ad-004.vector9nmb3.info&type=ws&allowInsecure=0&sni=ad-004.vector9nmb3.info#MatinTech%E2%9A%A1%20%231253
-vless://14b59caf-a196-4ec2-8c70-c7b388062f5b@cf.levikogjgfdd.ir:443?path=%2Frdfgtws&security=tls&encryption=none&insecure=0&host=vangoghhh.info&type=ws&allowInsecure=0&sni=vangoghhh.info#MatinTech%E2%9A%A1%20%231278
-vless://da97d2d7-d255-4efd-8398-7101d698768e@195.133.18.161:30153?security=&encryption=none&headerType=none&type=tcp#MatinTech%E2%9A%A1%20%231347
-vless://29ca503d-e6b8-4509-b666-48133f450857@one-for-all.levikogjgfdd.ir:443?path=%2Ffdip&security=tls&encryption=none&insecure=0&host=learn00.evany.de5.net&type=ws&allowInsecure=0&sni=learn00.evany.de5.net#MatinTech%E2%9A%A1%20%231355
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTczMWVjMy1mOGUxLTQzZjYtOTJjZi0zOTc4ZDE0NzA1YzQ@61.231.49.100:50099#MatinTech%E2%9A%A1%20%23105
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.203:8080#MatinTech%E2%9A%A1%20%23336
-vless://e911c552-3a98-41e0-b5fb-0dd3879887b7@162.159.38.119:443?path=%2Fapi%2Fv1%2Firc&security=tls&alpn=http%2F1.1&encryption=none&insecure=0&host=vod.ensf.top&type=ws&allowInsecure=0&sni=vod.ensf.top#MatinTech%E2%9A%A1%20%231254
-hysteria2://p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR@130.49.161.70:443?security=tls&obfs=salamander&obfs-password=rG07s3COMIEvdnQipRyWzx_H_2xygNC3&insecure=1&sni=hy2.aspidnet.xyz#MatinTech%E2%9A%A1%20%2347
-vless://1b73f053-2709-4698-bbec-cb20e8a5f288@gr4.levikogjgfdd.ir:3031?security=&encryption=none&host=play.google.com&headerType=http&type=tcp#MatinTech%E2%9A%A1%20%231062
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.49:8080#MatinTech%E2%9A%A1%20%23460
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.47:8080#MatinTech%E2%9A%A1%20%23457
-trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2086?path=%2FeyJqdW5rIjoiQmY3YktLejQ5cldPaSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2038%20-%20Trojan%20-%20IPv4%20%3A%202086
-trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:8080?path=%2FeyJqdW5rIjoiUXo3WldxeVNDWExNV2h6aSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2014%20-%20Trojan%20-%20Clean%20IP%20%3A%208080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2082?path=%2FeyJqdW5rIjoiWjZIMXhranRCejk3dWlpUCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2031%20-%20VLESS%20-%20IPv4%20%3A%202082
-trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:80?path=%2FeyJqdW5rIjoiNFZhQmRCdWdEUjQzdyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%203%20-%20Trojan%20-%20IPv4%20%3A%2080
-trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:8880?path=%2FeyJqdW5rIjoiSTRyRHdlZm54ZSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2017%20-%20Trojan%20-%20IPv4%20%3A%208880
-trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:8080?path=%2FeyJqdW5rIjoib2VrejVoSVVTREk3U0dEIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2011%20-%20Trojan%20-%20IPv4%20%3A%208080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2052?path=%2FeyJqdW5rIjoiYkJRMFVmMWFxd2JSIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2022%20-%20VLESS%20-%20Domain%20%3A%202052
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2052?path=%2FeyJqdW5rIjoiUnVYbGRaRGdDIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2023%20-%20VLESS%20-%20Domain%20%3A%202052
-trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2082?path=%2FeyJqdW5rIjoiVjRLWnFUTHY5TSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2029%20-%20Trojan%20-%20Domain%20%3A%202082
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2095?path=%2FeyJqdW5rIjoiaEN2a0kzb2xCQTIybyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2045%20-%20VLESS%20-%20IPv4%20%3A%202095
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:80?path=%2FeyJqdW5rIjoiVVRweTBZMnEiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%201%20-%20VLESS%20-%20Domain%20%3A%2080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:8880?path=%2FeyJqdW5rIjoiU2dUVkZ2aDJ2V2pVeTFUSiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2018%20-%20VLESS%20-%20IPv4%20%3A%208880
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2052?path=%2FeyJqdW5rIjoibUdoVlFCcDRPZWcyZFVnRSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2024%20-%20VLESS%20-%20IPv4%20%3A%202052
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2052?path=%2FeyJqdW5rIjoiS25zbW84cDFTMXI5UzJGIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2028%20-%20VLESS%20-%20Clean%20IP%20%3A%202052
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2095?path=%2FeyJqdW5rIjoiSzBlblJxS1diM045RHhOIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2046%20-%20VLESS%20-%20IPv4%20%3A%202095
-trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:8880?path=%2FeyJqdW5rIjoiVzNxWnBTM3pvIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2018%20-%20Trojan%20-%20IPv4%20%3A%208880
-trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:8880?path=%2FeyJqdW5rIjoiTU9jWHR1SUp4U0NkIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2015%20-%20Trojan%20-%20Domain%20%3A%208880
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:8880?path=%2FeyJqdW5rIjoiaVQxM05OdlR3byIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2017%20-%20VLESS%20-%20IPv4%20%3A%208880
-trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:80?path=%2FeyJqdW5rIjoiczYwelJKa3ZERlFYUWZRIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%201%20-%20Trojan%20-%20Domain%20%3A%2080
-trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2095?path=%2FeyJqdW5rIjoibWhWcDIyWWJvaSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2043%20-%20Trojan%20-%20Domain%20%3A%202095
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2086?path=%2FeyJqdW5rIjoibWwzWUFEcEFSWEtJTW9sIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2036%20-%20VLESS%20-%20Domain%20%3A%202086
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:8080?path=%2FeyJqdW5rIjoiMXUzWkI3Zm1KZTdmRyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%208%20-%20VLESS%20-%20Domain%20%3A%208080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:2086?path=%2FeyJqdW5rIjoiVkNXZnhzRVQiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2038%20-%20VLESS%20-%20IPv4%20%3A%202086
-trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:8080?path=%2FeyJqdW5rIjoiY1d0d1ZEMXZOcUxRUSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2010%20-%20Trojan%20-%20IPv4%20%3A%208080
-trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2082?path=%2FeyJqdW5rIjoiMW5ucWpydlpHaXciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2031%20-%20Trojan%20-%20IPv4%20%3A%202082
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:8880?path=%2FeyJqdW5rIjoiSFdLZ01uNjBPZ1M3cGwiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2015%20-%20VLESS%20-%20Domain%20%3A%208880
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2082?path=%2FeyJqdW5rIjoiVmphYnoyNFBZVk12VW9neiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2035%20-%20VLESS%20-%20Clean%20IP%20%3A%202082
-trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2086?path=%2FeyJqdW5rIjoiQTlJOHc5NjgiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2036%20-%20Trojan%20-%20Domain%20%3A%202086
-trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2086?path=%2FeyJqdW5rIjoiQjdJcUdjYUUxcTEyIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2039%20-%20Trojan%20-%20IPv4%20%3A%202086
-trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2052?path=%2FeyJqdW5rIjoiS05OOWFYT0ZjYTRYajAiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2023%20-%20Trojan%20-%20Domain%20%3A%202052
-trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2082?path=%2FeyJqdW5rIjoiWEVaMVRWN1puRkNtRXZDIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2030%20-%20Trojan%20-%20Domain%20%3A%202082
-trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2082?path=%2FeyJqdW5rIjoiTkNMM0tteUt6ODYwIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2035%20-%20Trojan%20-%20Clean%20IP%20%3A%202082
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:80?path=%2FeyJqdW5rIjoiYnBFdkNxdUUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%202%20-%20VLESS%20-%20Domain%20%3A%2080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:8880?path=%2FeyJqdW5rIjoidmtJdVJTdzljRENxZHciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2021%20-%20VLESS%20-%20Clean%20IP%20%3A%208880
-trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:8880?path=%2FeyJqdW5rIjoiWmFmdmtxdkppa051TyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2016%20-%20Trojan%20-%20Domain%20%3A%208880
-trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2086?path=%2FeyJqdW5rIjoiOWpuVVVNdWFCWUwyT1dFIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2037%20-%20Trojan%20-%20Domain%20%3A%202086
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:80?path=%2FeyJqdW5rIjoiVGpickRzTzBWaTlLdEoiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%204%20-%20VLESS%20-%20IPv4%20%3A%2080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:8880?path=%2FeyJqdW5rIjoiY1ZDSUo5c3RMRVp4YUpRRiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2016%20-%20VLESS%20-%20Domain%20%3A%208880
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2086?path=%2FeyJqdW5rIjoiaVhRN1dUVDh5NCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2039%20-%20VLESS%20-%20IPv4%20%3A%202086
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2095?path=%2FeyJqdW5rIjoiajFUMjc2Qk9LbnFTQWsiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2049%20-%20VLESS%20-%20Clean%20IP%20%3A%202095
-trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:8880?path=%2FeyJqdW5rIjoiMlFDTWZrUXA3Y0p6M3oiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2021%20-%20Trojan%20-%20Clean%20IP%20%3A%208880
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2082?path=%2FeyJqdW5rIjoic0RsU09uMEhvdVAiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2030%20-%20VLESS%20-%20Domain%20%3A%202082
-trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2082?path=%2FeyJqdW5rIjoiTkhrMnY2RTFjdjA5NFZPYSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2032%20-%20Trojan%20-%20IPv4%20%3A%202082
-trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2086?path=%2FeyJqdW5rIjoiVHd0enlwb2w0enBNcFVKZSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2042%20-%20Trojan%20-%20Clean%20IP%20%3A%202086
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:80?path=%2FeyJqdW5rIjoiMzMxaHdzNkxFWktiWSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%203%20-%20VLESS%20-%20IPv4%20%3A%2080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2052?path=%2FeyJqdW5rIjoiSDFsV3NOVUYiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2025%20-%20VLESS%20-%20IPv4%20%3A%202052
-trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:80?path=%2FeyJqdW5rIjoic2dVWlpGQnhjQzZ1YyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%202%20-%20Trojan%20-%20Domain%20%3A%2080
-trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:8080?path=%2FeyJqdW5rIjoiblZjdFFOMXNYYSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%208%20-%20Trojan%20-%20Domain%20%3A%208080
-trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2052?path=%2FeyJqdW5rIjoiWENwQ2lNVHdMSFM1UHA4IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2028%20-%20Trojan%20-%20Clean%20IP%20%3A%202052
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:8080?path=%2FeyJqdW5rIjoiRnZCN1M0N3lNIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%209%20-%20VLESS%20-%20Domain%20%3A%208080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2082?path=%2FeyJqdW5rIjoiM3plNnVPc0QwIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2029%20-%20VLESS%20-%20Domain%20%3A%202082
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@104.21.30.146:8080?path=%2FeyJqdW5rIjoiMjZXR1dXSXRtIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2010%20-%20VLESS%20-%20IPv4%20%3A%208080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:2082?path=%2FeyJqdW5rIjoiMHk2OGNEc0xwRDFRN1ciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2032%20-%20VLESS%20-%20IPv4%20%3A%202082
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2086?path=%2FeyJqdW5rIjoieVNVYjFabmQiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2037%20-%20VLESS%20-%20Domain%20%3A%202086
-trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2052?path=%2FeyJqdW5rIjoiZlgwNnRIcmtMIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2025%20-%20Trojan%20-%20IPv4%20%3A%202052
-trojan://Zhs%7CvL%5DSUT%21%7C@arka7485m.mohsenzamanian7293.workers.dev:2052?path=%2FeyJqdW5rIjoicHlqaWdwbzc3Z3hwQzZKQSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2022%20-%20Trojan%20-%20Domain%20%3A%202052
-trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:2095?path=%2FeyJqdW5rIjoiRGdiZXFSbHpFUGlWcHdUIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2046%20-%20Trojan%20-%20IPv4%20%3A%202095
-trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:80?path=%2FeyJqdW5rIjoiTEdleWxIUWRmMTZpeUt1ViIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%207%20-%20Trojan%20-%20Clean%20IP%20%3A%2080
-trojan://Zhs%7CvL%5DSUT%21%7C@45.130.125.208:2095?path=%2FeyJqdW5rIjoiQlVwVlpWVXRrNGNHOWYiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2049%20-%20Trojan%20-%20Clean%20IP%20%3A%202095
-trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2095?path=%2FeyJqdW5rIjoieE1McEpQYUNDIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2045%20-%20Trojan%20-%20IPv4%20%3A%202095
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@172.67.173.43:8080?path=%2FeyJqdW5rIjoibUlYNEdLalI3Q3lNejMiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2011%20-%20VLESS%20-%20IPv4%20%3A%208080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:80?path=%2FeyJqdW5rIjoibXJVWDM2ZkhNd1QiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%207%20-%20VLESS%20-%20Clean%20IP%20%3A%2080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@arka7485m.mohsenzamanian7293.workers.dev:2095?path=%2FeyJqdW5rIjoiQ0dpSERTcUtoWlBhNHUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2043%20-%20VLESS%20-%20Domain%20%3A%202095
-trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:8080?path=%2FeyJqdW5rIjoiYmNKeEd3Mjgyc2l6NnBDIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%209%20-%20Trojan%20-%20Domain%20%3A%208080
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:8080?path=%2FeyJqdW5rIjoiWG1oUDA0eGJ6N2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2014%20-%20VLESS%20-%20Clean%20IP%20%3A%208080
-trojan://Zhs%7CvL%5DSUT%21%7C@172.67.173.43:80?path=%2FeyJqdW5rIjoiWmVSWkRPRGZ1S1QiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%204%20-%20Trojan%20-%20IPv4%20%3A%2080
-trojan://Zhs%7CvL%5DSUT%21%7C@104.21.30.146:2052?path=%2FeyJqdW5rIjoiNHZleFFuN0VQdFFBbnZJMiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2024%20-%20Trojan%20-%20IPv4%20%3A%202052
-trojan://Zhs%7CvL%5DSUT%21%7C@www.speedtest.net:2095?path=%2FeyJqdW5rIjoiY1hrMFVEanNaNVdCIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&security=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2044%20-%20Trojan%20-%20Domain%20%3A%202095
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@www.speedtest.net:2095?path=%2FeyJqdW5rIjoiZ2h2NTlMNFZVUlUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2044%20-%20VLESS%20-%20Domain%20%3A%202095
-vless://718e0e7c-4ae4-451e-9354-90a65f03d55a@45.130.125.208:2086?path=%2FeyJqdW5rIjoiNzVqazBGWnZBakUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560&security=&encryption=none&host=arka7485m.mohsenzamanian7293.workers.dev&type=ws#%F0%9F%92%A6%2042%20-%20VLESS%20-%20Clean%20IP%20%3A%202086</textarea>
+                    <label class="input-label">Subscription Links / Raw Configs</label>
+                    <textarea id="mainInput" placeholder="Paste subscription links or base64 configs here..."></textarea>
+                    <button class="attach-btn" type="button" title="Upload File" onclick="document.getElementById('fileInput').click()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </button>
+                    <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label class="input-label">Remark Tag (Custom Name)</label>
+                        <input id="remarkInput" type="text" value="MatinTech⚡">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Max Node Limit</label>
+                        <input id="maxOutput" type="number" min="200" max="20000" value="2500">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Protocols Filter</label>
+                    <div class="check-grid" id="protocolGrid"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Transport Filter</label>
+                    <div class="check-grid" id="transportGrid"></div>
+                </div>
+
+                <button id="processBtn" class="btn-primary" onclick="startEngine()">
+                    Initialize Processing Engine
+                </button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header" style="border-bottom: none;">
+                <div class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                    Live Quantum Console
+                </div>
+            </div>
+
+            <div class="panel-body" style="padding: 0;">
+                <div class="terminal-panel">
+                    <div class="term-header">
+                        <div class="term-status-box">STATUS: <span id="termStatus">STANDBY</span><span class="blink">_</span></div>
+                        <button class="btn-clear" onclick="clearTerminal()">CLEAR LOGS</button>
+                    </div>
+                    <div class="scan-progress"><div class="scan-bar" id="scanBar"></div></div>
+                    <div class="term-body" id="termBody"></div>
+                </div>
+
+                <div class="results-box">
+                    <div class="input-label" style="justify-content: center; margin-bottom: 14px;">READY ACTIVE CONFIGURATIONS</div>
+                    <div class="score-display" id="finalCount">0</div>
+                    <div class="row" style="width: 100%;">
+                        <button id="copyBtn" class="btn-secondary" onclick="copyConfigs()" disabled>
+                            Copy Configurations
+                        </button>
+                        <button id="dlBtn" class="btn-secondary" onclick="downloadConfigs()" disabled>
+                            Download File (.txt)
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <div class="matin-watermark">Designed & Crafted by <span>Matin-Tech</span></div>
+
+    <div id="toast">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span id="toastMsg">Configurations copied to clipboard successfully!</span>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-head">
+            <h2>Quantum UI Themes</h2>
+            <button class="close-settings" onclick="toggleSettings()">&times;</button>
+        </div>
+        <div class="settings-body-panel">
+            <div class="setting-item">
+                <label>System Font</label>
+                <select id="selectFont" class="setting-select">
+                    <option value="'Plus Jakarta Sans', sans-serif">Jakarta Sans (Modern Pro)</option>
+                    <option value="'JetBrains Mono', monospace">JetBrains Mono (Cyberpunk)</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <label>Border Radius <span id="valRadius">16px</span></label>
+                <input type="range" id="rangeRadius" min="0" max="28" step="1" value="16">
+            </div>
+
+            <div class="setting-item">
+                <label>Background Core Color</label>
+                <input type="color" id="colorBg" value="#030407">
+            </div>
+            <div class="setting-item">
+                <label>Primary Accent Glow</label>
+                <input type="color" id="colorAccent" value="#00f2fe">
+            </div>
+            <div class="setting-item">
+                <label>Secondary Accent Tone</label>
+                <input type="color" id="colorAccent2" value="#4facfe">
+            </div>
+
+            <div class="setting-item">
+                <label>Glass Blur Intensity <span id="valBlur">22px</span></label>
+                <input type="range" id="rangeBlur" min="0" max="40" step="1" value="22">
+            </div>
+            <div class="setting-item">
+                <label>Console Height <span id="valTermH">440px</span></label>
+                <input type="range" id="rangeTermH" min="300" max="700" step="10" value="440">
+            </div>
+            
+            <button class="btn-reset" onclick="resetUI()">Reset Default Theme</button>
+        </div>
+    </div>
+
+    <script>
+        const PROTOCOLS = [
+            { id: "vless", checked: true },
+            { id: "vmess", checked: false },
+            { id: "hysteria2", checked: false },
+            { id: "trojan", checked: false },
+            { id: "ss", checked: false },
+            { id: "hysteria", checked: false }
+        ];
+        
+        const TRANSPORTS = [
+            { id: "ws", checked: true },
+            { id: "grpc", checked: true },
+            { id: "tcp", checked: true },
+            { id: "tls", checked: true },
+            { id: "httpupgrade", checked: false },
+            { id: "splithttp", checked: false },
+            { id: "xhttp", checked: false },
+            { id: "h2", checked: false },
+            { id: "quic", checked: false }
+        ];
+        
+        const DEFAULT_SOURCES = [
+            "https://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt",
+            "https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/Sub2.txt",
+            "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt"
+        ];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChecks('protocolGrid', PROTOCOLS, 'proto');
+            renderChecks('transportGrid', TRANSPORTS, 'net');
+            loadSettings();
+            logTerm('Quantum Engine initialized. Ready for task execution.', 'info');
+        });
+
+        document.getElementById("fileInput").addEventListener("change", function(e) {
+            const f = e.target.files?.[0];
+            if (!f) return;
+            const r = new FileReader();
+            r.onload = () => {
+                const ta = document.getElementById("mainInput");
+                ta.value = (ta.value ? ta.value + "\n" : "") + r.result;
+                logTerm(`Successfully loaded external file: ${f.name}`, "ok");
+            };
+            r.readAsText(f);
+        });
+
+        function renderChecks(containerId, items, name) {
+            document.getElementById(containerId).innerHTML = items.map(item => `
+                <label class="check-box">
+                    <input type="checkbox" name="${name}" value="${item.id}" ${item.checked ? 'checked' : ''}>
+                    <span>${item.id.toUpperCase()}</span>
+                </label>
+            `).join('');
+        }
+
+        const termBody = document.getElementById('termBody');
+        function logTerm(msg, type = 'info') {
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute:'2-digit', second:'2-digit' });
+            let badgeClass = 'badge-info', badgeText = 'INFO';
+            if (type === 'scan') { badgeClass = 'badge-scan'; badgeText = 'TASK'; }
+            else if (type === 'ok') { badgeClass = 'badge-ok'; badgeText = 'SUCCESS'; }
+            else if (type === 'err') { badgeClass = 'badge-err'; badgeText = 'ERROR'; }
+
+            const div = document.createElement('div');
+            div.className = 'log-line';
+            div.innerHTML = `<div class="log-time">[${time}]</div><div class="log-badge ${badgeClass}">${badgeText}</div><div class="log-msg">${msg}</div>`;
+            termBody.appendChild(div);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function clearTerminal() { termBody.innerHTML = ''; logTerm('Console logs cleared.', 'info'); }
+        function updateProgress(percent, text) {
+            document.getElementById('scanBar').style.width = `${percent}%`;
+            if (text) document.getElementById('termStatus').innerText = text;
+        }
+
+        let finalProcessedConfigs = [];
+
+        async function fetchWithFallback(url) {
+            const proxies = ["https://api.allorigins.win/raw?url=", "https://corsproxy.io/?"];
+            try {
+                const res = await fetch(url, { cache: 'no-store' });
+                if (res.ok) return await res.text();
+            } catch(e) {}
+            for (const p of proxies) {
+                try {
+                    const res = await fetch(p + encodeURIComponent(url));
+                    if (res.ok) return await res.text();
+                } catch(e) {}
+            }
+            throw new Error(`Failed to fetch: ${url}`);
+        }
+
+        function safeAtobUnicode(b64) {
+            const padded = b64 + "=".repeat((4 - (b64.length % 4)) % 4);
+            const bin = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
+            try { return decodeURIComponent(Array.prototype.map.call(bin, c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join("")); } catch (_) { return bin; }
+        }
+
+        function extractURIs(text) {
+            let combined = text;
+            text.split(/\r?\n/).forEach(line => {
+                let s = line.trim();
+                if (s.length > 50 && !s.includes('://') && /^[A-Za-z0-9+/=_-]+$/.test(s)) {
+                    try { const dec = safeAtobUnicode(s); if (dec.includes('://')) combined += '\n' + dec; } catch(e){}
+                }
+            });
+            return Array.from(new Set((combined.match(/(vmess|vless|hysteria2|hy2|trojan|ss|hysteria):\/\/[^\s"'<>]+/gim) || []).map(m => m.trim())));
+        }
+
+        async function startEngine() {
+            const btn = document.getElementById('processBtn');
+            btn.disabled = true;
+            btn.innerHTML = 'Quantum Processing...';
+            updateProgress(15, 'FETCHING');
+            
+            finalProcessedConfigs = [];
+            updateResults(0);
+
+            try {
+                const rawInput = document.getElementById('mainInput').value.trim();
+                const allowedProtos = new Set(Array.from(document.querySelectorAll('input[name="proto"]:checked')).map(e => e.value));
+                const remarkTag = document.getElementById('remarkInput').value.trim() || 'MatinTech⚡';
+                const maxOut = parseInt(document.getElementById('maxOutput').value) || 2500;
+
+                let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : DEFAULT_SOURCES;
+                let combinedData = rawInput;
+
+                for (const url of sources) {
+                    try {
+                        const data = await fetchWithFallback(url);
+                        combinedData += '\n' + data;
+                        logTerm(`Fetched subscription node list successfully`, 'ok');
+                    } catch(e) {
+                        logTerm(`Skipped unreachable network endpoint`, 'err');
+                    }
+                }
+
+                updateProgress(55, 'PARSING');
+                const uris = extractURIs(combinedData);
+                
+                const uniqueMap = new Map();
+                uris.forEach(uri => {
+                    try {
+                        const low = uri.toLowerCase();
+                        let proto = low.startsWith('vmess://') ? 'vmess' : low.split('://')[0];
+                        if(proto === 'hy2') proto = 'hysteria2';
+                        if(allowedProtos.has(proto)) {
+                            uniqueMap.set(uri, uri);
+                        }
+                    } catch(e){}
+                });
+
+                let index = 1;
+                finalProcessedConfigs = Array.from(uniqueMap.values()).slice(0, maxOut).map(u => {
+                    let cleanUri = u.split('#')[0];
+                    let currentRemark = `${remarkTag} #${index++}`;
+                    
+                    if (u.startsWith('vmess://')) {
+                        try {
+                            let base64Part = u.replace('vmess://', '').split('#')[0];
+                            let vmessJson = JSON.parse(safeAtobUnicode(base64Part));
+                            vmessJson.ps = currentRemark;
+                            return 'vmess://' + btoa(encodeURIComponent(JSON.stringify(vmessJson)).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
+                        } catch(err) {
+                            return cleanUri + '#' + encodeURIComponent(currentRemark);
+                        }
+                    }
+                    return cleanUri + '#' + encodeURIComponent(currentRemark);
+                });
+
+                updateProgress(100, 'COMPLETED');
+                logTerm(`Quantum pipeline successfully generated ${finalProcessedConfigs.length} high-speed configurations.`, 'ok');
+                updateResults(finalProcessedConfigs.length);
+            } catch(e) {
+                logTerm(`Critical Error: ${e.message}`, 'err');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Initialize Processing Engine';
+                setTimeout(() => updateProgress(0, 'STANDBY'), 1500);
+            }
+        }
+
+        function updateResults(count) {
+            const display = document.getElementById('finalCount');
+            display.innerText = count;
+            display.classList.remove('bump');
+            void display.offsetWidth;
+            if(count > 0) display.classList.add('bump');
+            document.getElementById('copyBtn').disabled = count === 0;
+            document.getElementById('dlBtn').disabled = count === 0;
+        }
+
+        function copyConfigs() {
+            const textToCopy = finalProcessedConfigs.join('\n');
+            if (!textToCopy) return;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showToast('Configurations copied to clipboard successfully!');
+                    logTerm('Configs exported to system clipboard via Clipboard API.', 'ok');
+                }).catch(() => fallbackCopy(textToCopy));
+            } else {
+                fallbackCopy(textToCopy);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast('Configurations copied via fallback mechanism!');
+                    logTerm('Configs exported via document fallback command.', 'ok');
+                } else {
+                    logTerm('Copy failed via fallback method.', 'err');
+                }
+            } catch (err) {
+                logTerm('Error during clipboard copy.', 'err');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function downloadConfigs() {
+            const blob = new Blob([finalProcessedConfigs.join('\n')], { type: 'text/plain;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `MatinTech_Quantum_Configs_${Date.now()}.txt`;
+            a.click();
+            logTerm('Configuration file package downloaded successfully.', 'ok');
+            showToast('Configuration file downloaded!');
+        }
+
+        const root = document.documentElement;
+        const defaultUI = { bg: '#030407', accent: '#00f2fe', accent2: '#4facfe', blur: '22', radius: '16', font: "'Plus Jakarta Sans', sans-serif", termH: '440' };
+
+        function toggleSettings() { document.getElementById('settingsPanel').classList.toggle('open'); }
+        function hexToRgb(hex) {
+            let r = parseInt(hex.slice(1,3), 16), g = parseInt(hex.slice(3,5), 16), b = parseInt(hex.slice(5,7), 16);
+            return `${r}, ${g}, ${b}`;
+        }
+
+        function applySettings(s) {
+            root.style.setProperty('--bg-color', s.bg);
+            root.style.setProperty('--accent-hex', s.accent);
+            root.style.setProperty('--accent-rgb', hexToRgb(s.accent));
+            root.style.setProperty('--accent2-hex', s.accent2);
+            root.style.setProperty('--blur-intensity', s.blur + 'px');
+            root.style.setProperty('--radius-val', s.radius + 'px');
+            root.style.setProperty('--font-main', s.font);
+            root.style.setProperty('--term-height', s.termH + 'px');
+
+            document.getElementById('colorBg').value = s.bg;
+            document.getElementById('colorAccent').value = s.accent;
+            document.getElementById('colorAccent2').value = s.accent2;
+            document.getElementById('rangeBlur').value = s.blur;
+            document.getElementById('valBlur').innerText = s.blur + 'px';
+            document.getElementById('rangeRadius').value = s.radius;
+            document.getElementById('valRadius').innerText = s.radius + 'px';
+            document.getElementById('selectFont').value = s.font;
+            document.getElementById('rangeTermH').value = s.termH;
+            document.getElementById('valTermH').innerText = s.termH + 'px';
+        }
+
+        function saveSettings() {
+            const s = {
+                bg: document.getElementById('colorBg').value,
+                accent: document.getElementById('colorAccent').value,
+                accent2: document.getElementById('colorAccent2').value,
+                blur: document.getElementById('rangeBlur').value,
+                radius: document.getElementById('rangeRadius').value,
+                font: document.getElementById('selectFont').value,
+                termH: document.getElementById('rangeTermH').value
+            };
+            localStorage.setItem('matinTechQuantumSettings', JSON.stringify(s));
+            applySettings(s);
+        }
+
+        function loadSettings() {
+            const saved = localStorage.getItem('matinTechQuantumSettings');
+            applySettings(saved ? JSON.parse(saved) : defaultUI);
+        }
+
+        ['colorBg', 'colorAccent', 'colorAccent2', 'rangeBlur', 'rangeRadius', 'selectFont', 'rangeTermH'].forEach(id => {
+            document.getElementById(id).addEventListener('input', saveSettings);
+        });
+
+        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechQuantumSettings'); logTerm('UI theme settings reset to default.', 'info'); }
+    </script>
 </body>
 </html>
 
