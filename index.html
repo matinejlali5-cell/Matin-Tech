@@ -611,6 +611,7 @@
         ];
         
         const DEFAULT_SOURCES = [
+            "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt",
             "https://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt",
             "https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/Sub2.txt",
             "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt"
@@ -782,7 +783,6 @@
             document.getElementById('dlBtn').disabled = count === 0;
         }
 
-        // --- اصلاح کامل و تضمینی کپی کانفیگ‌ها ---
         function copyConfigs() {
             const textToCopy = finalProcessedConfigs.join('\n');
             if (!textToCopy) return;
