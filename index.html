@@ -448,7 +448,7 @@
 
                 <div class="row">
                     <div class="input-group">
-                        <label class="input-label">Remark Tag</label>
+                        <label class="input-label">Remark Tag (Custom Name)</label>
                         <input id="remarkInput" type="text" value="MatinTech⚡">
                     </div>
                     <div class="input-group">
@@ -683,6 +683,8 @@
                 const rawInput = document.getElementById('mainInput').value.trim();
                 const allowedProtos = new Set(Array.from(document.querySelectorAll('input[name="proto"]:checked')).map(e => e.value));
                 const allowedNets = new Set(Array.from(document.querySelectorAll('input[name="net"]:checked')).map(e => e.value));
+                
+                // دریافت دقیق نام تگ وارد شده توسط کاربر
                 const remarkTag = document.getElementById('remarkInput').value.trim() || 'MatinTech⚡';
                 const maxOut = parseInt(document.getElementById('maxOutput').value) || 2000;
 
@@ -714,9 +716,23 @@
                     } catch(e){}
                 });
 
+                // بازنویسی دقیق کانفیگ‌ها با نام (Tag) وارد شده‌ی خود کاربر
+                let index = 1;
                 finalProcessedConfigs = Array.from(uniqueMap.values()).slice(0, maxOut).map(u => {
-                    if(u.startsWith('vmess://')) return u; // Keep vmess intact or apply tag logic
-                    return u.split('#')[0] + '#' + encodeURIComponent(remarkTag);
+                    let cleanUri = u.split('#')[0];
+                    let currentRemark = `${remarkTag} #${index++}`;
+                    
+                    if (u.startsWith('vmess://')) {
+                        try {
+                            let base64Part = u.replace('vmess://', '').split('#')[0];
+                            let vmessJson = JSON.parse(safeAtobUnicode(base64Part));
+                            vmessJson.ps = currentRemark;
+                            return 'vmess://' + b16_or_b64(JSON.stringify(vmessJson)); // fallback or standard encode
+                        } catch(err) {
+                            return cleanUri + '#' + encodeURIComponent(currentRemark);
+                        }
+                    }
+                    return cleanUri + '#' + encodeURIComponent(currentRemark);
                 });
 
                 updateProgress(100, 'COMPLETED');
@@ -729,6 +745,11 @@
                 btn.innerHTML = 'Start Processing';
                 setTimeout(() => updateProgress(0, 'READY'), 1500);
             }
+        }
+
+        // Helper for vmess json encoding back
+        function b16_or_b64(str) {
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
         }
 
         function updateResults(count) {
@@ -815,4 +836,3 @@
     </script>
 </body>
 </html>
-
