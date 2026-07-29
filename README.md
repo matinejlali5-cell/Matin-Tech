@@ -1,10 +1,10 @@
 <!-- ============================================================ -->
-<!--   README – SAZ SPLITTER X v1.0 – Professional Edition         -->
+<!--   README – MATIN TECH v1.0 – Professional Edition            -->
 <!-- ============================================================ -->
 <p align="center">
   <!-- Animated SVG Banner with Typewriter Effect -->
   <a href="https://t.me/Mr_Matin_official">
-    <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=34&pause=1000&color=00F0FF&center=true&vCenter=true&width=750&height=80&lines=SAZ+SPLITTER+X;Advanced+V2Ray+Engine;Cyber+Config+Extractor;v1.0+-+Professional+Edition" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=34&pause=1000&color=00F0FF&center=true&vCenter=true&width=750&height=80&lines=MATIN+TECH;Advanced+V2Ray+Engine;Cyber+Config+Extractor;v1.0+-+Professional+Edition" alt="Typing SVG" />
   </a>
 </p>
 <p align="center">
@@ -41,7 +41,7 @@
 <!-- ============================================================ -->
 ## 🇮🇷 فارسی
 ### 🚀 معرفی
-**SAZ SPLITTER X** یک موتور حرفه‌ای و فوق‌پیشرفته برای استخراج، فیلتر و بهینه‌سازی کانفیگ‌های **V2Ray** از منابع مختلف است. این ابزار با طراحی سایبرپانک و رابط کاربری شبیه‌به‌ترمینال، به شما امکان می‌دهد:
+**MATIN TECH** یک موتور حرفه‌ای و فوق‌پیشرفته برای استخراج، فیلتر و بهینه‌سازی کانفیگ‌های **V2Ray** از منابع مختلف است. این ابزار با طراحی سایبرپانک و رابط کاربری شبیه‌به‌ترمینال، به شما امکان می‌دهد:
 - از **بیش از ۵۰ منبع معتبر** به‌صورت هم‌زمان کانفیگ دریافت کنید.
 - کانفیگ‌های **VLESS**، **VMess**، **Trojan**، **Shadowsocks**، **Hysteria** و **Hysteria2** را استخراج کنید.
 - بر اساس **پروتکل** و **ترانسپورت** دلخواه، فیلتر هوشمند اعمال کنید.
@@ -87,7 +87,7 @@
    - یا متن خام حاوی کانفیگ‌های Base64 یا URI را جایگذاری کنید.
    - یا با کلیک روی دکمه‌ی **Attach**، فایل متنی (TXT، CONF، JSON) را بارگذاری کنید.
    - در صورت خالی بودن ورودی، سیستم از **۵۰+ منبع پیش‌فرض** استفاده می‌کند.
-3. **تگ دلخواه**: یک تگ برای کانفیگ‌های خروجی وارد کنید (پیش‌فرض: `SAZ🏴‍☠️`).
+3. **تگ دلخواه**: یک تگ برای کانفیگ‌های خروجی وارد کنید (پیش‌فرض: `MatinTech🏴‍☠️`).
 4. **تعداد حداکثر نود**: تعداد کانفیگ‌های نهایی را تعیین کنید (پیش‌فرض ۲۰۰۰).
 5. **انتخاب پروتکل‌ها**: پروتکل‌های مورد نظر خود را انتخاب کنید (VLESS، VMess، Trojan، SS، Hysteria، Hysteria2).
 6. **انتخاب ترانسپورت‌ها**: ترانسپورت‌های دلخواه را انتخاب کنید (WS، gRPC، TCP، TLS، HTTPUpgrade، SplitHTTP، XHTTP، H2، QUIC).
@@ -148,7 +148,7 @@
 <!-- ============================================================ -->
 ## 🇬🇧 English
 ### 🚀 Introduction
-**SAZ SPLITTER X** is a professional, state‑of‑the‑art engine for extracting, filtering, and optimising **V2Ray** configurations from multiple sources. Featuring a cyberpunk design and a terminal‑like interface, this tool allows you to:
+**MATIN TECH** is a professional, state‑of‑the‑art engine for extracting, filtering, and optimising **V2Ray** configurations from multiple sources. Featuring a cyberpunk design and a terminal‑like interface, this tool allows you to:
 - Fetch configurations from **over 50 trusted sources** simultaneously.
 - Extract **VLESS**, **VMess**, **Trojan**, **Shadowsocks**, **Hysteria**, and **Hysteria2** configs.
 - Apply smart filters based on **protocol** and **transport** types.
@@ -195,7 +195,7 @@ All processing happens locally in your browser – **no data is ever sent to any
    - Or paste raw text containing Base64 or URI configs.
    - Or click the **Attach** button to upload a text file (TXT, CONF, JSON).
    - If left empty, the system will use **over 50 default sources**.
-3. **Custom Remark**: Enter a remark tag for the output configs (default: `SAZ🏴‍☠️`).
+3. **Custom Remark**: Enter a remark tag for the output configs (default: `MatinTech🏴‍☠️`).
 4. **Max Nodes**: Set the maximum number of configs to output (default 2000).
 5. **Select Protocols**: Choose the desired protocols (VLESS, VMess, Trojan, SS, Hysteria, Hysteria2).
 6. **Select Transports**: Choose the desired transports (WS, gRPC, TCP, TLS, HTTPUpgrade, SplitHTTP, XHTTP, H2, QUIC).
