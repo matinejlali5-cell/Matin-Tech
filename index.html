@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>MATIN TECH | Ultra Engine X</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Dynamic UI Variables - Sleek Dark / Amber & Emerald Vibe */
+            --bg-color: #08090d;
+            --panel-rgb: 13, 15, 23;
+            --panel-opacity: 0.85;
+            --accent-hex: #10b981; /* Premium Emerald */
+            --accent-rgb: 16, 185, 129;
+            --accent2-hex: #6366f1; /* Deep Indigo / Purple flair */
+            --text-color: #f1f5f9;
+            --grid-opacity: 0.15;
+            --blur-intensity: 16px;
+            --radius-val: 12px;
+            --glow-intensity: 1;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --term-height: 480px;
+            
+            /* Computed Variables */
+            --bg: var(--bg-color);
+            --card: rgb(var(--panel-rgb));
+            --panel: rgba(var(--panel-rgb), var(--panel-opacity));
+            --border: rgba(var(--accent-rgb), 0.25);
+            --border-glow: rgba(var(--accent-rgb), calc(0.5 * var(--glow-intensity)));
+            --text: var(--text-color);
+            --muted: rgba(241, 245, 249, 0.45);
+            --accent: var(--accent-hex);
+            --accent2: var(--accent2-hex);
+            --accent-glow: rgba(var(--accent-rgb), calc(0.4 * var(--glow-intensity)));
+            --accent2-glow: rgba(99, 102, 241, calc(0.4 * var(--glow-intensity)));
+            
+            --good: #10b981;
+            --bad: #ef4444;
+            --info: #06b6d4;
+            
+            --mono: 'Space Mono', ui-monospace, monospace;
+            --sans: var(--font-main);
+            --radius: var(--radius-val);
+            --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html, body {
+            height: 100%;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, font-family 0.3s ease;
+        }
+
+        /* Modern Mesh & Subtle Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px),
+                radial-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            z-index: 0;
+            pointer-events: none;
+            opacity: var(--grid-opacity);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Ambient Glow Highlights */
+        .ambient {
+            position: fixed;
+            top: -20%; left: 20%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.07) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0; pointer-events: none;
+            filter: blur(120px);
+        }
+
+        /* --- UNIFIED HEADER --- */
+        .app-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 36px;
+            background: rgba(13, 15, 23, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .header-title {
+            font-size: clamp(20px, 3.5vw, 26px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-title span {
+            color: var(--accent);
+            text-shadow: 0 0 calc(12px * var(--glow-intensity)) var(--accent-glow);
+        }
+        
+        .header-subtitle {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .header-settings-btn {
+            background: rgba(var(--accent-rgb), 0.08);
+            border: 1px solid rgba(var(--accent-rgb), 0.3);
+            color: var(--accent);
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-settings-btn:hover {
+            background: var(--accent);
+            color: #08090d;
+            border-color: var(--accent);
+            box-shadow: 0 0 calc(20px * var(--glow-intensity)) var(--accent-glow);
+            transform: scale(1.05);
+        }
+
+        /* --- MAIN LAYOUT --- */
+        main {
+            position: relative; z-index: 2;
+            max-width: 1360px;
+            margin: 32px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 28px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1024px) {
+            main { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Modern Glass Panels */
+        .panel {
+            background: var(--panel);
+            backdrop-filter: blur(var(--blur-intensity));
+            -webkit-backdrop-filter: blur(var(--blur-intensity));
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .panel:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(var(--accent-rgb), 0.08);
+        }
+
+        .panel-header {
+            padding: 20px 24px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .panel-title {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 700; font-size: 14px; color: var(--text);
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+
+        .panel-body { padding: 24px; display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
+
+        /* Inputs & Controls */
+        .input-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
+        .input-label {
+            font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--muted);
+            letter-spacing: 0.02em; display: flex; align-items: center; justify-content: space-between;
+        }
+
+        textarea, input[type="text"], input[type="number"] {
+            width: 100%; background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius);
+            padding: 14px 18px; color: var(--text);
+            font-family: var(--mono); font-size: 14px;
+            line-height: 1.5; outline: none; transition: all 0.25s ease;
+        }
+
+        textarea { min-height: 130px; resize: vertical; padding-right: 54px; }
+
+        textarea:focus, input:focus {
+            border-color: var(--accent);
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+        }
+        
+        .attach-btn {
+            position: absolute; right: 10px; bottom: 10px;
+            width: 36px; height: 36px; border-radius: calc(var(--radius) - 4px);
+            border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.03);
+            color: var(--text); cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+        }
+        .attach-btn:hover { background: var(--accent); color: #08090d; border-color: var(--accent); }
+        .attach-btn svg { width: 16px; height: 16px; stroke: currentColor; }
+
+        .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+
+        /* Checkbox Grid */
+        .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; }
+        
+        .check-box {
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px; border-radius: var(--radius);
+            cursor: pointer; transition: all 0.2s; user-select: none;
+        }
+        .check-box:has(input:checked) {
+            background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.1);
+        }
+        .check-box input { display: none; }
+        .check-box span { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); transition: color 0.2s; }
+        .check-box:has(input:checked) span { color: var(--accent); }
+
+        /* Action Buttons */
+        .btn-primary {
+            background: var(--accent); color: #08090d;
+            border: none; border-radius: var(--radius);
+            padding: 16px; font-size: 14px; font-weight: 700; letter-spacing: 0.05em;
+            text-transform: uppercase; cursor: pointer;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; gap: 10px;
+            font-family: var(--sans);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            filter: brightness(1.15);
+            box-shadow: 0 6px 25px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); box-shadow: none; cursor: not-allowed; }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text);
+            padding: 12px; font-family: var(--sans); font-weight: 600; font-size: 12px;
+            cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+            border-radius: var(--radius);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* Terminal Console */
+        .terminal-panel {
+            background: #040507; border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius); display: flex; flex-direction: column; overflow: hidden;
+            position: relative; height: var(--term-height); transition: height 0.3s ease;
+        }
+
+        .term-header {
+            background: rgba(0, 0, 0, 0.4); padding: 10px 16px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .term-status-box { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+        .blink { animation: blink 1s step-end infinite; color: var(--accent); }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .btn-clear {
+            background: none; border: 1px solid rgba(239, 68, 68, 0.2); color: var(--bad);
+            font-family: var(--mono); font-size: 10px; padding: 3px 8px; cursor: pointer; transition: 0.2s;
+            border-radius: 4px;
+        }
+        .btn-clear:hover { background: rgba(239, 68, 68, 0.1); }
+
+        .term-body {
+            padding: 14px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
+            font-size: 11px; line-height: 1.6;
+        }
+        
+        .term-body::-webkit-scrollbar { width: 4px; }
+        .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+        .log-line {
+            display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;
+            word-break: break-all;
+        }
+
+        .log-time { color: rgba(255,255,255,0.25); font-size: 10px; flex-shrink: 0; }
+        .log-badge {
+            font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px;
+            text-transform: uppercase; flex-shrink: 0;
+        }
+        
+        .badge-info { background: rgba(6, 182, 212, 0.1); color: var(--info); }
+        .badge-scan { background: rgba(99, 102, 241, 0.1); color: var(--accent2); }
+        .badge-ok { background: rgba(16, 185, 129, 0.1); color: var(--good); }
+        .badge-err { background: rgba(239, 68, 68, 0.1); color: var(--bad); }
+
+        .log-msg { color: #cbd5e1; }
+        .log-highlight { color: var(--accent); font-weight: 700; }
+
+        /* Progress Bar */
+        .scan-progress { height: 2px; background: rgba(255,255,255,0.03); width: 100%; }
+        .scan-bar { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+
+        /* Results Box */
+        .results-box {
+            background: rgba(0, 0, 0, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 24px; text-align: center;
+        }
+        
+        .score-display {
+            font-size: clamp(40px, 5vw, 64px); font-weight: 800; font-family: var(--sans); color: #fff;
+            line-height: 1; margin-bottom: 18px;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .score-display.bump { transform: scale(1.1); color: var(--accent); }
+
+        /* Watermark */
+        .matin-watermark {
+            text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+            letter-spacing: 2px; padding: 24px 0; color: var(--muted); text-transform: uppercase;
+        }
+        .matin-watermark span { color: var(--accent); font-weight: 800; }
+
+        /* Settings Sidebar Drawer */
+        .settings-panel {
+            position: fixed; top: 0; right: -400px;
+            width: 360px; max-width: 100vw; height: 100vh;
+            background: rgba(10, 12, 18, 0.95); backdrop-filter: blur(25px);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: -20px 0 50px rgba(0,0,0,0.8); z-index: 1001;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column;
+        }
+        .settings-panel.open { right: 0; }
+
+        .settings-head {
+            padding: 20px 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .settings-head h2 { font-size: 14px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+        .close-settings { background: none; border: none; color: var(--muted); font-size: 24px; cursor: pointer; transition: 0.2s; }
+        .close-settings:hover { color: #fff; }
+
+        .settings-body-panel { padding: 20px 24px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+        
+        .setting-item { display: flex; flex-direction: column; gap: 6px; }
+        .setting-item label { font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; }
+
+        .setting-select {
+            width: 100%; background: rgba(0,0,0,0.4); color: var(--text); border: 1px solid rgba(255,255,255,0.08);
+            padding: 10px; border-radius: var(--radius); font-family: var(--sans); font-size: 12px; outline: none; cursor: pointer;
+        }
+
+        input[type="range"] { -webkit-appearance: none; width: 100%; height: 4px; background: rgba(255,255,255,0.1); outline: none; border-radius: 2px; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; background: var(--accent); cursor: pointer; border-radius: 50%; }
+
+        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 32px; border-radius: var(--radius); cursor: pointer; background: rgba(0,0,0,0.3); padding: 2px; border: 1px solid rgba(255,255,255,0.1); }
+        input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+        input[type="color"]::-webkit-color-swatch { border: none; border-radius: calc(var(--radius) - 2px); }
+
+        .btn-reset { margin-top: 10px; padding: 12px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); color: var(--bad); border-radius: var(--radius); font-family: var(--sans); font-size: 11px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .btn-reset:hover { background: rgba(239, 68, 68, 0.15); }
+    </style>
+</head>
+<body>
+
+    <div class="ambient"></div>
+
+    <header class="app-header">
+        <div class="header-brand">
+            <h1 class="header-title">MATIN <span>TECH</span></h1>
+            <div class="header-subtitle">Advanced V2Ray Engine</div>
+        </div>
+        <button class="header-settings-btn" onclick="toggleSettings()" title="UI Customization">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+        </button>
+    </header>
+
+    <main>
+        <section class="panel">
+            <div class="panel-header">
+                <div class="panel-title"><div class="status-dot"></div>System Configuration</div>
+            </div>
+            
+            <div class="panel-body">
+                <div class="input-group">
+                    <label class="input-label">Subscription / Config Source</label>
+                    <textarea id="mainInput" placeholder="Paste subscription URLs or base64 configs here..."></textarea>
+                    <button class="attach-btn" type="button" title="Attach file" onclick="document.getElementById('fileInput').click()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </button>
+                    <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label class="input-label">Remark Tag</label>
+                        <input id="remarkInput" type="text" value="MatinTech⚡">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Max Nodes Limit</label>
+                        <input id="maxOutput" type="number" min="200" max="20000" value="2000">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Protocols</label>
+                    <div class="check-grid" id="protocolGrid"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Transports</label>
+                    <div class="check-grid" id="transportGrid"></div>
+                </div>
+
+                <button id="processBtn" class="btn-primary" onclick="startEngine()">
+                    Start Processing
+                </button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header" style="border-bottom: none;">
+                <div class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                    Console Monitor
+                </div>
+            </div>
+
+            <div class="panel-body" style="padding: 0;">
+                <div class="terminal-panel">
+                    <div class="term-header">
+                        <div class="term-status-box">STATUS: <span id="termStatus">READY</span><span class="blink">_</span></div>
+                        <button class="btn-clear" onclick="clearTerminal()">CLEAR</button>
+                    </div>
+                    <div class="scan-progress"><div class="scan-bar" id="scanBar"></div></div>
+                    <div class="term-body" id="termBody"></div>
+                </div>
+
+                <div class="results-box">
+                    <div class="input-label" style="justify-content: center; margin-bottom: 12px;">ACTIVE NODES READY</div>
+                    <div class="score-display" id="finalCount">0</div>
+                    <div class="row">
+                        <button id="copyBtn" class="btn-secondary" onclick="copyConfigs()" disabled>
+                            Copy Configurations
+                        </button>
+                        <button id="dlBtn" class="btn-secondary" onclick="downloadConfigs()" disabled>
+                            Download File (.txt)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="matin-watermark">Crafted by <span>Matin-Tech</span></div>
+
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-head">
+            <h2>Interface Customization</h2>
+            <button class="close-settings" onclick="toggleSettings()">&times;</button>
+        </div>
+        <div class="settings-body-panel">
+            <div class="setting-item">
+                <label>Font Family</label>
+                <select id="selectFont" class="setting-select">
+                    <option value="'Plus Jakarta Sans', sans-serif">Jakarta Sans (Modern)</option>
+                    <option value="'Space Mono', monospace">Space Mono (Tech)</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <label>Border Radius <span id="valRadius">12px</span></label>
+                <input type="range" id="rangeRadius" min="0" max="24" step="1" value="12">
+            </div>
+
+            <div class="setting-item">
+                <label>Background Color</label>
+                <input type="color" id="colorBg" value="#08090d">
+            </div>
+            <div class="setting-item">
+                <label>Primary Accent</label>
+                <input type="color" id="colorAccent" value="#10b981">
+            </div>
+            <div class="setting-item">
+                <label>Secondary Accent</label>
+                <input type="color" id="colorAccent2" value="#6366f1">
+            </div>
+            <div class="setting-item">
+                <label>Text Color</label>
+                <input type="color" id="colorText" value="#f1f5f9">
+            </div>
+
+            <div class="setting-item">
+                <label>Glass Blur <span id="valBlur">16px</span></label>
+                <input type="range" id="rangeBlur" min="0" max="40" step="1" value="16">
+            </div>
+            <div class="setting-item">
+                <label>Terminal Height <span id="valTermH">480px</span></label>
+                <input type="range" id="rangeTermH" min="300" max="700" step="10" value="480">
+            </div>
+            
+            <button class="btn-reset" onclick="resetUI()">Reset Defaults</button>
+        </div>
+    </div>
+
+    <script>
+        const PROTOCOLS = [
+            { id: "vless", checked: true },
+            { id: "vmess", checked: false },
+            { id: "hysteria2", checked: false },
+            { id: "trojan", checked: false },
+            { id: "ss", checked: false },
+            { id: "hysteria", checked: false }
+        ];
+        
+        const TRANSPORTS = [
+            { id: "ws", checked: true },
+            { id: "grpc", checked: true },
+            { id: "tcp", checked: true },
+            { id: "tls", checked: true },
+            { id: "httpupgrade", checked: false },
+            { id: "splithttp", checked: false },
+            { id: "xhttp", checked: false },
+            { id: "h2", checked: false },
+            { id: "quic", checked: false }
+        ];
+        
+        const DEFAULT_SOURCES = [
+            "https://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt",
+            "https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/Sub2.txt",
+            "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt",
+            "https://raw.githubusercontent.com/Pawdroid/Free-servers/refs/heads/main/sub"
+        ];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChecks('protocolGrid', PROTOCOLS, 'proto');
+            renderChecks('transportGrid', TRANSPORTS, 'net');
+            loadSettings();
+            logTerm('MatinTech Engine initialized successfully.', 'info');
+        });
+
+        document.getElementById("fileInput").addEventListener("change", function(e) {
+            const f = e.target.files?.[0];
+            if (!f) return;
+            const r = new FileReader();
+            r.onload = () => {
+                const ta = document.getElementById("mainInput");
+                ta.value = (ta.value ? ta.value + "\n" : "") + r.result;
+                logTerm(`Loaded file: ${f.name}`, "ok");
+            };
+            r.readAsText(f);
+        });
+
+        function renderChecks(containerId, items, name) {
+            document.getElementById(containerId).innerHTML = items.map(item => `
+                <label class="check-box">
+                    <input type="checkbox" name="${name}" value="${item.id}" ${item.checked ? 'checked' : ''}>
+                    <span>${item.id.toUpperCase()}</span>
+                </label>
+            `).join('');
+        }
+
+        const termBody = document.getElementById('termBody');
+        function logTerm(msg, type = 'info') {
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute:'2-digit', second:'2-digit' });
+            let badgeClass = 'badge-info', badgeText = 'INFO';
+            if (type === 'scan') { badgeClass = 'badge-scan'; badgeText = 'TASK'; }
+            else if (type === 'ok') { badgeClass = 'badge-ok'; badgeText = 'DONE'; }
+            else if (type === 'err') { badgeClass = 'badge-err'; badgeText = 'FAIL'; }
+
+            const div = document.createElement('div');
+            div.className = 'log-line';
+            div.innerHTML = `<div class="log-time">[${time}]</div><div class="log-badge ${badgeClass}">${badgeText}</div><div class="log-msg">${msg}</div>`;
+            termBody.appendChild(div);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function clearTerminal() { termBody.innerHTML = ''; logTerm('Console cleared.', 'info'); }
+        function updateProgress(percent, text) {
+            document.getElementById('scanBar').style.width = `${percent}%`;
+            if (text) document.getElementById('termStatus').innerText = text;
+        }
+
+        let finalProcessedConfigs = [];
+
+        async function fetchWithFallback(url) {
+            const proxies = ["https://api.allorigins.win/raw?url=", "https://corsproxy.io/?"];
+            try {
+                const res = await fetch(url, { cache: 'no-store' });
+                if (res.ok) return await res.text();
+            } catch(e) {}
+            for (const p of proxies) {
+                try {
+                    const res = await fetch(p + encodeURIComponent(url));
+                    if (res.ok) return await res.text();
+                } catch(e) {}
+            }
+            throw new Error(`Failed: ${url}`);
+        }
+
+        function safeAtobUnicode(b64) {
+            const padded = b64 + "=".repeat((4 - (b64.length % 4)) % 4);
+            const bin = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
+            try { return decodeURIComponent(Array.prototype.map.call(bin, c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join("")); } catch (_) { return bin; }
+        }
+
+        function extractURIs(text) {
+            let combined = text;
+            text.split(/\r?\n/).forEach(line => {
+                let s = line.trim();
+                if (s.length > 50 && !s.includes('://') && /^[A-Za-z0-9+/=_-]+$/.test(s)) {
+                    try { const dec = safeAtobUnicode(s); if (dec.includes('://')) combined += '\n' + dec; } catch(e){}
+                }
+            });
+            return Array.from(new Set((combined.match(/(vmess|vless|hysteria2|hy2|trojan|ss|hysteria):\/\/[^\s"'<>]+/gim) || []).map(m => m.trim())));
+        }
+
+        async function startEngine() {
+            const btn = document.getElementById('processBtn');
+            btn.disabled = true;
+            btn.innerHTML = 'Processing...';
+            updateProgress(10, 'FETCHING');
+            
+            finalProcessedConfigs = [];
+            updateResults(0);
+
+            try {
+                const rawInput = document.getElementById('mainInput').value.trim();
+                const allowedProtos = new Set(Array.from(document.querySelectorAll('input[name="proto"]:checked')).map(e => e.value));
+                const allowedNets = new Set(Array.from(document.querySelectorAll('input[name="net"]:checked')).map(e => e.value));
+                const remarkTag = document.getElementById('remarkInput').value.trim() || 'MatinTech⚡';
+                const maxOut = parseInt(document.getElementById('maxOutput').value) || 2000;
+
+                let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : DEFAULT_SOURCES;
+                let combinedData = rawInput;
+
+                for (const url of sources) {
+                    try {
+                        const data = await fetchWithFallback(url);
+                        combinedData += '\n' + data;
+                        logTerm(`Fetched source successfully`, 'ok');
+                    } catch(e) {
+                        logTerm(`Skipped unreachable source`, 'err');
+                    }
+                }
+
+                updateProgress(50, 'PARSING');
+                const uris = extractURIs(combinedData);
+                
+                const uniqueMap = new Map();
+                uris.forEach(uri => {
+                    try {
+                        const low = uri.toLowerCase();
+                        let proto = low.startsWith('vmess://') ? 'vmess' : low.split('://')[0];
+                        if(proto === 'hy2') proto = 'hysteria2';
+                        if(allowedProtos.has(proto)) {
+                            uniqueMap.set(uri, uri);
+                        }
+                    } catch(e){}
+                });
+
+                finalProcessedConfigs = Array.from(uniqueMap.values()).slice(0, maxOut).map(u => {
+                    if(u.startsWith('vmess://')) return u; // Keep vmess intact or apply tag logic
+                    return u.split('#')[0] + '#' + encodeURIComponent(remarkTag);
+                });
+
+                updateProgress(100, 'COMPLETED');
+                logTerm(`Successfully generated ${finalProcessedConfigs.length} configurations.`, 'ok');
+                updateResults(finalProcessedConfigs.length);
+            } catch(e) {
+                logTerm(`Error: ${e.message}`, 'err');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Start Processing';
+                setTimeout(() => updateProgress(0, 'READY'), 1500);
+            }
+        }
+
+        function updateResults(count) {
+            const display = document.getElementById('finalCount');
+            display.innerText = count;
+            display.classList.remove('bump');
+            void display.offsetWidth;
+            if(count > 0) display.classList.add('bump');
+            document.getElementById('copyBtn').disabled = count === 0;
+            document.getElementById('dlBtn').disabled = count === 0;
+        }
+
+        function copyConfigs() {
+            navigator.clipboard.writeText(finalProcessedConfigs.join('\n')).then(() => logTerm('Copied to clipboard.', 'ok'));
+        }
+
+        function downloadConfigs() {
+            const blob = new Blob([finalProcessedConfigs.join('\n')], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `MatinTech_Configs_${Date.now()}.txt`;
+            a.click();
+            logTerm('File downloaded.', 'ok');
+        }
+
+        const root = document.documentElement;
+        const defaultUI = { bg: '#08090d', accent: '#10b981', accent2: '#6366f1', text: '#f1f5f9', blur: '16', radius: '12', font: "'Plus Jakarta Sans', sans-serif", termH: '480' };
+
+        function toggleSettings() { document.getElementById('settingsPanel').classList.toggle('open'); }
+        function hexToRgb(hex) {
+            let r = parseInt(hex.slice(1,3), 16), g = parseInt(hex.slice(3,5), 16), b = parseInt(hex.slice(5,7), 16);
+            return `${r}, ${g}, ${b}`;
+        }
+
+        function applySettings(s) {
+            root.style.setProperty('--bg-color', s.bg);
+            root.style.setProperty('--accent-hex', s.accent);
+            root.style.setProperty('--accent-rgb', hexToRgb(s.accent));
+            root.style.setProperty('--accent2-hex', s.accent2);
+            root.style.setProperty('--text-color', s.text);
+            root.style.setProperty('--blur-intensity', s.blur + 'px');
+            root.style.setProperty('--radius-val', s.radius + 'px');
+            root.style.setProperty('--font-main', s.font);
+            root.style.setProperty('--term-height', s.termH + 'px');
+
+            document.getElementById('colorBg').value = s.bg;
+            document.getElementById('colorAccent').value = s.accent;
+            document.getElementById('colorAccent2').value = s.accent2;
+            document.getElementById('colorText').value = s.text;
+            document.getElementById('rangeBlur').value = s.blur;
+            document.getElementById('valBlur').innerText = s.blur + 'px';
+            document.getElementById('rangeRadius').value = s.radius;
+            document.getElementById('valRadius').innerText = s.radius + 'px';
+            document.getElementById('selectFont').value = s.font;
+            document.getElementById('rangeTermH').value = s.termH;
+            document.getElementById('valTermH').innerText = s.termH + 'px';
+        }
+
+        function saveSettings() {
+            const s = {
+                bg: document.getElementById('colorBg').value,
+                accent: document.getElementById('colorAccent').value,
+                accent2: document.getElementById('colorAccent2').value,
+                text: document.getElementById('colorText').value,
+                blur: document.getElementById('rangeBlur').value,
+                radius: document.getElementById('rangeRadius').value,
+                font: document.getElementById('selectFont').value,
+                termH: document.getElementById('rangeTermH').value
+            };
+            localStorage.setItem('matinTechSettings', JSON.stringify(s));
+            applySettings(s);
+        }
+
+        function loadSettings() {
+            const saved = localStorage.getItem('matinTechSettings');
+            applySettings(saved ? JSON.parse(saved) : defaultUI);
+        }
+
+        ['colorBg', 'colorAccent', 'colorAccent2', 'colorText', 'rangeBlur', 'rangeRadius', 'selectFont', 'rangeTermH'].forEach(id => {
+            document.getElementById(id).addEventListener('input', saveSettings);
+        });
+
+        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechSettings'); logTerm('UI settings reset.', 'info'); }
+    </script>
+</body>
+</html>
+
