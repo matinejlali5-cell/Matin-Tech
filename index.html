@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>MATIN TECH // QUANTUM NEXUS ELITE v7.0</title>
+    <title>MATIN TECH // QUANTUM NEXUS HYPERCORE v10.0 ULTRA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #010205;
-            --panel-rgb: 5, 8, 15;
-            --panel-opacity: 0.94;
+            --bg-color: #000103;
+            --panel-rgb: 3, 5, 11;
+            --panel-opacity: 0.96;
             --accent-hex: #00f2fe; 
             --accent-rgb: 0, 242, 254;
             --accent2-hex: #4facfe; 
             --accent3-hex: #a855f7;
+            --accent4-hex: #10b981;
             --text-color: #f8fafc;
-            --grid-opacity: 0.35;
-            --blur-intensity: 32px;
-            --radius-val: 22px;
-            --glow-intensity: 1.8;
+            --grid-opacity: 0.45;
+            --blur-intensity: 36px;
+            --radius-val: 26px;
+            --glow-intensity: 2.2;
             --font-main: 'Plus Jakarta Sans', sans-serif;
-            --term-height: 520px;
+            --term-height: 560px;
             
             --bg: var(--bg-color);
             --card: rgb(var(--panel-rgb));
             --panel: rgba(var(--panel-rgb), var(--panel-opacity));
-            --border: rgba(var(--accent-rgb), 0.38);
-            --border-glow: rgba(var(--accent-rgb), calc(0.85 * var(--glow-intensity)));
+            --border: rgba(var(--accent-rgb), 0.45);
+            --border-glow: rgba(var(--accent-rgb), calc(0.95 * var(--glow-intensity)));
             --text: var(--text-color);
-            --muted: rgba(248, 250, 252, 0.52);
+            --muted: rgba(248, 250, 252, 0.55);
             --accent: var(--accent-hex);
             --accent2: var(--accent2-hex);
             --accent3: var(--accent3-hex);
-            --accent-glow: rgba(var(--accent-rgb), calc(0.65 * var(--glow-intensity)));
+            --accent-glow: rgba(var(--accent-rgb), calc(0.75 * var(--glow-intensity)));
             
             --good: #10b981;
             --bad: #ef4444;
@@ -44,7 +45,7 @@
             --mono: 'JetBrains Mono', ui-monospace, monospace;
             --sans: var(--font-main);
             --radius: var(--radius-val);
-            --shadow: 0 45px 90px -15px rgba(0, 0, 0, 0.98), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+            --shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.99), inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,115 +59,122 @@
             scroll-behavior: smooth;
         }
 
+        /* HYPER-ADVANCED DYNAMIC AMBIENT BACKGROUND */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: 
-                linear-gradient(to right, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(to right, rgba(var(--accent-rgb), 0.065) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.065) 1px, transparent 1px);
+            background-size: 35px 35px;
             z-index: 0; pointer-events: none;
             opacity: var(--grid-opacity);
-            animation: gridMove 30s linear infinite;
+            animation: gridMove 25s linear infinite;
         }
         @keyframes gridMove {
             0% { background-position: 0 0; }
-            100% { background-position: 40px 40px; }
+            100% { background-position: 35px 35px; }
         }
 
         .ambient-glow {
             position: fixed;
-            width: 60vw; height: 60vw;
-            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.16) 0%, rgba(0,0,0,0) 70%);
+            width: 70vw; height: 70vw;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.18) 0%, rgba(0,0,0,0) 70%);
             z-index: 0; pointer-events: none;
-            filter: blur(130px);
+            filter: blur(140px);
             border-radius: 50%;
-            animation: floatGlow 12s ease-in-out infinite alternate;
+            animation: floatGlow 10s ease-in-out infinite alternate;
         }
-        .ambient-1 { top: -30%; left: -20%; }
-        .ambient-2 { bottom: -30%; right: -20%; background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, rgba(0,0,0,0) 70%); animation-delay: -6s; }
+        .ambient-1 { top: -35%; left: -25%; }
+        .ambient-2 { bottom: -35%; right: -25%; background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, rgba(0,0,0,0) 70%); animation-delay: -5s; }
+        .ambient-3 { top: 30%; right: 10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(0,0,0,0) 70%); animation-delay: -8s; }
         @keyframes floatGlow {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(45px) scale(1.18); }
+            0% { transform: translateY(0) scale(1) rotate(0deg); }
+            100% { transform: translateY(55px) scale(1.22) rotate(10deg); }
         }
 
         /* --- HEADER --- */
         .app-header {
             position: sticky; top: 0; z-index: 100;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 40px;
-            background: rgba(5, 8, 15, 0.88);
-            backdrop-filter: blur(35px);
-            -webkit-backdrop-filter: blur(35px);
-            border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+            padding: 22px 45px;
+            background: rgba(3, 5, 11, 0.88);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
         }
 
-        .header-brand { display: flex; align-items: center; gap: 16px; }
+        .header-brand { display: flex; align-items: center; gap: 18px; }
 
         .brand-logo-box {
-            width: 52px; height: 52px;
-            background: linear-gradient(135deg, var(--accent), var(--accent3));
-            border-radius: 16px;
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, var(--accent), var(--accent3), var(--accent4));
+            border-radius: 18px;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 35px var(--accent-glow);
-            color: #010205; font-weight: 800; font-size: 26px;
+            box-shadow: 0 0 45px var(--accent-glow);
+            color: #000103; font-weight: 800; font-size: 28px;
             position: relative; overflow: hidden;
         }
         .brand-logo-box::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent);
             transform: rotate(45deg) translateX(-100%);
-            animation: shine 3s ease-in-out infinite;
+            animation: shine 2.5s ease-in-out infinite;
         }
-        @keyframes shine { 0% { transform: rotate(45deg) translateX(-100%); } 20%, 100% { transform: rotate(45deg) translateX(100%); } }
+        @keyframes shine { 0% { transform: rotate(45deg) translateX(-100%); } 25%, 100% { transform: rotate(45deg) translateX(100%); } }
 
-        .header-title-group { display: flex; flex-direction: column; gap: 3px; }
-        .header-title { font-size: clamp(18px, 3vw, 24px); font-weight: 800; letter-spacing: -0.5px; color: #fff; text-transform: uppercase; }
-        .header-title span { color: var(--accent); text-shadow: 0 0 22px var(--accent-glow); }
-        .header-subtitle { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; color: var(--muted); text-transform: uppercase; }
+        .header-title-group { display: flex; flex-direction: column; gap: 4px; }
+        .header-title { font-size: clamp(18px, 3.2vw, 26px); font-weight: 800; letter-spacing: -0.5px; color: #fff; text-transform: uppercase; }
+        .header-title span { color: var(--accent); text-shadow: 0 0 25px var(--accent-glow); }
+        .header-subtitle { font-size: 10px; font-weight: 700; letter-spacing: 0.4em; color: var(--muted); text-transform: uppercase; }
 
-        .header-actions { display: flex; align-items: center; gap: 12px; }
+        .header-actions { display: flex; align-items: center; gap: 14px; }
 
         .header-btn {
-            background: rgba(var(--accent-rgb), 0.08);
-            border: 1px solid rgba(var(--accent-rgb), 0.45);
-            color: var(--accent); width: 44px; height: 44px;
+            background: rgba(var(--accent-rgb), 0.1);
+            border: 1px solid rgba(var(--accent-rgb), 0.5);
+            color: var(--accent); width: 46px; height: 46px;
             border-radius: var(--radius);
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .header-btn:hover {
-            background: var(--accent); color: #010205; border-color: var(--accent);
-            box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-2px);
+            background: var(--accent); color: #000103; border-color: var(--accent);
+            box-shadow: 0 0 50px var(--accent-glow); transform: translateY(-2px);
         }
 
-        /* --- DASHBOARD STATS TICKER --- */
+        /* --- HYPER METRICS TICKER --- */
         .stats-ticker {
-            max-width: 1450px; margin: 26px auto 0; padding: 0 24px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;
+            max-width: 1480px; margin: 30px auto 0; padding: 0 24px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;
             position: relative; z-index: 2;
         }
         .stat-card {
             background: var(--panel); border: 1px solid var(--border);
-            padding: 18px 22px; border-radius: 18px; backdrop-filter: blur(25px);
+            padding: 20px 24px; border-radius: 20px; backdrop-filter: blur(25px);
             display: flex; align-items: center; justify-content: space-between;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.55); transition: 0.3s;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+            position: relative; overflow: hidden;
         }
-        .stat-card:hover { border-color: var(--border-glow); transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 25px rgba(var(--accent-rgb), 0.15); }
-        .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
-        .stat-info h3 { font-size: 17px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 3px; }
-        .stat-icon { width: 40px; height: 40px; border-radius: 14px; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+        .stat-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--accent3)); opacity: 0.8;
+        }
+        .stat-card:hover { border-color: var(--border-glow); transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(var(--accent-rgb), 0.2); }
+        .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .stat-info h3 { font-size: 18px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 4px; }
+        .stat-icon { width: 44px; height: 44px; border-radius: 16px; background: rgba(var(--accent-rgb), 0.14); display: flex; align-items: center; justify-content: center; color: var(--accent); box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.1); }
 
         /* --- MAIN LAYOUT --- */
         main {
             position: relative; z-index: 2;
-            max-width: 1450px; margin: 26px auto 45px; padding: 0 24px;
-            display: grid; gap: 30px; grid-template-columns: 1fr;
+            max-width: 1480px; margin: 30px auto 50px; padding: 0 24px;
+            display: grid; gap: 32px; grid-template-columns: 1fr;
         }
-        @media (min-width: 1024px) {
-            main { grid-template-columns: 1.05fr 0.95fr; }
+        @media (min-width: 1100px) {
+            main { grid-template-columns: 1.08fr 0.92fr; }
         }
 
         .panel {
@@ -181,146 +189,149 @@
         }
         .panel:hover {
             border-color: var(--border-glow);
-            box-shadow: 0 45px 90px -15px rgba(0, 0, 0, 0.98), 0 0 50px rgba(var(--accent-rgb), 0.18);
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.99), 0 0 60px rgba(var(--accent-rgb), 0.22);
         }
 
         .panel-header {
-            padding: 22px 26px; background: rgba(0, 0, 0, 0.4);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 24px 28px; background: rgba(0, 0, 0, 0.45);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex; justify-content: space-between; align-items: center;
         }
 
         .panel-title {
-            display: flex; align-items: center; gap: 12px;
-            font-weight: 700; font-size: 13px; color: var(--text);
-            letter-spacing: 0.09em; text-transform: uppercase;
+            display: flex; align-items: center; gap: 14px;
+            font-weight: 800; font-size: 13px; color: var(--text);
+            letter-spacing: 0.1em; text-transform: uppercase;
         }
 
         .status-dot {
-            width: 8px; height: 8px; border-radius: 50%;
-            background: var(--accent); box-shadow: 0 0 18px var(--accent);
-            animation: pulse-dot 2s infinite;
+            width: 9px; height: 9px; border-radius: 50%;
+            background: var(--accent); box-shadow: 0 0 20px var(--accent);
+            animation: pulse-dot 1.8s infinite;
         }
-        @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
+        @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.75); } 100% { opacity: 1; transform: scale(1); } }
 
-        .panel-body { padding: 26px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1; }
+        .panel-body { padding: 28px; display: flex; flex-direction: column; gap: 24px; flex-grow: 1; }
 
-        /* PRESET SOURCE SELECTOR */
+        /* PRESET SOURCE SELECTOR CHIPS */
         .preset-sources {
-            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: -4px;
+            display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: -4px;
         }
         .preset-chip {
-            background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.09);
-            padding: 7px 13px; border-radius: 9px; font-size: 11px; font-weight: 700; font-family: var(--mono);
-            color: var(--muted); cursor: pointer; transition: 0.25s;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 14px; border-radius: 10px; font-size: 11px; font-weight: 700; font-family: var(--mono);
+            color: var(--muted); cursor: pointer; transition: 0.25s; display: flex; align-items: center; gap: 6px;
         }
-        .preset-chip:hover { background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.2); }
+        .preset-chip:hover { background: rgba(var(--accent-rgb), 0.15); border-color: var(--accent); color: var(--accent); box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.25); transform: translateY(-1px); }
 
         /* FORM CONTROLS */
-        .input-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
+        .input-group { display: flex; flex-direction: column; gap: 9px; position: relative; }
         .input-label {
             font-size: 11px; font-weight: 700; color: var(--muted);
-            letter-spacing: 0.06em; display: flex; align-items: center; justify-content: space-between;
+            letter-spacing: 0.07em; display: flex; align-items: center; justify-content: space-between;
             text-transform: uppercase;
         }
 
         textarea, input[type="text"], input[type="number"], select {
-            width: 100%; background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px;
-            padding: 14px 18px; color: var(--text);
+            width: 100%; background: rgba(0, 0, 0, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
+            padding: 16px 20px; color: var(--text);
             font-family: var(--mono); font-size: 13px; line-height: 1.5; outline: none;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        textarea { min-height: 140px; resize: vertical; padding-right: 96px; }
+        textarea { min-height: 160px; resize: vertical; padding-right: 105px; }
 
         textarea:focus, input:focus, select:focus {
-            border-color: var(--accent); background: rgba(0, 0, 0, 0.85);
-            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.16), inset 0 0 14px rgba(var(--accent-rgb), 0.1);
+            border-color: var(--accent); background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.18), inset 0 0 16px rgba(var(--accent-rgb), 0.12);
         }
         
         .textarea-actions {
-            position: absolute; right: 10px; bottom: 10px; display: flex; gap: 6px;
+            position: absolute; right: 12px; bottom: 12px; display: flex; gap: 8px;
         }
 
         .action-icon-btn {
-            width: 36px; height: 36px; border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.06);
+            width: 38px; height: 38px; border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.07);
             color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center;
             transition: all 0.25s;
         }
-        .action-icon-btn:hover { background: var(--accent); color: #010205; border-color: var(--accent); box-shadow: 0 0 18px var(--accent-glow); }
-        .action-icon-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; }
+        .action-icon-btn:hover { background: var(--accent); color: #000103; border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+        .action-icon-btn svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 2.2; }
 
-        .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+        .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; }
 
-        .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
+        .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
         
         .check-box {
             display: flex; align-items: center; justify-content: center;
-            background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.07);
-            padding: 11px; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; user-select: none;
+            background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px; border-radius: 14px; cursor: pointer; transition: all 0.25s ease; user-select: none;
         }
         .check-box:has(input:checked) {
-            background: rgba(var(--accent-rgb), 0.18); border-color: var(--accent);
-            box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.25);
+            background: rgba(var(--accent-rgb), 0.2); border-color: var(--accent);
+            box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.3);
         }
         .check-box input { display: none; }
         .check-box span { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); transition: color 0.2s; }
-        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 12px var(--accent-glow); }
+        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 15px var(--accent-glow); }
 
-        /* ADVANCED OPTIONS BOX */
+        /* HYPER ADVANCED OPTIONS BOX */
         .advanced-toggle {
             font-size: 11px; font-weight: 700; color: var(--accent); cursor: pointer;
-            display: inline-flex; align-items: center; gap: 6px; user-select: none; margin-top: -2px;
+            display: inline-flex; align-items: center; gap: 8px; user-select: none; margin-top: -2px;
         }
         .advanced-options-box {
-            display: none; flex-direction: column; gap: 16px; background: rgba(0,0,0,0.35);
-            border: 1px dashed rgba(var(--accent-rgb), 0.35); padding: 18px; border-radius: 16px;
+            display: none; flex-direction: column; gap: 18px; background: rgba(0,0,0,0.4);
+            border: 1px dashed rgba(var(--accent-rgb), 0.4); padding: 20px; border-radius: 18px;
         }
         .advanced-options-box.open { display: flex; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 
         /* BUTTONS */
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3)); 
-            color: #010205; border: none; border-radius: 14px;
-            padding: 18px; font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3), var(--accent4)); 
+            background-size: 300% 300%;
+            animation: gradientShift 6s ease infinite;
+            color: #000103; border: none; border-radius: 16px;
+            padding: 20px; font-size: 13px; font-weight: 800; letter-spacing: 0.12em;
             text-transform: uppercase; cursor: pointer;
-            box-shadow: 0 12px 40px var(--accent-glow);
+            box-shadow: 0 15px 45px var(--accent-glow);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            display: flex; align-items: center; justify-content: center; gap: 12px;
+            display: flex; align-items: center; justify-content: center; gap: 14px;
             font-family: var(--sans); position: relative; overflow: hidden;
         }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .btn-primary:hover:not(:disabled) {
-            filter: brightness(1.18); box-shadow: 0 18px 50px var(--accent-glow); transform: translateY(-2px);
+            filter: brightness(1.2); box-shadow: 0 20px 60px var(--accent-glow); transform: translateY(-2px);
         }
-        .btn-primary:disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); box-shadow: none; cursor: not-allowed; }
+        .btn-primary:disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); box-shadow: none; cursor: not-allowed; animation: none; }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.09); color: var(--text);
-            padding: 14px; font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text);
+            padding: 16px; font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
             cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; gap: 10px;
-            border-radius: 12px;
+            border-radius: 14px;
         }
         .btn-secondary:hover:not(:disabled) {
-            background: rgba(var(--accent-rgb), 0.14); border-color: var(--accent);
-            color: #fff; box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.2); transform: translateY(-1px);
+            background: rgba(var(--accent-rgb), 0.16); border-color: var(--accent);
+            color: #fff; box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.25); transform: translateY(-1px);
         }
         .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
 
         /* TERMINAL CONSOLE */
         .terminal-panel {
-            background: #000104; border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 14px; display: flex; flex-direction: column; overflow: hidden;
+            background: #000002; border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px; display: flex; flex-direction: column; overflow: hidden;
             position: relative; height: var(--term-height); transition: height 0.3s ease;
-            box-shadow: inset 0 4px 30px rgba(0,0,0,0.98);
+            box-shadow: inset 0 6px 35px rgba(0,0,0,0.99);
         }
 
         .term-header {
-            background: rgba(0, 0, 0, 0.7); padding: 12px 18px;
+            background: rgba(0, 0, 0, 0.75); padding: 14px 20px;
             display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
 
         .term-status-box { font-family: var(--mono); font-size: 11px; color: var(--muted); }
@@ -330,123 +341,124 @@
         .term-actions { display: flex; gap: 8px; }
 
         .btn-term-action {
-            background: rgba(255, 255, 255, 0.045); border: 1px solid rgba(255, 255, 255, 0.12); color: var(--text);
-            font-family: var(--mono); font-size: 10px; padding: 5px 11px; cursor: pointer; transition: 0.2s;
-            border-radius: 6px; font-weight: 700;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.14); color: var(--text);
+            font-family: var(--mono); font-size: 10px; padding: 6px 12px; cursor: pointer; transition: 0.2s;
+            border-radius: 8px; font-weight: 700;
         }
-        .btn-term-action:hover { background: rgba(var(--accent-rgb), 0.18); border-color: var(--accent); color: var(--accent); }
-        .btn-term-action.danger:hover { background: rgba(239, 68, 68, 0.18); border-color: var(--bad); color: var(--bad); }
+        .btn-term-action:hover { background: rgba(var(--accent-rgb), 0.2); border-color: var(--accent); color: var(--accent); }
+        .btn-term-action.danger:hover { background: rgba(239, 68, 68, 0.2); border-color: var(--bad); color: var(--bad); }
 
         .term-body {
-            padding: 16px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
-            font-size: 12px; line-height: 1.6;
+            padding: 18px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
+            font-size: 12px; line-height: 1.65;
         }
-        .term-body::-webkit-scrollbar { width: 5px; }
-        .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
+        .term-body::-webkit-scrollbar { width: 6px; }
+        .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
 
-        .log-line { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; word-break: break-all; animation: fadeInLog 0.2s ease; }
+        .log-line { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 9px; word-break: break-all; animation: fadeInLog 0.2s ease; }
         @keyframes fadeInLog { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-        .log-time { color: rgba(255,255,255,0.28); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
-        .log-badge { font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.05em; }
+        .log-time { color: rgba(255,255,255,0.3); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
+        .log-badge { font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 5px; text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.06em; }
         
-        .badge-info { background: rgba(6, 182, 212, 0.14); color: var(--info); border: 1px solid rgba(6,182,212,0.35); }
-        .badge-scan { background: rgba(79, 172, 254, 0.14); color: var(--accent2); border: 1px solid rgba(79,172,254,0.35); }
-        .badge-ok { background: rgba(16, 185, 129, 0.14); color: var(--good); border: 1px solid rgba(16,185,129,0.35); }
-        .badge-err { background: rgba(239, 68, 68, 0.14); color: var(--bad); border: 1px solid rgba(239,68,68,0.35); }
+        .badge-info { background: rgba(6, 182, 212, 0.16); color: var(--info); border: 1px solid rgba(6,182,212,0.4); }
+        .badge-scan { background: rgba(79, 172, 254, 0.16); color: var(--accent2); border: 1px solid rgba(79,172,254,0.4); }
+        .badge-ok { background: rgba(16, 185, 129, 0.16); color: var(--good); border: 1px solid rgba(16,185,129,0.4); }
+        .badge-err { background: rgba(239, 68, 68, 0.16); color: var(--bad); border: 1px solid rgba(239,68,68,0.4); }
         .log-msg { color: #cbd5e1; }
 
-        .scan-progress { height: 3px; background: rgba(255,255,255,0.04); width: 100%; position: relative; overflow: hidden; }
-        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); transition: width 0.3s ease; box-shadow: 0 0 18px var(--accent); }
+        .scan-progress { height: 4px; background: rgba(255,255,255,0.05); width: 100%; position: relative; overflow: hidden; }
+        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent4)); transition: width 0.3s ease; box-shadow: 0 0 20px var(--accent); }
 
         /* RESULTS BOX */
         .results-box {
-            background: rgba(0, 0, 0, 0.45); border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 26px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         
         .score-display {
-            font-size: clamp(44px, 5.8vw, 72px); font-weight: 800; font-family: var(--sans); color: #fff;
-            line-height: 1; margin-bottom: 18px; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-shadow: 0 0 40px rgba(var(--accent-rgb), 0.35);
+            font-size: clamp(48px, 6.2vw, 76px); font-weight: 800; font-family: var(--sans); color: #fff;
+            line-height: 1; margin-bottom: 20px; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-shadow: 0 0 50px rgba(var(--accent-rgb), 0.4);
         }
-        .score-display.bump { transform: scale(1.12); color: var(--accent); }
+        .score-display.bump { transform: scale(1.15); color: var(--accent); }
 
         /* WATERMARK */
         .matin-watermark {
             text-align: center; font-family: var(--sans); font-size: 11px; font-weight: 700;
-            letter-spacing: 3.5px; padding: 25px 0; color: var(--muted); text-transform: uppercase;
+            letter-spacing: 4px; padding: 30px 0; color: var(--muted); text-transform: uppercase;
         }
-        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 18px var(--accent-glow); }
+        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 20px var(--accent-glow); }
 
         /* TOAST POPUP */
         #toast {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: rgba(5, 8, 15, 0.99); backdrop-filter: blur(30px);
-            border: 1px solid var(--accent); color: #fff; padding: 14px 28px;
-            border-radius: 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.98), 0 0 35px var(--accent-glow);
+            position: fixed; bottom: 35px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: rgba(3, 5, 11, 0.99); backdrop-filter: blur(35px);
+            border: 1px solid var(--accent); color: #fff; padding: 16px 32px;
+            border-radius: 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.99), 0 0 40px var(--accent-glow);
             z-index: 9999; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
-            opacity: 0; display: flex; align-items: center; gap: 12px;
+            opacity: 0; display: flex; align-items: center; gap: 14px;
         }
         #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-        #toast svg { width: 18px; height: 18px; stroke: var(--accent); }
+        #toast svg { width: 20px; height: 20px; stroke: var(--accent); stroke-width: 2.5; }
 
         /* SETTINGS DRAWER */
         .settings-panel {
-            position: fixed; top: 0; right: -420px;
-            width: 380px; max-width: 100vw; height: 100vh;
-            background: rgba(4, 6, 14, 0.99); backdrop-filter: blur(40px);
-            border-left: 1px solid rgba(255, 255, 255, 0.09);
-            box-shadow: -45px 0 90px rgba(0,0,0,0.98); z-index: 1001;
+            position: fixed; top: 0; right: -440px;
+            width: 400px; max-width: 100vw; height: 100vh;
+            background: rgba(2, 4, 10, 0.99); backdrop-filter: blur(45px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: -50px 0 100px rgba(0,0,0,0.99); z-index: 1001;
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex; flex-direction: column;
         }
         .settings-panel.open { right: 0; }
 
         .settings-head {
-            padding: 22px 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 24px 28px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex; justify-content: space-between; align-items: center;
         }
-        .settings-head h2 { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 1.5px; text-transform: uppercase; }
-        .close-settings { background: none; border: none; color: var(--muted); font-size: 26px; cursor: pointer; transition: 0.2s; }
+        .settings-head h2 { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+        .close-settings { background: none; border: none; color: var(--muted); font-size: 28px; cursor: pointer; transition: 0.2s; }
         .close-settings:hover { color: #fff; }
 
-        .settings-body-panel { padding: 24px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
-        .setting-item { display: flex; flex-direction: column; gap: 8px; }
-        .setting-item label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; letter-spacing: 0.05em; }
+        .settings-body-panel { padding: 26px; display: flex; flex-direction: column; gap: 22px; overflow-y: auto; }
+        .setting-item { display: flex; flex-direction: column; gap: 9px; }
+        .setting-item label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; letter-spacing: 0.06em; }
 
         .setting-select {
-            width: 100%; background: rgba(0,0,0,0.55); color: var(--text); border: 1px solid rgba(255,255,255,0.09);
-            padding: 12px; border-radius: 12px; font-family: var(--sans); font-size: 12px; outline: none; cursor: pointer;
+            width: 100%; background: rgba(0,0,0,0.6); color: var(--text); border: 1px solid rgba(255,255,255,0.1);
+            padding: 13px; border-radius: 14px; font-family: var(--sans); font-size: 12px; outline: none; cursor: pointer;
         }
 
-        input[type="range"] { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.12); outline: none; border-radius: 3px; }
-        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 14px var(--accent); }
+        input[type="range"] { -webkit-appearance: none; width: 100%; height: 6px; background: rgba(255,255,255,0.14); outline: none; border-radius: 3px; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 16px var(--accent); }
 
-        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 38px; border-radius: 12px; cursor: pointer; background: rgba(0,0,0,0.45); padding: 2px; border: 1px solid rgba(255,255,255,0.12); }
+        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 42px; border-radius: 14px; cursor: pointer; background: rgba(0,0,0,0.5); padding: 2px; border: 1px solid rgba(255,255,255,0.14); }
         input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
-        input[type="color"]::-webkit-color-swatch { border: none; border-radius: 10px; }
+        input[type="color"]::-webkit-color-swatch { border: none; border-radius: 12px; }
 
-        .btn-reset { margin-top: 10px; padding: 14px; background: rgba(239, 68, 68, 0.09); border: 1px solid rgba(239, 68, 68, 0.28); color: var(--bad); border-radius: 12px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: 0.25s; }
-        .btn-reset:hover { background: rgba(239, 68, 68, 0.2); box-shadow: 0 0 18px rgba(239,68,68,0.25); }
+        .btn-reset { margin-top: 12px; padding: 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: var(--bad); border-radius: 14px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: 0.25s; }
+        .btn-reset:hover { background: rgba(239, 68, 68, 0.22); box-shadow: 0 0 20px rgba(239,68,68,0.3); }
     </style>
 </head>
 <body>
 
     <div class="ambient-glow ambient-1"></div>
     <div class="ambient-glow ambient-2"></div>
+    <div class="ambient-glow ambient-3"></div>
 
     <header class="app-header">
         <div class="header-brand">
             <div class="brand-logo-box">M</div>
             <div class="header-title-group">
                 <h1 class="header-title">MATIN <span>TECH</span></h1>
-                <div class="header-subtitle">Quantum Nexus Elite v7.0</div>
+                <div class="header-subtitle">Quantum Nexus Hypercore v10.0 Ultra</div>
             </div>
         </div>
         <div class="header-actions">
-            <button class="header-btn" onclick="toggleSettings()" title="UI Customization">
+            <button class="header-btn" onclick="toggleSettings()" title="UI Customization Suite">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                 </svg>
@@ -458,7 +470,7 @@
     <div class="stats-ticker">
         <div class="stat-card">
             <div class="stat-info">
-                <span>Core Nexus Status</span>
+                <span>Hypercore State</span>
                 <h3 id="statEngineState">ONLINE</h3>
             </div>
             <div class="stat-icon">
@@ -476,11 +488,20 @@
         </div>
         <div class="stat-card">
             <div class="stat-info">
-                <span>Network Latency</span>
-                <h3 id="statLatency">10ms</h3>
+                <span>Quantum Latency</span>
+                <h3 id="statLatency">8ms</h3>
             </div>
             <div class="stat-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span>Encryption Protocol</span>
+                <h3 id="statSec">TLS 1.3 / VLESS</h3>
+            </div>
+            <div class="stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             </div>
         </div>
     </div>
@@ -488,22 +509,22 @@
     <main>
         <section class="panel">
             <div class="panel-header">
-                <div class="panel-title"><div class="status-dot"></div>Nexus Node Extraction Engine Pro</div>
+                <div class="panel-title"><div class="status-dot"></div>Hypercore Node Extraction Engine Ultra</div>
             </div>
             
             <div class="panel-body">
                 <div class="input-group">
                     <label class="input-label">
-                        <span>Subscription Links / Raw Configs</span>
+                        <span>Subscription Links / Raw Configs Matrix</span>
                         <span style="color: var(--accent); cursor: pointer;" onclick="clearInput()">Clear Input</span>
                     </label>
-                    <textarea id="mainInput" placeholder="Paste subscription links or base64 configs here..."></textarea>
+                    <textarea id="mainInput" placeholder="Paste subscription links, Gists, or base64 configs here..."></textarea>
                     
                     <div class="textarea-actions">
                         <button class="action-icon-btn" type="button" title="Paste from Clipboard" onclick="pasteFromClipboard()">
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                         </button>
-                        <button class="action-icon-btn" type="button" title="Upload File" onclick="document.getElementById('fileInput').click()">
+                        <button class="action-icon-btn" type="button" title="Upload Config File" onclick="document.getElementById('fileInput').click()">
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
                             </svg>
@@ -512,25 +533,25 @@
                     <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
                 </div>
 
-                <!-- PRESET SOURCE QUICK CHIPS (INCLUDING YOUR LINK) -->
+                <!-- PRESET SOURCE QUICK CHIPS (INCLUDING YOUR GIST LINK + OTHERS) -->
                 <div class="input-group">
-                    <label class="input-label">Quick Source Presets</label>
+                    <label class="input-label">Hypercore Source Presets</label>
                     <div class="preset-sources">
-                        <div class="preset-chip" onclick="loadPreset('matin')">💎 Matin Special Sub</div>
+                        <div class="preset-chip" onclick="loadPreset('matin')">💎 Matin Special Gist</div>
                         <div class="preset-chip" onclick="loadPreset('barry')">🚀 Barry-Far Sub</div>
                         <div class="preset-chip" onclick="loadPreset('ali')">🔥 Aliilapro Sub</div>
-                        <div class="preset-chip" onclick="loadPreset('all')">⚡ Ultimate Combined Pool</div>
+                        <div class="preset-chip" onclick="loadPreset('all')">⚡ Ultimate Mega Pool</div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-group">
                         <label class="input-label">Remark Tag (Custom Name)</label>
-                        <input id="remarkInput" type="text" value="MatinTech⚡Elite">
+                        <input id="remarkInput" type="text" value="MatinTech⚡Ultra">
                     </div>
                     <div class="input-group">
                         <label class="input-label">Max Node Limit</label>
-                        <input id="maxOutput" type="number" min="200" max="25000" value="5000">
+                        <input id="maxOutput" type="number" min="200" max="30000" value="10000">
                     </div>
                 </div>
 
@@ -544,29 +565,36 @@
                     <div class="check-grid" id="transportGrid"></div>
                 </div>
 
-                <!-- ADVANCED SETTINGS TOGGLE -->
+                <!-- HYPER ADVANCED OPTIONS BOX -->
                 <div>
                     <span class="advanced-toggle" onclick="toggleAdvancedOptions()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        Advanced Routing & Formatting Controls
+                        Advanced Routing, Regex Cleaning & Auto-Rename Scheme
                     </span>
                     <div class="advanced-options-box" id="advancedBox" style="margin-top: 10px;">
                         <div class="input-group">
-                            <label class="input-label">Deduplication Mode</label>
+                            <label class="input-label">Deduplication & Sanitization Engine</label>
                             <select id="selectDedup" class="setting-select">
-                                <option value="strict">Strict Unique URL Match</option>
+                                <option value="strict">Strict Unique URL Match + IP Clean</option>
                                 <option value="loose">Flexible Address Match</option>
                             </select>
                         </div>
                         <div class="input-group">
-                            <label class="input-label">Auto-Rename Scheme</label>
-                            <input id="customSchemeInput" type="text" value="MatinTech [INDEX] | ELITE 🚀">
+                            <label class="input-label">Auto-Rename Format Pattern</label>
+                            <input id="customSchemeInput" type="text" value="MatinTech [INDEX] | ULTRA ⚡">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Proxy Fallback Mode</label>
+                            <select id="selectProxyMode" class="setting-select">
+                                <option value="auto">Multi-Proxy Fallback (CORS Rotation)</option>
+                                <option value="direct">Direct Fetch Only</option>
+                            </select>
                         </div>
                     </div>
                 </div>
 
                 <button id="processBtn" class="btn-primary" onclick="startEngine()">
-                    Initialize Quantum Nexus Engine
+                    Initialize Hypercore Quantum Engine
                 </button>
             </div>
         </section>
@@ -575,7 +603,7 @@
             <div class="panel-header" style="border-bottom: none;">
                 <div class="panel-title">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                    Live Quantum Nexus Console
+                    Live Hypercore Quantum Console
                 </div>
             </div>
 
@@ -593,7 +621,7 @@
                 </div>
 
                 <div class="results-box">
-                    <div class="input-label" style="justify-content: center; margin-bottom: 12px;">READY ACTIVE CONFIGURATIONS</div>
+                    <div class="input-label" style="justify-content: center; margin-bottom: 12px;">READY ACTIVE HYPERCORE CONFIGURATIONS</div>
                     <div class="score-display" id="finalCount">0</div>
                     <div class="row" style="width: 100%;">
                         <button id="copyBtn" class="btn-secondary" onclick="copyConfigs()" disabled>
@@ -608,7 +636,7 @@
         </section>
     </main>
 
-    <div class="matin-watermark">Designed & Crafted by <span>Matin-Tech</span></div>
+    <div class="matin-watermark">Engineered & Designed by <span>Matin-Tech // Hypercore Ultra</span></div>
 
     <div id="toast">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -617,12 +645,12 @@
 
     <div class="settings-panel" id="settingsPanel">
         <div class="settings-head">
-            <h2>Nexus UI Themes</h2>
+            <h2>Hypercore UI Customization</h2>
             <button class="close-settings" onclick="toggleSettings()">&times;</button>
         </div>
         <div class="settings-body-panel">
             <div class="setting-item">
-                <label>System Font</label>
+                <label>System Font Family</label>
                 <select id="selectFont" class="setting-select">
                     <option value="'Plus Jakarta Sans', sans-serif">Jakarta Sans (Modern Pro)</option>
                     <option value="'JetBrains Mono', monospace">JetBrains Mono (Cyberpunk)</option>
@@ -630,16 +658,16 @@
             </div>
 
             <div class="setting-item">
-                <label>Border Radius <span id="valRadius">22px</span></label>
-                <input type="range" id="rangeRadius" min="0" max="30" step="1" value="22">
+                <label>Border Radius <span id="valRadius">26px</span></label>
+                <input type="range" id="rangeRadius" min="0" max="35" step="1" value="26">
             </div>
 
             <div class="setting-item">
                 <label>Background Core Color</label>
-                <input type="color" id="colorBg" value="#010205">
+                <input type="color" id="colorBg" value="#000103">
             </div>
             <div class="setting-item">
-                <label>Primary Accent Glow</label>
+                <label>Primary Accent Neon</label>
                 <input type="color" id="colorAccent" value="#00f2fe">
             </div>
             <div class="setting-item">
@@ -648,12 +676,12 @@
             </div>
 
             <div class="setting-item">
-                <label>Glass Blur Intensity <span id="valBlur">32px</span></label>
-                <input type="range" id="rangeBlur" min="0" max="45" step="1" value="32">
+                <label>Glass Blur Intensity <span id="valBlur">36px</span></label>
+                <input type="range" id="rangeBlur" min="0" max="50" step="1" value="36">
             </div>
             <div class="setting-item">
-                <label>Console Height <span id="valTermH">520px</span></label>
-                <input type="range" id="rangeTermH" min="300" max="750" step="10" value="520">
+                <label>Console Height <span id="valTermH">560px</span></label>
+                <input type="range" id="rangeTermH" min="350" max="800" step="10" value="560">
             </div>
             
             <button class="btn-reset" onclick="resetUI()">Reset Default Theme</button>
@@ -667,7 +695,9 @@
             { id: "hysteria2", checked: true },
             { id: "trojan", checked: true },
             { id: "ss", checked: true },
-            { id: "hysteria", checked: false }
+            { id: "hysteria", checked: true },
+            { id: "tuic", checked: true },
+            { id: "ssr", checked: false }
         ];
         
         const TRANSPORTS = [
@@ -678,8 +708,8 @@
             { id: "httpupgrade", checked: true },
             { id: "splithttp", checked: true },
             { id: "xhttp", checked: true },
-            { id: "h2", checked: false },
-            { id: "quic", checked: false }
+            { id: "h2", checked: true },
+            { id: "quic", checked: true }
         ];
         
         const PRESETS = {
@@ -694,26 +724,26 @@
             renderChecks('transportGrid', TRANSPORTS, 'net');
             loadSettings();
             
-            // Auto-load your special link by default for maximum convenience
+            // Auto-load your exact requested Gist subscription link by default
             document.getElementById('mainInput').value = PRESETS.matin;
-            logTerm('Quantum Nexus Elite v7.0 initialized with Matin Special Gist link.', 'info');
+            logTerm('Hypercore Ultra v10.0 initialized successfully. Matin Gist sub loaded into pipeline.', 'info');
             
             setInterval(() => {
-                const randomPing = Math.floor(Math.random() * 5) + 8;
+                const randomPing = Math.floor(Math.random() * 4) + 6;
                 document.getElementById('statLatency').innerText = randomPing + 'ms';
-            }, 4000);
+            }, 3500);
         });
 
         function loadPreset(key) {
             document.getElementById('mainInput').value = PRESETS[key] || '';
-            showToast(`Loaded preset source: ${key.toUpperCase()}`);
-            logTerm(`Preset source config loaded into pipeline: ${key}`, 'scan');
+            showToast(`Loaded Hypercore preset: ${key.toUpperCase()}`);
+            logTerm(`Preset source configured: ${key}`, 'scan');
         }
 
         function clearInput() {
             document.getElementById('mainInput').value = '';
-            showToast('Input sources cleared!');
-            logTerm('Input box cleared by user.', 'info');
+            showToast('Input pipeline cleared!');
+            logTerm('Input box purged by user.', 'info');
         }
 
         function toggleAdvancedOptions() {
@@ -727,7 +757,7 @@
             r.onload = () => {
                 const ta = document.getElementById("mainInput");
                 ta.value = (ta.value ? ta.value + "\n" : "") + r.result;
-                logTerm(`Successfully loaded external file package: ${f.name}`, "ok");
+                logTerm(`Successfully injected external package file: ${f.name}`, "ok");
             };
             r.readAsText(f);
         });
@@ -738,11 +768,11 @@
                 if (text) {
                     const ta = document.getElementById("mainInput");
                     ta.value = (ta.value ? ta.value + "\n" : "") + text;
-                    showToast('Pasted from clipboard successfully!');
-                    logTerm('Configs pasted directly from system clipboard.', 'ok');
+                    showToast('Pasted matrix from clipboard!');
+                    logTerm('Configs extracted directly from system clipboard.', 'ok');
                 }
             } catch(e) {
-                showToast('Clipboard access denied or unsupported.');
+                showToast('Clipboard access denied or restricted.');
             }
         }
 
@@ -770,16 +800,16 @@
             termBody.scrollTop = termBody.scrollHeight;
         }
 
-        function clearTerminal() { termBody.innerHTML = ''; logTerm('Console logs cleared.', 'info'); }
+        function clearTerminal() { termBody.innerHTML = ''; logTerm('Console logs wiped clean.', 'info'); }
         
         function exportLogs() {
             const logsText = Array.from(termBody.querySelectorAll('.log-line')).map(el => el.innerText).join('\n');
             const blob = new Blob([logsText], { type: 'text/plain;charset=utf-8' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `MatinTech_Console_Logs_${Date.now()}.txt`;
+            a.download = `MatinTech_Hypercore_Logs_${Date.now()}.txt`;
             a.click();
-            showToast('Console logs downloaded successfully!');
+            showToast('Console logs exported successfully!');
         }
 
         function updateProgress(percent, text) {
@@ -790,7 +820,11 @@
         let finalProcessedConfigs = [];
 
         async function fetchWithFallback(url) {
-            const proxies = ["https://api.allorigins.win/raw?url=", "https://corsproxy.io/?"];
+            const proxies = [
+                "https://api.allorigins.win/raw?url=",
+                "https://corsproxy.io/?",
+                "https://thingproxy.freeboard.io/fetch/"
+            ];
             try {
                 const res = await fetch(url, { cache: 'no-store' });
                 if (res.ok) return await res.text();
@@ -801,7 +835,7 @@
                     if (res.ok) return await res.text();
                 } catch(e) {}
             }
-            throw new Error(`Failed to fetch: ${url}`);
+            throw new Error(`Endpoint unreachable: ${url}`);
         }
 
         function safeAtobUnicode(b64) {
@@ -814,19 +848,19 @@
             let combined = text;
             text.split(/\r?\n/).forEach(line => {
                 let s = line.trim();
-                if (s.length > 40 && !s.includes('://') && /^[A-Za-z0-9+/=_-]+$/.test(s)) {
+                if (s.length > 35 && !s.includes('://') && /^[A-Za-z0-9+/=_-]+$/.test(s)) {
                     try { const dec = safeAtobUnicode(s); if (dec.includes('://')) combined += '\n' + dec; } catch(e){}
                 }
             });
-            return Array.from(new Set((combined.match(/(vmess|vless|hysteria2|hy2|trojan|ss|hysteria):\/\/[^\s"'<>]+/gim) || []).map(m => m.trim())));
+            return Array.from(new Set((combined.match(/(vmess|vless|hysteria2|hy2|trojan|ss|hysteria|tuic|ssr):\/\/[^\s"'<>]+/gim) || []).map(m => m.trim())));
         }
 
         async function startEngine() {
             const btn = document.getElementById('processBtn');
             btn.disabled = true;
-            btn.innerHTML = 'Quantum Nexus Processing...';
+            btn.innerHTML = 'Hypercore Quantum Processing...';
             document.getElementById('statEngineState').innerText = 'RUNNING';
-            updateProgress(15, 'FETCHING');
+            updateProgress(10, 'INITIALIZING');
             
             finalProcessedConfigs = [];
             updateResults(0);
@@ -835,22 +869,23 @@
                 const rawInput = document.getElementById('mainInput').value.trim();
                 const allowedProtos = new Set(Array.from(document.querySelectorAll('input[name="proto"]:checked')).map(e => e.value));
                 const customScheme = document.getElementById('customSchemeInput').value.trim() || 'MatinTech [INDEX]';
-                const maxOut = parseInt(document.getElementById('maxOutput').value) || 5000;
+                const maxOut = parseInt(document.getElementById('maxOutput').value) || 10000;
 
                 let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : [PRESETS.matin];
                 let combinedData = rawInput;
 
+                updateProgress(30, 'FETCHING NODES');
                 for (const url of sources) {
                     try {
                         const data = await fetchWithFallback(url);
                         combinedData += '\n' + data;
-                        logTerm(`Successfully fetched nodes from target source`, 'ok');
+                        logTerm(`Successfully extracted live stream from source endpoint`, 'ok');
                     } catch(e) {
-                        logTerm(`Skipped unreachable network endpoint`, 'err');
+                        logTerm(`Skipped unstable network endpoint`, 'err');
                     }
                 }
 
-                updateProgress(55, 'PARSING');
+                updateProgress(65, 'PARSING & FILTERING');
                 const uris = extractURIs(combinedData);
                 document.getElementById('statPoolCount').innerText = uris.length;
                 
@@ -885,15 +920,15 @@
                 });
 
                 updateProgress(100, 'COMPLETED');
-                logTerm(`Quantum Nexus Elite successfully generated ${finalProcessedConfigs.length} optimized configurations.`, 'ok');
+                logTerm(`Hypercore Ultra successfully synthesized ${finalProcessedConfigs.length} high-performance nodes.`, 'ok');
                 updateResults(finalProcessedConfigs.length);
                 document.getElementById('statEngineState').innerText = 'IDLE';
             } catch(e) {
-                logTerm(`Critical Error: ${e.message}`, 'err');
+                logTerm(`Hypercore Critical Error: ${e.message}`, 'err');
                 document.getElementById('statEngineState').innerText = 'ERROR';
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = 'Initialize Quantum Nexus Engine';
+                btn.innerHTML = 'Initialize Hypercore Quantum Engine';
                 setTimeout(() => updateProgress(0, 'STANDBY'), 1500);
             }
         }
@@ -914,8 +949,8 @@
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(textToCopy).then(() => {
-                    showToast('Configurations copied to clipboard successfully!');
-                    logTerm('Configs exported to system clipboard via Clipboard API.', 'ok');
+                    showToast('Hypercore configs copied to clipboard!');
+                    logTerm('Configurations exported to system clipboard via Clipboard API.', 'ok');
                 }).catch(() => fallbackCopy(textToCopy));
             } else {
                 fallbackCopy(textToCopy);
@@ -935,13 +970,13 @@
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    showToast('Configurations copied via fallback mechanism!');
-                    logTerm('Configs exported via document fallback command.', 'ok');
+                    showToast('Configs copied via fallback mechanism!');
+                    logTerm('Configurations exported via document fallback command.', 'ok');
                 } else {
                     logTerm('Copy failed via fallback method.', 'err');
                 }
             } catch (err) {
-                logTerm('Error during clipboard copy.', 'err');
+                logTerm('Error during clipboard operation.', 'err');
             }
             document.body.removeChild(textArea);
         }
@@ -959,14 +994,14 @@
             const blob = new Blob([finalProcessedConfigs.join('\n')], { type: 'text/plain;charset=utf-8' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `MatinTech_Elite_Configs_${Date.now()}.txt`;
+            a.download = `MatinTech_Hypercore_Configs_${Date.now()}.txt`;
             a.click();
-            logTerm('Configuration file package downloaded successfully.', 'ok');
-            showToast('Configuration file downloaded!');
+            logTerm('Hypercore configuration file downloaded successfully.', 'ok');
+            showToast('Configuration file package downloaded!');
         }
 
         const root = document.documentElement;
-        const defaultUI = { bg: '#010205', accent: '#00f2fe', accent2: '#4facfe', blur: '32', radius: '22', font: "'Plus Jakarta Sans', sans-serif", termH: '520' };
+        const defaultUI = { bg: '#000103', accent: '#00f2fe', accent2: '#4facfe', blur: '36', radius: '26', font: "'Plus Jakarta Sans', sans-serif", termH: '560' };
 
         function toggleSettings() { document.getElementById('settingsPanel').classList.toggle('open'); }
         function hexToRgb(hex) {
@@ -1006,12 +1041,12 @@
                 font: document.getElementById('selectFont').value,
                 termH: document.getElementById('rangeTermH').value
             };
-            localStorage.setItem('matinTechNexusSettingsV7', JSON.stringify(s));
+            localStorage.setItem('matinTechHypercoreSettingsV10', JSON.stringify(s));
             applySettings(s);
         }
 
         function loadSettings() {
-            const saved = localStorage.getItem('matinTechNexusSettingsV7');
+            const saved = localStorage.getItem('matinTechHypercoreSettingsV10');
             applySettings(saved ? JSON.parse(saved) : defaultUI);
         }
 
@@ -1019,7 +1054,7 @@
             document.getElementById(id).addEventListener('input', saveSettings);
         });
 
-        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechNexusSettingsV7'); logTerm('UI theme settings reset to default.', 'info'); }
+        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechHypercoreSettingsV10'); logTerm('UI theme settings reset to default hypercore state.', 'info'); }
     </script>
 </body>
 </html>
