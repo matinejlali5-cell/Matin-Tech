@@ -1,12 +1,14 @@
 <!-- ============================================================ -->
-<!--                 M3_ES • MATIN TECH                           -->
+<!--                M3_ES • MATIN TECH                            -->
 <!--             Quantum Nexus Elite v7.0                         -->
 <!-- ============================================================ -->
 
 <p align="center">
 
 <a href="https://t.me/Mr_Matin_official">
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=38&pause=1000&color=00F7FF&center=true&vCenter=true&width=950&height=90&lines=M3_ES+%E2%80%A2+MATIN+TECH;Quantum+Nexus+Elite+v7.0;Professional+V2Ray+Management+Platform;Next+Generation+Configuration+Engine" />
+
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=38&pause=1000&color=00F7FF&center=true&vCenter=true&width=900&height=90&lines=M3_ES+%E2%80%A2+MATIN+TECH;Quantum+Nexus+Elite+v7.0;Professional+V2Ray+Management+Platform;Designed+By+Mohammad+Matin+Ejlali" />
+
 </a>
 
 </p>
@@ -14,13 +16,12 @@
 <p align="center">
 
 <img src="https://img.shields.io/badge/Version-v7.0-00F7FF?style=for-the-badge&logo=github&logoColor=white">
-<img src="https://img.shields.io/badge/Platform-Web-00C2FF?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/Architecture-Client--Side-8B5CF6?style=for-the-badge">
-<img src="https://img.shields.io/badge/Engine-Quantum_Nexus-9333EA?style=for-the-badge">
-<img src="https://img.shields.io/badge/UI-Cyberpunk-06B6D4?style=for-the-badge">
 <img src="https://img.shields.io/badge/Status-Stable-39FF14?style=for-the-badge">
+<img src="https://img.shields.io/badge/Platform-Web-0EA5E9?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/Engine-Quantum_Nexus-8B5CF6?style=for-the-badge">
+<img src="https://img.shields.io/badge/UI-Cyberpunk-06B6D4?style=for-the-badge">
 <img src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge">
-<img src="https://img.shields.io/badge/Built%20By-Matin%20Tech-FF0055?style=for-the-badge">
+<img src="https://img.shields.io/badge/Made%20With-❤️-FF0055?style=for-the-badge">
 
 </p>
 
@@ -33,136 +34,106 @@
 
 ---
 
-<p align="center">
-
-# ⚡ M3_ES • MATIN TECH
-
-### **Quantum Nexus Elite v7.0**
-
-**The Next Generation V2Ray Management Platform**
-
-Enterprise Grade • High Performance • Modern Cyberpunk Interface
-
-</p>
-
----
-
-<p align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
-
-</p>
-
 # 🇮🇷 فارسی
 
 # 🚀 معرفی
 
-**MATIN TECH (M3_ES)** تنها یک استخراج‌کننده کانفیگ نیست.
+**MATIN TECH - Quantum Nexus Elite** یک پلتفرم حرفه‌ای و نسل جدید برای **مدیریت، استخراج، پردازش و بهینه‌سازی کانفیگ‌های V2Ray** است که با رابط کاربری مدرن Cyberpunk و موتور پردازش Quantum Nexus طراحی شده است.
 
-این پروژه یک **پلتفرم حرفه‌ای مدیریت، پردازش، تحلیل و بهینه‌سازی کانفیگ‌های V2Ray** است که با معماری کاملاً **Client-Side** طراحی شده و تمامی عملیات را بدون ارسال حتی یک بایت اطلاعات به سرور انجام می‌دهد.
+تمام عملیات این پروژه به صورت **Client Side** انجام می‌شود؛ یعنی هیچ اطلاعاتی از کاربر به هیچ سروری ارسال نمی‌شود و تمام پردازش‌ها مستقیماً داخل مرورگر انجام می‌گیرند.
 
-نسخه **Quantum Nexus Elite v7.0** نسل جدیدی از موتورهای پردازش کانفیگ محسوب می‌شود که علاوه بر استخراج لینک‌ها، امکانات مدیریتی، داشبورد زنده، شخصی‌سازی رابط کاربری، سیستم امتیازدهی هوشمند، کنسول لحظه‌ای و موتور پردازش چندمرحله‌ای را در اختیار کاربران قرار می‌دهد.
-
-هدف اصلی این پروژه، ارائه سریع‌ترین، حرفه‌ای‌ترین و زیباترین تجربه برای مدیریت کانفیگ‌های V2Ray در محیط مرورگر است.
+نسخه **v7.0** نسبت به نسخه‌های قبلی تنها یک Extractor ساده نیست، بلکه یک پنل مدیریتی کامل با داشبورد، سیستم احراز هویت، کنسول زنده، موتور پردازش هوشمند، تنظیمات حرفه‌ای رابط کاربری و امکانات پیشرفته برای مدیریت کانفیگ‌های V2Ray محسوب می‌شود.
 
 ---
 
-# ✨ قابلیت‌های اصلی
+# ⚡ Quick Start
 
-| بخش | امکانات |
-|------|----------|
-| ⚡ Quantum Processing Engine | موتور پردازش نسل جدید با سرعت بسیار بالا |
-| 🌍 Multi Source Loader | دریافت همزمان اطلاعات از ده‌ها منبع مختلف |
-| 🧠 Smart Scoring Engine | امتیازدهی هوشمند کانفیگ‌ها |
-| 🔍 Advanced Filtering | فیلتر براساس پروتکل و Transport |
-| 🚀 Parallel Processing | پردازش همزمان چندین منبع |
-| 🧹 Smart Deduplication | حذف هوشمند کانفیگ‌های تکراری |
-| 🎨 Quantum UI | رابط کاربری نسل جدید Cyberpunk |
-| 📊 Live Dashboard | داشبورد زنده و لحظه‌ای |
-| 🖥 Live Terminal | کنسول پردازش زنده |
-| 📂 File Import | دریافت فایل TXT |
-| 📋 Clipboard Support | کپی مستقیم خروجی |
-| 📥 Dynamic Export | دانلود فایل خروجی |
-| 🎛 Theme Manager | شخصی‌سازی کامل رابط کاربری |
-| 🔐 Login System | سیستم احراز هویت |
-| 💾 Local Storage | ذخیره تنظیمات کاربر |
-| 📱 Responsive UI | سازگار با موبایل و دسکتاپ |
-| 🛡 Privacy First | بدون ارسال اطلاعات به سرور |
+در کمتر از یک دقیقه می‌توانید پنل را اجرا کنید.
 
----
+## ① دانلود پروژه
 
-# 🧠 موتور Quantum Nexus
+Repository را Clone کنید:
 
-هسته مرکزی پروژه با چندین مرحله مختلف عملیات پردازش را انجام می‌دهد.
-
-```
-Input Sources
-        │
-        ▼
-Preset Manager
-        │
-        ▼
-Parallel Fetch Engine
-        │
-        ▼
-Base64 Decoder
-        │
-        ▼
-URI Extractor
-        │
-        ▼
-Protocol Analyzer
-        │
-        ▼
-Transport Analyzer
-        │
-        ▼
-Quality Score Engine
-        │
-        ▼
-Duplicate Detection
-        │
-        ▼
-Remark Generator
-        │
-        ▼
-Sorting Engine
-        │
-        ▼
-Export Builder
-        │
-        ▼
-Copy / Download
+```bash
+git clone https://github.com/matinejlali5-cell/Matin-Tech.git
 ```
 
----
-
-# 🔥 Quantum Processing Pipeline
-
-هنگام اجرای موتور، مراحل زیر به ترتیب انجام می‌شوند:
-
-- بررسی داده‌های ورودی
-- بارگذاری منابع پیش‌فرض
-- دریافت همزمان Subscriptionها
-- دریافت فایل‌های متنی
-- شناسایی لینک‌ها
-- رمزگشایی Base64
-- استخراج URIها
-- اعتبارسنجی ساختار کانفیگ
-- تشخیص پروتکل
-- تشخیص Transport
-- امتیازدهی هوشمند
-- حذف کانفیگ‌های تکراری
-- مرتب‌سازی نهایی
-- اعمال نام دلخواه
-- آماده‌سازی خروجی
-- نمایش نتیجه در داشبورد
-- فعال‌سازی دکمه دانلود
-- فعال‌سازی دکمه کپی
+یا فایل ZIP پروژه را دانلود و استخراج نمایید.
 
 ---
 
-# 🚀 پروتکل‌های پشتیبانی‌شده
+## ② اجرای پنل
+
+کافی است فایل زیر را اجرا کنید:
+
+```text
+index.html
+```
+
+یا پروژه را روی GitHub Pages، Cloudflare Pages و یا هر Web Server دلخواه قرار دهید.
+
+---
+
+## ③ ورود به پنل
+
+اطلاعات ورود پیش‌فرض:
+
+| Username | Password |
+|----------|----------|
+| **admin** | **admin** |
+
+> ⚠️ این اطلاعات ورود پیش‌فرض هستند و در صورت شخصی‌سازی پروژه می‌توانید آن‌ها را تغییر دهید.
+
+---
+
+## ④ شروع استفاده
+
+پس از ورود موفق به پنل، امکانات زیر در اختیار شما قرار می‌گیرد:
+
+- 🌍 بارگذاری منابع
+- ⚡ استخراج کانفیگ
+- 🔍 فیلتر هوشمند
+- 📊 داشبورد لحظه‌ای
+- 🖥 Live Terminal
+- 📥 دانلود خروجی
+- 📋 کپی خروجی
+- 🎨 شخصی‌سازی کامل رابط کاربری
+
+---
+
+# 📖 نحوه استفاده
+
+### مرحله اول
+
+وارد پنل شوید.
+
+### مرحله دوم
+
+یکی از روش‌های زیر را انتخاب کنید:
+
+- لینک Subscription
+- فایل TXT
+- متن خام کانفیگ‌ها
+
+در صورتی که ورودی خالی باشد، موتور Quantum Nexus به صورت خودکار از منابع پیش‌فرض استفاده خواهد کرد.
+
+### مرحله سوم
+
+Remark یا نام دلخواه کانفیگ‌ها را وارد کنید.
+
+---
+
+### مرحله چهارم
+
+حداکثر تعداد Nodeهای خروجی را مشخص نمایید.
+
+---
+
+### مرحله پنجم
+
+پروتکل‌های مورد نظر خود را انتخاب کنید.
+
+پشتیبانی شده:
 
 - ✅ VLESS
 - ✅ VMess
@@ -173,7 +144,9 @@ Copy / Download
 
 ---
 
-# 🌐 Transportهای قابل پردازش
+### مرحله ششم
+
+Transportهای مورد نظر را انتخاب کنید.
 
 - WS
 - gRPC
@@ -187,52 +160,43 @@ Copy / Download
 
 ---
 
-# ⭐ مزیت‌های نسخه Quantum Nexus Elite
+### مرحله هفتم
 
-✔ رابط کاربری کاملاً بازطراحی شده
+روی دکمه
 
-✔ موتور پردازش نسل جدید
+# INITIALIZE PROCESSING ENGINE
 
-✔ سرعت بالاتر
-
-✔ داشبورد زنده
-
-✔ سیستم احراز هویت
-
-✔ کنسول لحظه‌ای
-
-✔ شخصی‌سازی کامل رابط کاربری
-
-✔ سیستم امتیازدهی پیشرفته
-
-✔ پردازش همزمان منابع
-
-✔ طراحی Cyberpunk
-
-✔ ذخیره تنظیمات در LocalStorage
-
-✔ معماری کاملاً Client Side
-
-✔ بدون نیاز به Backend
-
-✔ بدون Database
-
-✔ بدون API اختصاصی
-
-✔ بدون ارسال اطلاعات کاربران
+کلیک کنید.
 
 ---
 
-# 💎 چرا MATIN TECH؟
+### مرحله هشتم
 
-برخلاف ابزارهای معمول استخراج کانفیگ، **MATIN TECH** صرفاً یک Extractor نیست.
+در زمان پردازش می‌توانید موارد زیر را مشاهده کنید:
 
-این پروژه یک **Enterprise Grade Configuration Management Platform** است که با الهام از رابط‌های مدرن امنیت سایبری طراحی شده و مجموعه‌ای از قابلیت‌های مدیریتی، پردازشی و تحلیلی را در یک فایل HTML واحد ارائه می‌دهد.
+- وضعیت موتور
+- Live Console
+- Progress Bar
+- تعداد کانفیگ‌های پردازش شده
+- وضعیت منابع
+- آمار لحظه‌ای
 
-تمرکز اصلی این پروژه روی سه اصل مهم است:
+---
 
-- 🚀 سرعت پردازش بسیار بالا
-- 🔒 حفظ کامل حریم خصوصی کاربران
-- 🎨 تجربه کاربری مدرن و حرفه‌ای
+### مرحله نهم
+
+پس از پایان پردازش می‌توانید:
+
+- 📋 خروجی را Copy کنید.
+- 📥 فایل TXT دانلود کنید.
+- 🔄 دوباره پردازش را اجرا کنید.
+
+---
+
+# ✨ چرا MATIN TECH؟
+
+برخلاف ابزارهای معمول استخراج کانفیگ، **MATIN TECH** تنها یک Config Extractor نیست.
+
+این پروژه یک **Enterprise Grade V2Ray Management Platform** است که برای مدیریت، پردازش، فیلتر، تحلیل و شخصی‌سازی کانفیگ‌ها طراحی شده و تمامی امکانات موردنیاز را در قالب یک فایل HTML در اختیار شما قرار می‌دهد.
 
 ---
