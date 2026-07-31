@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>MATIN TECH // QUANTUM CORE ENGINE</title>
+    <title>MATIN TECH // QUANTUM CORE ENGINE X</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #030407;
-            --panel-rgb: 10, 12, 19;
-            --panel-opacity: 0.85;
+            --bg-color: #020306;
+            --panel-rgb: 8, 10, 16;
+            --panel-opacity: 0.90;
             --accent-hex: #00f2fe; 
             --accent-rgb: 0, 242, 254;
             --accent2-hex: #4facfe; 
             --text-color: #f8fafc;
-            --grid-opacity: 0.2;
-            --blur-intensity: 22px;
-            --radius-val: 16px;
-            --glow-intensity: 1.2;
+            --grid-opacity: 0.25;
+            --blur-intensity: 25px;
+            --radius-val: 18px;
+            --glow-intensity: 1.4;
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --term-height: 440px;
             
             --bg: var(--bg-color);
             --card: rgb(var(--panel-rgb));
             --panel: rgba(var(--panel-rgb), var(--panel-opacity));
-            --border: rgba(var(--accent-rgb), 0.25);
-            --border-glow: rgba(var(--accent-rgb), calc(0.6 * var(--glow-intensity)));
+            --border: rgba(var(--accent-rgb), 0.3);
+            --border-glow: rgba(var(--accent-rgb), calc(0.7 * var(--glow-intensity)));
             --text: var(--text-color);
-            --muted: rgba(248, 250, 252, 0.45);
+            --muted: rgba(248, 250, 252, 0.5);
             --accent: var(--accent-hex);
             --accent2: var(--accent2-hex);
-            --accent-glow: rgba(var(--accent-rgb), calc(0.45 * var(--glow-intensity)));
+            --accent-glow: rgba(var(--accent-rgb), calc(0.5 * var(--glow-intensity)));
             
             --good: #10b981;
             --bad: #ef4444;
@@ -41,7 +41,7 @@
             --mono: 'JetBrains Mono', ui-monospace, monospace;
             --sans: var(--font-main);
             --radius: var(--radius-val);
-            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+            --shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.9), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,31 +55,41 @@
             scroll-behavior: smooth;
         }
 
-        /* Holographic Cyber Grid */
+        /* Holographic Cyber Grid با انیمیشن حرکت */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: 
-                linear-gradient(to right, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(to right, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: 0;
             pointer-events: none;
             opacity: var(--grid-opacity);
+            animation: gridMove 30s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
         }
 
-        /* Ambient Glow Spheres */
+        /* Ambient Glow Spheres پیشرفته */
         .ambient-glow {
             position: fixed;
-            width: 45vw; height: 45vw;
-            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.09) 0%, rgba(0,0,0,0) 70%);
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.12) 0%, rgba(0,0,0,0) 70%);
             z-index: 0; pointer-events: none;
-            filter: blur(90px);
+            filter: blur(100px);
             border-radius: 50%;
+            animation: floatGlow 12s ease-in-out infinite alternate;
         }
-        .ambient-1 { top: -15%; left: -10%; }
-        .ambient-2 { bottom: -15%; right: -10%; background: radial-gradient(circle, rgba(79, 172, 254, 0.08) 0%, rgba(0,0,0,0) 70%); }
+        .ambient-1 { top: -20%; left: -10%; }
+        .ambient-2 { bottom: -20%; right: -10%; background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, rgba(0,0,0,0) 70%); animation-delay: -6s; }
+        @keyframes floatGlow {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(30px) scale(1.1); }
+        }
 
         /* --- LUXURY HEADER --- */
         .app-header {
@@ -89,12 +99,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: rgba(10, 12, 19, 0.75);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 18px 36px;
+            background: rgba(8, 10, 16, 0.82);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
         .header-brand {
@@ -104,15 +114,23 @@
         }
 
         .brand-logo-box {
-            width: 44px; height: 44px;
+            width: 48px; height: 48px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px var(--accent-glow);
-            color: #030407; font-weight: 800; font-size: 20px;
+            box-shadow: 0 0 25px var(--accent-glow);
+            color: #020306; font-weight: 800; font-size: 22px;
+            position: relative; overflow: hidden;
         }
+        .brand-logo-box::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(45deg) translateX(-100%);
+            animation: shine 4s ease-in-out infinite;
+        }
+        @keyframes shine { 0% { transform: rotate(45deg) translateX(-100%); } 20%, 100% { transform: rotate(45deg) translateX(100%); } }
 
-        .header-title-group { display: flex; flex-direction: column; gap: 2px; }
+        .header-title-group { display: flex; flex-direction: column; gap: 3px; }
 
         .header-title {
             font-size: clamp(18px, 3vw, 24px);
@@ -124,13 +142,13 @@
 
         .header-title span {
             color: var(--accent);
-            text-shadow: 0 0 15px var(--accent-glow);
+            text-shadow: 0 0 20px var(--accent-glow);
         }
         
         .header-subtitle {
             font-size: 10px;
             font-weight: 700;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.3em;
             color: var(--muted);
             text-transform: uppercase;
         }
@@ -139,34 +157,48 @@
 
         .header-btn {
             background: rgba(var(--accent-rgb), 0.08);
-            border: 1px solid rgba(var(--accent-rgb), 0.3);
+            border: 1px solid rgba(var(--accent-rgb), 0.35);
             color: var(--accent);
-            width: 44px;
-            height: 44px;
+            width: 44px; height: 44px;
             border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .header-btn:hover {
             background: var(--accent);
-            color: #030407;
+            color: #020306;
             border-color: var(--accent);
-            box-shadow: 0 0 25px var(--accent-glow);
+            box-shadow: 0 0 30px var(--accent-glow);
             transform: translateY(-2px);
         }
+
+        /* --- QUICK STATS TICKER --- */
+        .stats-ticker {
+            max-width: 1400px; margin: 24px auto 0; padding: 0 24px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
+            position: relative; z-index: 2;
+        }
+        .stat-card {
+            background: var(--panel); border: 1px solid var(--border);
+            padding: 16px 20px; border-radius: 14px; backdrop-filter: blur(20px);
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s;
+        }
+        .stat-card:hover { border-color: var(--border-glow); transform: translateY(-2px); }
+        .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-info h3 { font-size: 16px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 2px; }
+        .stat-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(var(--accent-rgb), 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent); }
 
         /* --- MAIN LAYOUT --- */
         main {
             position: relative; z-index: 2;
             max-width: 1400px;
-            margin: 36px auto;
+            margin: 24px auto 36px;
             padding: 0 24px;
             display: grid;
-            gap: 32px;
+            gap: 28px;
             grid-template-columns: 1fr;
         }
 
@@ -183,21 +215,20 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             position: relative;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             overflow: hidden;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .panel:hover {
             border-color: var(--border-glow);
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(var(--accent-rgb), 0.1);
+            box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.95), 0 0 40px rgba(var(--accent-rgb), 0.12);
         }
 
         .panel-header {
-            padding: 22px 26px;
-            background: rgba(0, 0, 0, 0.25);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 20px 24px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: flex; justify-content: space-between; align-items: center;
         }
 
@@ -210,13 +241,13 @@
         .status-dot {
             width: 8px; height: 8px; border-radius: 50%;
             background: var(--accent);
-            box-shadow: 0 0 12px var(--accent);
+            box-shadow: 0 0 15px var(--accent);
             animation: pulse-dot 2s infinite;
         }
 
         @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.85); } 100% { opacity: 1; transform: scale(1); } }
 
-        .panel-body { padding: 26px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1; }
+        .panel-body { padding: 24px; display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
 
         /* Form Controls */
         .input-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
@@ -227,30 +258,34 @@
         }
 
         textarea, input[type="text"], input[type="number"] {
-            width: 100%; background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;
+            width: 100%; background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px;
             padding: 14px 18px; color: var(--text);
             font-family: var(--mono); font-size: 13px;
             line-height: 1.5; outline: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        textarea { min-height: 140px; resize: vertical; padding-right: 56px; }
+        textarea { min-height: 130px; resize: vertical; padding-right: 56px; }
 
         textarea:focus, input:focus {
             border-color: var(--accent);
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15), inset 0 0 10px rgba(var(--accent-rgb), 0.05);
+            background: rgba(0, 0, 0, 0.75);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15), inset 0 0 12px rgba(var(--accent-rgb), 0.08);
         }
         
-        .attach-btn {
+        .textarea-actions {
             position: absolute; right: 10px; bottom: 10px;
-            width: 38px; height: 38px; border-radius: 10px;
+            display: flex; gap: 6px;
+        }
+
+        .action-icon-btn {
+            width: 36px; height: 36px; border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04);
             color: var(--text); cursor: pointer;
             display: flex; align-items: center; justify-content: center; transition: all 0.25s;
         }
-        .attach-btn:hover { background: var(--accent); color: #030407; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
-        .attach-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; }
+        .action-icon-btn:hover { background: var(--accent); color: #020306; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+        .action-icon-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; }
 
         .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
 
@@ -259,34 +294,34 @@
         
         .check-box {
             display: flex; align-items: center; justify-content: center;
-            background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.06);
             padding: 11px; border-radius: 12px;
             cursor: pointer; transition: all 0.25s ease; user-select: none;
         }
         .check-box:has(input:checked) {
-            background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.15);
+            background: rgba(var(--accent-rgb), 0.15); border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.18);
         }
         .check-box input { display: none; }
         .check-box span { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); transition: color 0.2s; }
-        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
+        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
 
         /* Action Buttons */
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), var(--accent2)); 
-            color: #030407;
+            color: #020306;
             border: none; border-radius: 14px;
             padding: 18px; font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
             text-transform: uppercase; cursor: pointer;
-            box-shadow: 0 8px 30px var(--accent-glow);
+            box-shadow: 0 10px 35px var(--accent-glow);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             display: flex; align-items: center; justify-content: center; gap: 12px;
-            font-family: var(--sans);
+            font-family: var(--sans); position: relative; overflow: hidden;
         }
 
         .btn-primary:hover:not(:disabled) {
             filter: brightness(1.15);
-            box-shadow: 0 12px 35px var(--accent-glow);
+            box-shadow: 0 15px 40px var(--accent-glow);
             transform: translateY(-2px);
         }
 
@@ -300,21 +335,21 @@
         }
 
         .btn-secondary:hover:not(:disabled) {
-            background: rgba(var(--accent-rgb), 0.1); border-color: var(--accent);
-            color: #fff; box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.15); transform: translateY(-1px);
+            background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent);
+            color: #fff; box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.18); transform: translateY(-1px);
         }
         .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
 
         /* Terminal Console */
         .terminal-panel {
-            background: #020305; border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #010204; border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 14px; display: flex; flex-direction: column; overflow: hidden;
             position: relative; height: var(--term-height); transition: height 0.3s ease;
-            box-shadow: inset 0 4px 20px rgba(0,0,0,0.8);
+            box-shadow: inset 0 4px 25px rgba(0,0,0,0.9);
         }
 
         .term-header {
-            background: rgba(0, 0, 0, 0.5); padding: 12px 18px;
+            background: rgba(0, 0, 0, 0.6); padding: 12px 18px;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -323,12 +358,15 @@
         .blink { animation: blink 1s step-end infinite; color: var(--accent); font-weight: bold; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        .btn-clear {
-            background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); color: var(--bad);
+        .term-actions { display: flex; gap: 8px; }
+
+        .btn-term-action {
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text);
             font-family: var(--mono); font-size: 10px; padding: 4px 10px; cursor: pointer; transition: 0.2s;
             border-radius: 6px; font-weight: 700;
         }
-        .btn-clear:hover { background: rgba(239, 68, 68, 0.15); box-shadow: 0 0 10px rgba(239,68,68,0.2); }
+        .btn-term-action:hover { background: rgba(var(--accent-rgb), 0.15); border-color: var(--accent); color: var(--accent); }
+        .btn-term-action.danger:hover { background: rgba(239, 68, 68, 0.15); border-color: var(--bad); color: var(--bad); }
 
         .term-body {
             padding: 16px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
@@ -340,8 +378,9 @@
 
         .log-line {
             display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
-            word-break: break-all;
+            word-break: break-all; animation: fadeInLog 0.2s ease;
         }
+        @keyframes fadeInLog { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
         .log-time { color: rgba(255,255,255,0.25); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
         .log-badge {
@@ -358,38 +397,38 @@
 
         /* Progress Bar */
         .scan-progress { height: 3px; background: rgba(255,255,255,0.03); width: 100%; position: relative; overflow: hidden; }
-        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.3s ease; box-shadow: 0 0 10px var(--accent); }
+        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.3s ease; box-shadow: 0 0 15px var(--accent); }
 
         /* Results Box */
         .results-box {
-            background: rgba(0, 0, 0, 0.3); border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 26px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.35); border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         
         .score-display {
             font-size: clamp(42px, 5.5vw, 68px); font-weight: 800; font-family: var(--sans); color: #fff;
-            line-height: 1; margin-bottom: 20px;
+            line-height: 1; margin-bottom: 18px;
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-shadow: 0 0 30px rgba(var(--accent-rgb), 0.25);
+            text-shadow: 0 0 35px rgba(var(--accent-rgb), 0.3);
         }
         .score-display.bump { transform: scale(1.12); color: var(--accent); }
 
         /* Watermark */
         .matin-watermark {
             text-align: center; font-family: var(--sans); font-size: 11px; font-weight: 700;
-            letter-spacing: 3px; padding: 30px 0; color: var(--muted); text-transform: uppercase;
+            letter-spacing: 3px; padding: 25px 0; color: var(--muted); text-transform: uppercase;
         }
-        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 10px var(--accent-glow); }
+        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 15px var(--accent-glow); }
 
         /* Toast Notification Popup */
         #toast {
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: rgba(10, 12, 19, 0.95); backdrop-filter: blur(20px);
+            background: rgba(8, 10, 16, 0.96); backdrop-filter: blur(25px);
             border: 1px solid var(--accent); color: #fff; padding: 14px 28px;
             border-radius: 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px var(--accent-glow);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.9), 0 0 30px var(--accent-glow);
             z-index: 9999; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
-            opacity: 0; display: flex; align-items: center; gap: 10px;
+            opacity: 0; display: flex; align-items: center; gap: 12px;
         }
         #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
         #toast svg { width: 18px; height: 18px; stroke: var(--accent); }
@@ -398,9 +437,9 @@
         .settings-panel {
             position: fixed; top: 0; right: -420px;
             width: 380px; max-width: 100vw; height: 100vh;
-            background: rgba(8, 10, 16, 0.96); backdrop-filter: blur(30px);
+            background: rgba(6, 8, 14, 0.98); backdrop-filter: blur(35px);
             border-left: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: -30px 0 60px rgba(0,0,0,0.9); z-index: 1001;
+            box-shadow: -40px 0 80px rgba(0,0,0,0.95); z-index: 1001;
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex; flex-direction: column;
         }
@@ -425,7 +464,7 @@
         }
 
         input[type="range"] { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.1); outline: none; border-radius: 3px; }
-        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 12px var(--accent); }
 
         input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 38px; border-radius: 12px; cursor: pointer; background: rgba(0,0,0,0.4); padding: 2px; border: 1px solid rgba(255,255,255,0.1); }
         input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
@@ -445,7 +484,7 @@
             <div class="brand-logo-box">M</div>
             <div class="header-title-group">
                 <h1 class="header-title">MATIN <span>TECH</span></h1>
-                <div class="header-subtitle">Quantum Core Engine v3.5</div>
+                <div class="header-subtitle">Quantum Core Engine X</div>
             </div>
         </div>
         <div class="header-actions">
@@ -457,6 +496,37 @@
         </div>
     </header>
 
+    <!-- QUICK LIVE METRICS TICKER -->
+    <div class="stats-ticker">
+        <div class="stat-card">
+            <div class="stat-info">
+                <span>Active Engine Status</span>
+                <h3 id="statEngineState">ONLINE</h3>
+            </div>
+            <div class="stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span>Parsed Nodes Pool</span>
+                <h3 id="statPoolCount">0</h3>
+            </div>
+            <div class="stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span>System Latency</span>
+                <h3 id="statLatency">14ms</h3>
+            </div>
+            <div class="stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+        </div>
+    </div>
+
     <main>
         <section class="panel">
             <div class="panel-header">
@@ -467,11 +537,17 @@
                 <div class="input-group">
                     <label class="input-label">Subscription Links / Raw Configs</label>
                     <textarea id="mainInput" placeholder="Paste subscription links or base64 configs here..."></textarea>
-                    <button class="attach-btn" type="button" title="Upload File" onclick="document.getElementById('fileInput').click()">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
-                        </svg>
-                    </button>
+                    
+                    <div class="textarea-actions">
+                        <button class="action-icon-btn" type="button" title="Paste from Clipboard" onclick="pasteFromClipboard()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                        </button>
+                        <button class="action-icon-btn" type="button" title="Upload File" onclick="document.getElementById('fileInput').click()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </button>
+                    </div>
                     <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
                 </div>
 
@@ -514,14 +590,17 @@
                 <div class="terminal-panel">
                     <div class="term-header">
                         <div class="term-status-box">STATUS: <span id="termStatus">STANDBY</span><span class="blink">_</span></div>
-                        <button class="btn-clear" onclick="clearTerminal()">CLEAR LOGS</button>
+                        <div class="term-actions">
+                            <button class="btn-term-action" onclick="exportLogs()">EXPORT LOGS</button>
+                            <button class="btn-term-action danger" onclick="clearTerminal()">CLEAR</button>
+                        </div>
                     </div>
                     <div class="scan-progress"><div class="scan-bar" id="scanBar"></div></div>
                     <div class="term-body" id="termBody"></div>
                 </div>
 
                 <div class="results-box">
-                    <div class="input-label" style="justify-content: center; margin-bottom: 14px;">READY ACTIVE CONFIGURATIONS</div>
+                    <div class="input-label" style="justify-content: center; margin-bottom: 12px;">READY ACTIVE CONFIGURATIONS</div>
                     <div class="score-display" id="finalCount">0</div>
                     <div class="row" style="width: 100%;">
                         <button id="copyBtn" class="btn-secondary" onclick="copyConfigs()" disabled>
@@ -558,13 +637,13 @@
             </div>
 
             <div class="setting-item">
-                <label>Border Radius <span id="valRadius">16px</span></label>
-                <input type="range" id="rangeRadius" min="0" max="28" step="1" value="16">
+                <label>Border Radius <span id="valRadius">18px</span></label>
+                <input type="range" id="rangeRadius" min="0" max="28" step="1" value="18">
             </div>
 
             <div class="setting-item">
                 <label>Background Core Color</label>
-                <input type="color" id="colorBg" value="#030407">
+                <input type="color" id="colorBg" value="#020306">
             </div>
             <div class="setting-item">
                 <label>Primary Accent Glow</label>
@@ -576,8 +655,8 @@
             </div>
 
             <div class="setting-item">
-                <label>Glass Blur Intensity <span id="valBlur">22px</span></label>
-                <input type="range" id="rangeBlur" min="0" max="40" step="1" value="22">
+                <label>Glass Blur Intensity <span id="valBlur">25px</span></label>
+                <input type="range" id="rangeBlur" min="0" max="40" step="1" value="25">
             </div>
             <div class="setting-item">
                 <label>Console Height <span id="valTermH">440px</span></label>
@@ -621,7 +700,13 @@
             renderChecks('protocolGrid', PROTOCOLS, 'proto');
             renderChecks('transportGrid', TRANSPORTS, 'net');
             loadSettings();
-            logTerm('Quantum Engine initialized. Ready for task execution.', 'info');
+            logTerm('Quantum Engine v10.X initialized. Ready for high-speed routing.', 'info');
+            
+            // شبیه‌سازی پینگ پویا
+            setInterval(() => {
+                const randomPing = Math.floor(Math.random() * 8) + 12;
+                document.getElementById('statLatency').innerText = randomPing + 'ms';
+            }, 5000);
         });
 
         document.getElementById("fileInput").addEventListener("change", function(e) {
@@ -635,6 +720,20 @@
             };
             r.readAsText(f);
         });
+
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                if (text) {
+                    const ta = document.getElementById("mainInput");
+                    ta.value = (ta.value ? ta.value + "\n" : "") + text;
+                    showToast('Pasted from clipboard successfully!');
+                    logTerm('Configs pasted directly from clipboard.', 'ok');
+                }
+            } catch(e) {
+                showToast('Clipboard permission denied or unavailable.');
+            }
+        }
 
         function renderChecks(containerId, items, name) {
             document.getElementById(containerId).innerHTML = items.map(item => `
@@ -661,6 +760,17 @@
         }
 
         function clearTerminal() { termBody.innerHTML = ''; logTerm('Console logs cleared.', 'info'); }
+        
+        function exportLogs() {
+            const logsText = Array.from(termBody.querySelectorAll('.log-line')).map(el => el.innerText).join('\n');
+            const blob = new Blob([logsText], { type: 'text/plain;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `MatinTech_Console_Logs_${Date.now()}.txt`;
+            a.click();
+            showToast('Console logs exported!');
+        }
+
         function updateProgress(percent, text) {
             document.getElementById('scanBar').style.width = `${percent}%`;
             if (text) document.getElementById('termStatus').innerText = text;
@@ -704,6 +814,7 @@
             const btn = document.getElementById('processBtn');
             btn.disabled = true;
             btn.innerHTML = 'Quantum Processing...';
+            document.getElementById('statEngineState').innerText = 'RUNNING';
             updateProgress(15, 'FETCHING');
             
             finalProcessedConfigs = [];
@@ -730,6 +841,7 @@
 
                 updateProgress(55, 'PARSING');
                 const uris = extractURIs(combinedData);
+                document.getElementById('statPoolCount').innerText = uris.length;
                 
                 const uniqueMap = new Map();
                 uris.forEach(uri => {
@@ -764,8 +876,10 @@
                 updateProgress(100, 'COMPLETED');
                 logTerm(`Quantum pipeline successfully generated ${finalProcessedConfigs.length} high-speed configurations.`, 'ok');
                 updateResults(finalProcessedConfigs.length);
+                document.getElementById('statEngineState').innerText = 'IDLE';
             } catch(e) {
                 logTerm(`Critical Error: ${e.message}`, 'err');
+                document.getElementById('statEngineState').innerText = 'ERROR';
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = 'Initialize Processing Engine';
@@ -841,7 +955,7 @@
         }
 
         const root = document.documentElement;
-        const defaultUI = { bg: '#030407', accent: '#00f2fe', accent2: '#4facfe', blur: '22', radius: '16', font: "'Plus Jakarta Sans', sans-serif", termH: '440' };
+        const defaultUI = { bg: '#020306', accent: '#00f2fe', accent2: '#4facfe', blur: '25', radius: '18', font: "'Plus Jakarta Sans', sans-serif", termH: '440' };
 
         function toggleSettings() { document.getElementById('settingsPanel').classList.toggle('open'); }
         function hexToRgb(hex) {
@@ -873,6 +987,7 @@
 
         function saveSettings() {
             const s = {
+                bg: document.getElementById('colorBg5') || document.getElementById('colorBg').value,
                 bg: document.getElementById('colorBg').value,
                 accent: document.getElementById('colorAccent').value,
                 accent2: document.getElementById('colorAccent2').value,
@@ -881,12 +996,12 @@
                 font: document.getElementById('selectFont').value,
                 termH: document.getElementById('rangeTermH').value
             };
-            localStorage.setItem('matinTechQuantumSettings', JSON.stringify(s));
+            localStorage.setItem('matinTechQuantumSettingsX', JSON.stringify(s));
             applySettings(s);
         }
 
         function loadSettings() {
-            const saved = localStorage.getItem('matinTechQuantumSettings');
+            const saved = localStorage.getItem('matinTechQuantumSettingsX');
             applySettings(saved ? JSON.parse(saved) : defaultUI);
         }
 
@@ -894,7 +1009,7 @@
             document.getElementById(id).addEventListener('input', saveSettings);
         });
 
-        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechQuantumSettings'); logTerm('UI theme settings reset to default.', 'info'); }
+        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechQuantumSettingsX'); logTerm('UI theme settings reset to default.', 'info'); }
     </script>
 </body>
 </html>
