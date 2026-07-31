@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>MATIN TECH // QUANTUM ULTRA v6.0</title>
+    <title>MATIN TECH // QUANTUM NEXUS ELITE v7.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #010204;
-            --panel-rgb: 6, 8, 14;
-            --panel-opacity: 0.92;
+            --bg-color: #010205;
+            --panel-rgb: 5, 8, 15;
+            --panel-opacity: 0.94;
             --accent-hex: #00f2fe; 
             --accent-rgb: 0, 242, 254;
             --accent2-hex: #4facfe; 
+            --accent3-hex: #a855f7;
             --text-color: #f8fafc;
-            --grid-opacity: 0.3;
-            --blur-intensity: 28px;
-            --radius-val: 20px;
-            --glow-intensity: 1.6;
+            --grid-opacity: 0.35;
+            --blur-intensity: 32px;
+            --radius-val: 22px;
+            --glow-intensity: 1.8;
             --font-main: 'Plus Jakarta Sans', sans-serif;
-            --term-height: 480px;
+            --term-height: 520px;
             
             --bg: var(--bg-color);
             --card: rgb(var(--panel-rgb));
             --panel: rgba(var(--panel-rgb), var(--panel-opacity));
-            --border: rgba(var(--accent-rgb), 0.35);
-            --border-glow: rgba(var(--accent-rgb), calc(0.8 * var(--glow-intensity)));
+            --border: rgba(var(--accent-rgb), 0.38);
+            --border-glow: rgba(var(--accent-rgb), calc(0.85 * var(--glow-intensity)));
             --text: var(--text-color);
-            --muted: rgba(248, 250, 252, 0.55);
+            --muted: rgba(248, 250, 252, 0.52);
             --accent: var(--accent-hex);
             --accent2: var(--accent2-hex);
-            --accent-glow: rgba(var(--accent-rgb), calc(0.6 * var(--glow-intensity)));
+            --accent3: var(--accent3-hex);
+            --accent-glow: rgba(var(--accent-rgb), calc(0.65 * var(--glow-intensity)));
             
             --good: #10b981;
             --bad: #ef4444;
@@ -42,7 +44,7 @@
             --mono: 'JetBrains Mono', ui-monospace, monospace;
             --sans: var(--font-main);
             --radius: var(--radius-val);
-            --shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.95), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+            --shadow: 0 45px 90px -15px rgba(0, 0, 0, 0.98), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,107 +63,107 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: 
-                linear-gradient(to right, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px);
-            background-size: 45px 45px;
+                linear-gradient(to right, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px);
+            background-size: 40px 40px;
             z-index: 0; pointer-events: none;
             opacity: var(--grid-opacity);
-            animation: gridMove 25s linear infinite;
+            animation: gridMove 30s linear infinite;
         }
         @keyframes gridMove {
             0% { background-position: 0 0; }
-            100% { background-position: 45px 45px; }
+            100% { background-position: 40px 40px; }
         }
 
         .ambient-glow {
             position: fixed;
-            width: 55vw; height: 55vw;
-            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, rgba(0,0,0,0) 70%);
+            width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.16) 0%, rgba(0,0,0,0) 70%);
             z-index: 0; pointer-events: none;
-            filter: blur(120px);
+            filter: blur(130px);
             border-radius: 50%;
-            animation: floatGlow 10s ease-in-out infinite alternate;
+            animation: floatGlow 12s ease-in-out infinite alternate;
         }
-        .ambient-1 { top: -25%; left: -15%; }
-        .ambient-2 { bottom: -25%; right: -15%; background: radial-gradient(circle, rgba(79, 172, 254, 0.12) 0%, rgba(0,0,0,0) 70%); animation-delay: -5s; }
+        .ambient-1 { top: -30%; left: -20%; }
+        .ambient-2 { bottom: -30%; right: -20%; background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, rgba(0,0,0,0) 70%); animation-delay: -6s; }
         @keyframes floatGlow {
             0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(40px) scale(1.15); }
+            100% { transform: translateY(45px) scale(1.18); }
         }
 
         /* --- HEADER --- */
         .app-header {
             position: sticky; top: 0; z-index: 100;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 40px;
-            background: rgba(6, 8, 14, 0.85);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(var(--accent-rgb), 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            background: rgba(5, 8, 15, 0.88);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
         }
 
         .header-brand { display: flex; align-items: center; gap: 16px; }
 
         .brand-logo-box {
-            width: 50px; height: 50px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, var(--accent), var(--accent3));
             border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 30px var(--accent-glow);
-            color: #010204; font-weight: 800; font-size: 24px;
+            box-shadow: 0 0 35px var(--accent-glow);
+            color: #010205; font-weight: 800; font-size: 26px;
             position: relative; overflow: hidden;
         }
         .brand-logo-box::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
             transform: rotate(45deg) translateX(-100%);
-            animation: shine 3.5s ease-in-out infinite;
+            animation: shine 3s ease-in-out infinite;
         }
         @keyframes shine { 0% { transform: rotate(45deg) translateX(-100%); } 20%, 100% { transform: rotate(45deg) translateX(100%); } }
 
         .header-title-group { display: flex; flex-direction: column; gap: 3px; }
         .header-title { font-size: clamp(18px, 3vw, 24px); font-weight: 800; letter-spacing: -0.5px; color: #fff; text-transform: uppercase; }
-        .header-title span { color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
-        .header-subtitle { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+        .header-title span { color: var(--accent); text-shadow: 0 0 22px var(--accent-glow); }
+        .header-subtitle { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; color: var(--muted); text-transform: uppercase; }
 
         .header-actions { display: flex; align-items: center; gap: 12px; }
 
         .header-btn {
             background: rgba(var(--accent-rgb), 0.08);
-            border: 1px solid rgba(var(--accent-rgb), 0.4);
+            border: 1px solid rgba(var(--accent-rgb), 0.45);
             color: var(--accent); width: 44px; height: 44px;
             border-radius: var(--radius);
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .header-btn:hover {
-            background: var(--accent); color: #010204; border-color: var(--accent);
-            box-shadow: 0 0 35px var(--accent-glow); transform: translateY(-2px);
+            background: var(--accent); color: #010205; border-color: var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-2px);
         }
 
         /* --- DASHBOARD STATS TICKER --- */
         .stats-ticker {
-            max-width: 1400px; margin: 24px auto 0; padding: 0 24px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
+            max-width: 1450px; margin: 26px auto 0; padding: 0 24px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;
             position: relative; z-index: 2;
         }
         .stat-card {
             background: var(--panel); border: 1px solid var(--border);
-            padding: 16px 20px; border-radius: 16px; backdrop-filter: blur(20px);
+            padding: 18px 22px; border-radius: 18px; backdrop-filter: blur(25px);
             display: flex; align-items: center; justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.55); transition: 0.3s;
         }
-        .stat-card:hover { border-color: var(--border-glow); transform: translateY(-2px); }
-        .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-        .stat-info h3 { font-size: 16px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 2px; }
-        .stat-icon { width: 38px; height: 38px; border-radius: 12px; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+        .stat-card:hover { border-color: var(--border-glow); transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 25px rgba(var(--accent-rgb), 0.15); }
+        .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+        .stat-info h3 { font-size: 17px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 3px; }
+        .stat-icon { width: 40px; height: 40px; border-radius: 14px; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; color: var(--accent); }
 
         /* --- MAIN LAYOUT --- */
         main {
             position: relative; z-index: 2;
-            max-width: 1400px; margin: 24px auto 40px; padding: 0 24px;
-            display: grid; gap: 28px; grid-template-columns: 1fr;
+            max-width: 1450px; margin: 26px auto 45px; padding: 0 24px;
+            display: grid; gap: 30px; grid-template-columns: 1fr;
         }
         @media (min-width: 1024px) {
             main { grid-template-columns: 1.05fr 0.95fr; }
@@ -179,62 +181,62 @@
         }
         .panel:hover {
             border-color: var(--border-glow);
-            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.95), 0 0 45px rgba(var(--accent-rgb), 0.15);
+            box-shadow: 0 45px 90px -15px rgba(0, 0, 0, 0.98), 0 0 50px rgba(var(--accent-rgb), 0.18);
         }
 
         .panel-header {
-            padding: 20px 24px; background: rgba(0, 0, 0, 0.35);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 22px 26px; background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
             display: flex; justify-content: space-between; align-items: center;
         }
 
         .panel-title {
             display: flex; align-items: center; gap: 12px;
             font-weight: 700; font-size: 13px; color: var(--text);
-            letter-spacing: 0.08em; text-transform: uppercase;
+            letter-spacing: 0.09em; text-transform: uppercase;
         }
 
         .status-dot {
             width: 8px; height: 8px; border-radius: 50%;
-            background: var(--accent); box-shadow: 0 0 15px var(--accent);
+            background: var(--accent); box-shadow: 0 0 18px var(--accent);
             animation: pulse-dot 2s infinite;
         }
-        @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.85); } 100% { opacity: 1; transform: scale(1); } }
+        @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
 
-        .panel-body { padding: 24px; display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
+        .panel-body { padding: 26px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1; }
 
-        /* PRESET SOURCE SELECTOR (NEW FEATURE) */
+        /* PRESET SOURCE SELECTOR */
         .preset-sources {
             display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: -4px;
         }
         .preset-chip {
-            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; font-family: var(--mono);
-            color: var(--muted); cursor: pointer; transition: 0.2s;
+            background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.09);
+            padding: 7px 13px; border-radius: 9px; font-size: 11px; font-weight: 700; font-family: var(--mono);
+            color: var(--muted); cursor: pointer; transition: 0.25s;
         }
-        .preset-chip:hover { background: rgba(var(--accent-rgb), 0.1); border-color: var(--accent); color: var(--accent); }
+        .preset-chip:hover { background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.2); }
 
         /* FORM CONTROLS */
         .input-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
         .input-label {
             font-size: 11px; font-weight: 700; color: var(--muted);
-            letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;
+            letter-spacing: 0.06em; display: flex; align-items: center; justify-content: space-between;
             text-transform: uppercase;
         }
 
-        textarea, input[type="text"], input[type="number"] {
-            width: 100%; background: rgba(0, 0, 0, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px;
+        textarea, input[type="text"], input[type="number"], select {
+            width: 100%; background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px;
             padding: 14px 18px; color: var(--text);
             font-family: var(--mono); font-size: 13px; line-height: 1.5; outline: none;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        textarea { min-height: 130px; resize: vertical; padding-right: 96px; }
+        textarea { min-height: 140px; resize: vertical; padding-right: 96px; }
 
-        textarea:focus, input:focus {
-            border-color: var(--accent); background: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15), inset 0 0 12px rgba(var(--accent-rgb), 0.08);
+        textarea:focus, input:focus, select:focus {
+            border-color: var(--accent); background: rgba(0, 0, 0, 0.85);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.16), inset 0 0 14px rgba(var(--accent-rgb), 0.1);
         }
         
         .textarea-actions {
@@ -243,11 +245,11 @@
 
         .action-icon-btn {
             width: 36px; height: 36px; border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.06);
             color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center;
             transition: all 0.25s;
         }
-        .action-icon-btn:hover { background: var(--accent); color: #010204; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+        .action-icon-btn:hover { background: var(--accent); color: #010205; border-color: var(--accent); box-shadow: 0 0 18px var(--accent-glow); }
         .action-icon-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; }
 
         .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
@@ -256,69 +258,69 @@
         
         .check-box {
             display: flex; align-items: center; justify-content: center;
-            background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.07);
             padding: 11px; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; user-select: none;
         }
         .check-box:has(input:checked) {
-            background: rgba(var(--accent-rgb), 0.16); border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.2);
+            background: rgba(var(--accent-rgb), 0.18); border-color: var(--accent);
+            box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.25);
         }
         .check-box input { display: none; }
         .check-box span { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); transition: color 0.2s; }
-        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 12px var(--accent-glow); }
 
-        /* ADVANCED OPTIONS TOGGLE (NEW FEATURE) */
+        /* ADVANCED OPTIONS BOX */
         .advanced-toggle {
             font-size: 11px; font-weight: 700; color: var(--accent); cursor: pointer;
-            display: inline-flex; align-items: center; gap: 6px; user-select: none; margin-top: -4px;
+            display: inline-flex; align-items: center; gap: 6px; user-select: none; margin-top: -2px;
         }
         .advanced-options-box {
-            display: none; flex-direction: column; gap: 16px; background: rgba(0,0,0,0.3);
-            border: 1px dashed rgba(var(--accent-rgb), 0.3); padding: 16px; border-radius: 14px;
+            display: none; flex-direction: column; gap: 16px; background: rgba(0,0,0,0.35);
+            border: 1px dashed rgba(var(--accent-rgb), 0.35); padding: 18px; border-radius: 16px;
         }
         .advanced-options-box.open { display: flex; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
         /* BUTTONS */
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent2)); 
-            color: #010204; border: none; border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3)); 
+            color: #010205; border: none; border-radius: 14px;
             padding: 18px; font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
             text-transform: uppercase; cursor: pointer;
-            box-shadow: 0 10px 35px var(--accent-glow);
+            box-shadow: 0 12px 40px var(--accent-glow);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             display: flex; align-items: center; justify-content: center; gap: 12px;
             font-family: var(--sans); position: relative; overflow: hidden;
         }
         .btn-primary:hover:not(:disabled) {
-            filter: brightness(1.15); box-shadow: 0 15px 45px var(--accent-glow); transform: translateY(-2px);
+            filter: brightness(1.18); box-shadow: 0 18px 50px var(--accent-glow); transform: translateY(-2px);
         }
         .btn-primary:disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); box-shadow: none; cursor: not-allowed; }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text);
+            background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.09); color: var(--text);
             padding: 14px; font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
             cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; gap: 10px;
             border-radius: 12px;
         }
         .btn-secondary:hover:not(:disabled) {
-            background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent);
-            color: #fff; box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.18); transform: translateY(-1px);
+            background: rgba(var(--accent-rgb), 0.14); border-color: var(--accent);
+            color: #fff; box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.2); transform: translateY(-1px);
         }
         .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
 
         /* TERMINAL CONSOLE */
         .terminal-panel {
-            background: #000103; border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #000104; border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 14px; display: flex; flex-direction: column; overflow: hidden;
             position: relative; height: var(--term-height); transition: height 0.3s ease;
-            box-shadow: inset 0 4px 25px rgba(0,0,0,0.95);
+            box-shadow: inset 0 4px 30px rgba(0,0,0,0.98);
         }
 
         .term-header {
-            background: rgba(0, 0, 0, 0.65); padding: 12px 18px;
+            background: rgba(0, 0, 0, 0.7); padding: 12px 18px;
             display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .term-status-box { font-family: var(--mono); font-size: 11px; color: var(--muted); }
@@ -328,62 +330,62 @@
         .term-actions { display: flex; gap: 8px; }
 
         .btn-term-action {
-            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text);
-            font-family: var(--mono); font-size: 10px; padding: 4px 10px; cursor: pointer; transition: 0.2s;
+            background: rgba(255, 255, 255, 0.045); border: 1px solid rgba(255, 255, 255, 0.12); color: var(--text);
+            font-family: var(--mono); font-size: 10px; padding: 5px 11px; cursor: pointer; transition: 0.2s;
             border-radius: 6px; font-weight: 700;
         }
-        .btn-term-action:hover { background: rgba(var(--accent-rgb), 0.15); border-color: var(--accent); color: var(--accent); }
-        .btn-term-action.danger:hover { background: rgba(239, 68, 68, 0.15); border-color: var(--bad); color: var(--bad); }
+        .btn-term-action:hover { background: rgba(var(--accent-rgb), 0.18); border-color: var(--accent); color: var(--accent); }
+        .btn-term-action.danger:hover { background: rgba(239, 68, 68, 0.18); border-color: var(--bad); color: var(--bad); }
 
         .term-body {
             padding: 16px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
             font-size: 12px; line-height: 1.6;
         }
         .term-body::-webkit-scrollbar { width: 5px; }
-        .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
 
         .log-line { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; word-break: break-all; animation: fadeInLog 0.2s ease; }
         @keyframes fadeInLog { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-        .log-time { color: rgba(255,255,255,0.25); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
-        .log-badge { font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.05em; }
+        .log-time { color: rgba(255,255,255,0.28); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
+        .log-badge { font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.05em; }
         
-        .badge-info { background: rgba(6, 182, 212, 0.12); color: var(--info); border: 1px solid rgba(6,182,212,0.3); }
-        .badge-scan { background: rgba(79, 172, 254, 0.12); color: var(--accent2); border: 1px solid rgba(79,172,254,0.3); }
-        .badge-ok { background: rgba(16, 185, 129, 0.12); color: var(--good); border: 1px solid rgba(16,185,129,0.3); }
-        .badge-err { background: rgba(239, 68, 68, 0.12); color: var(--bad); border: 1px solid rgba(239,68,68,0.3); }
+        .badge-info { background: rgba(6, 182, 212, 0.14); color: var(--info); border: 1px solid rgba(6,182,212,0.35); }
+        .badge-scan { background: rgba(79, 172, 254, 0.14); color: var(--accent2); border: 1px solid rgba(79,172,254,0.35); }
+        .badge-ok { background: rgba(16, 185, 129, 0.14); color: var(--good); border: 1px solid rgba(16,185,129,0.35); }
+        .badge-err { background: rgba(239, 68, 68, 0.14); color: var(--bad); border: 1px solid rgba(239,68,68,0.35); }
         .log-msg { color: #cbd5e1; }
 
-        .scan-progress { height: 3px; background: rgba(255,255,255,0.03); width: 100%; position: relative; overflow: hidden; }
-        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.3s ease; box-shadow: 0 0 15px var(--accent); }
+        .scan-progress { height: 3px; background: rgba(255,255,255,0.04); width: 100%; position: relative; overflow: hidden; }
+        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); transition: width 0.3s ease; box-shadow: 0 0 18px var(--accent); }
 
         /* RESULTS BOX */
         .results-box {
-            background: rgba(0, 0, 0, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.45); border-top: 1px solid rgba(255, 255, 255, 0.06);
             padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         
         .score-display {
-            font-size: clamp(42px, 5.5vw, 68px); font-weight: 800; font-family: var(--sans); color: #fff;
+            font-size: clamp(44px, 5.8vw, 72px); font-weight: 800; font-family: var(--sans); color: #fff;
             line-height: 1; margin-bottom: 18px; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-shadow: 0 0 35px rgba(var(--accent-rgb), 0.3);
+            text-shadow: 0 0 40px rgba(var(--accent-rgb), 0.35);
         }
         .score-display.bump { transform: scale(1.12); color: var(--accent); }
 
         /* WATERMARK */
         .matin-watermark {
             text-align: center; font-family: var(--sans); font-size: 11px; font-weight: 700;
-            letter-spacing: 3px; padding: 25px 0; color: var(--muted); text-transform: uppercase;
+            letter-spacing: 3.5px; padding: 25px 0; color: var(--muted); text-transform: uppercase;
         }
-        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 15px var(--accent-glow); }
+        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 18px var(--accent-glow); }
 
         /* TOAST POPUP */
         #toast {
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: rgba(6, 8, 14, 0.98); backdrop-filter: blur(25px);
+            background: rgba(5, 8, 15, 0.99); backdrop-filter: blur(30px);
             border: 1px solid var(--accent); color: #fff; padding: 14px 28px;
             border-radius: 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.95), 0 0 30px var(--accent-glow);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.98), 0 0 35px var(--accent-glow);
             z-index: 9999; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
             opacity: 0; display: flex; align-items: center; gap: 12px;
         }
@@ -394,16 +396,16 @@
         .settings-panel {
             position: fixed; top: 0; right: -420px;
             width: 380px; max-width: 100vw; height: 100vh;
-            background: rgba(4, 6, 12, 0.99); backdrop-filter: blur(35px);
-            border-left: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: -40px 0 80px rgba(0,0,0,0.95); z-index: 1001;
+            background: rgba(4, 6, 14, 0.99); backdrop-filter: blur(40px);
+            border-left: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: -45px 0 90px rgba(0,0,0,0.98); z-index: 1001;
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex; flex-direction: column;
         }
         .settings-panel.open { right: 0; }
 
         .settings-head {
-            padding: 22px 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 22px 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
             display: flex; justify-content: space-between; align-items: center;
         }
         .settings-head h2 { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 1.5px; text-transform: uppercase; }
@@ -415,19 +417,19 @@
         .setting-item label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; letter-spacing: 0.05em; }
 
         .setting-select {
-            width: 100%; background: rgba(0,0,0,0.5); color: var(--text); border: 1px solid rgba(255,255,255,0.08);
+            width: 100%; background: rgba(0,0,0,0.55); color: var(--text); border: 1px solid rgba(255,255,255,0.09);
             padding: 12px; border-radius: 12px; font-family: var(--sans); font-size: 12px; outline: none; cursor: pointer;
         }
 
-        input[type="range"] { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.1); outline: none; border-radius: 3px; }
-        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 12px var(--accent); }
+        input[type="range"] { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.12); outline: none; border-radius: 3px; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 14px var(--accent); }
 
-        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 38px; border-radius: 12px; cursor: pointer; background: rgba(0,0,0,0.4); padding: 2px; border: 1px solid rgba(255,255,255,0.1); }
+        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 38px; border-radius: 12px; cursor: pointer; background: rgba(0,0,0,0.45); padding: 2px; border: 1px solid rgba(255,255,255,0.12); }
         input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
         input[type="color"]::-webkit-color-swatch { border: none; border-radius: 10px; }
 
-        .btn-reset { margin-top: 10px; padding: 14px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); color: var(--bad); border-radius: 12px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: 0.25s; }
-        .btn-reset:hover { background: rgba(239, 68, 68, 0.18); box-shadow: 0 0 15px rgba(239,68,68,0.2); }
+        .btn-reset { margin-top: 10px; padding: 14px; background: rgba(239, 68, 68, 0.09); border: 1px solid rgba(239, 68, 68, 0.28); color: var(--bad); border-radius: 12px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: 0.25s; }
+        .btn-reset:hover { background: rgba(239, 68, 68, 0.2); box-shadow: 0 0 18px rgba(239,68,68,0.25); }
     </style>
 </head>
 <body>
@@ -440,7 +442,7 @@
             <div class="brand-logo-box">M</div>
             <div class="header-title-group">
                 <h1 class="header-title">MATIN <span>TECH</span></h1>
-                <div class="header-subtitle">Quantum Ultra Engine v6.0</div>
+                <div class="header-subtitle">Quantum Nexus Elite v7.0</div>
             </div>
         </div>
         <div class="header-actions">
@@ -456,7 +458,7 @@
     <div class="stats-ticker">
         <div class="stat-card">
             <div class="stat-info">
-                <span>Core Engine Status</span>
+                <span>Core Nexus Status</span>
                 <h3 id="statEngineState">ONLINE</h3>
             </div>
             <div class="stat-icon">
@@ -475,7 +477,7 @@
         <div class="stat-card">
             <div class="stat-info">
                 <span>Network Latency</span>
-                <h3 id="statLatency">12ms</h3>
+                <h3 id="statLatency">10ms</h3>
             </div>
             <div class="stat-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -486,7 +488,7 @@
     <main>
         <section class="panel">
             <div class="panel-header">
-                <div class="panel-title"><div class="status-dot"></div>Node Source Engine Ultra</div>
+                <div class="panel-title"><div class="status-dot"></div>Nexus Node Extraction Engine Pro</div>
             </div>
             
             <div class="panel-body">
@@ -510,25 +512,25 @@
                     <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
                 </div>
 
-                <!-- PRESET SOURCE QUICK CHIPS (NEW FEATURE) -->
+                <!-- PRESET SOURCE QUICK CHIPS (INCLUDING YOUR LINK) -->
                 <div class="input-group">
                     <label class="input-label">Quick Source Presets</label>
                     <div class="preset-sources">
-                        <div class="preset-chip" onclick="loadPreset('default')">⚡ Default Pool</div>
+                        <div class="preset-chip" onclick="loadPreset('matin')">💎 Matin Special Sub</div>
                         <div class="preset-chip" onclick="loadPreset('barry')">🚀 Barry-Far Sub</div>
                         <div class="preset-chip" onclick="loadPreset('ali')">🔥 Aliilapro Sub</div>
-                        <div class="preset-chip" onclick="loadPreset('all')">💎 Combine All Sources</div>
+                        <div class="preset-chip" onclick="loadPreset('all')">⚡ Ultimate Combined Pool</div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-group">
                         <label class="input-label">Remark Tag (Custom Name)</label>
-                        <input id="remarkInput" type="text" value="MatinTech⚡">
+                        <input id="remarkInput" type="text" value="MatinTech⚡Elite">
                     </div>
                     <div class="input-group">
                         <label class="input-label">Max Node Limit</label>
-                        <input id="maxOutput" type="number" min="200" max="20000" value="2500">
+                        <input id="maxOutput" type="number" min="200" max="25000" value="5000">
                     </div>
                 </div>
 
@@ -542,11 +544,11 @@
                     <div class="check-grid" id="transportGrid"></div>
                 </div>
 
-                <!-- ADVANCED SETTINGS TOGGLE (NEW FEATURE) -->
+                <!-- ADVANCED SETTINGS TOGGLE -->
                 <div>
                     <span class="advanced-toggle" onclick="toggleAdvancedOptions()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        Advanced Routing Settings
+                        Advanced Routing & Formatting Controls
                     </span>
                     <div class="advanced-options-box" id="advancedBox" style="margin-top: 10px;">
                         <div class="input-group">
@@ -558,13 +560,13 @@
                         </div>
                         <div class="input-group">
                             <label class="input-label">Auto-Rename Scheme</label>
-                            <input id="customSchemeInput" type="text" value="MatinTech [INDEX] | PRO">
+                            <input id="customSchemeInput" type="text" value="MatinTech [INDEX] | ELITE 🚀">
                         </div>
                     </div>
                 </div>
 
                 <button id="processBtn" class="btn-primary" onclick="startEngine()">
-                    Initialize Processing Engine
+                    Initialize Quantum Nexus Engine
                 </button>
             </div>
         </section>
@@ -573,7 +575,7 @@
             <div class="panel-header" style="border-bottom: none;">
                 <div class="panel-title">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                    Live Quantum Console Ultra
+                    Live Quantum Nexus Console
                 </div>
             </div>
 
@@ -615,7 +617,7 @@
 
     <div class="settings-panel" id="settingsPanel">
         <div class="settings-head">
-            <h2>Quantum UI Themes</h2>
+            <h2>Nexus UI Themes</h2>
             <button class="close-settings" onclick="toggleSettings()">&times;</button>
         </div>
         <div class="settings-body-panel">
@@ -628,13 +630,13 @@
             </div>
 
             <div class="setting-item">
-                <label>Border Radius <span id="valRadius">20px</span></label>
-                <input type="range" id="rangeRadius" min="0" max="28" step="1" value="20">
+                <label>Border Radius <span id="valRadius">22px</span></label>
+                <input type="range" id="rangeRadius" min="0" max="30" step="1" value="22">
             </div>
 
             <div class="setting-item">
                 <label>Background Core Color</label>
-                <input type="color" id="colorBg" value="#010204">
+                <input type="color" id="colorBg" value="#010205">
             </div>
             <div class="setting-item">
                 <label>Primary Accent Glow</label>
@@ -646,12 +648,12 @@
             </div>
 
             <div class="setting-item">
-                <label>Glass Blur Intensity <span id="valBlur">28px</span></label>
-                <input type="range" id="rangeBlur" min="0" max="40" step="1" value="28">
+                <label>Glass Blur Intensity <span id="valBlur">32px</span></label>
+                <input type="range" id="rangeBlur" min="0" max="45" step="1" value="32">
             </div>
             <div class="setting-item">
-                <label>Console Height <span id="valTermH">480px</span></label>
-                <input type="range" id="rangeTermH" min="300" max="700" step="10" value="480">
+                <label>Console Height <span id="valTermH">520px</span></label>
+                <input type="range" id="rangeTermH" min="300" max="750" step="10" value="520">
             </div>
             
             <button class="btn-reset" onclick="resetUI()">Reset Default Theme</button>
@@ -661,10 +663,10 @@
     <script>
         const PROTOCOLS = [
             { id: "vless", checked: true },
-            { id: "vmess", checked: false },
-            { id: "hysteria2", checked: false },
-            { id: "trojan", checked: false },
-            { id: "ss", checked: false },
+            { id: "vmess", checked: true },
+            { id: "hysteria2", checked: true },
+            { id: "trojan", checked: true },
+            { id: "ss", checked: true },
             { id: "hysteria", checked: false }
         ];
         
@@ -673,15 +675,15 @@
             { id: "grpc", checked: true },
             { id: "tcp", checked: true },
             { id: "tls", checked: true },
-            { id: "httpupgrade", checked: false },
-            { id: "splithttp", checked: false },
-            { id: "xhttp", checked: false },
+            { id: "httpupgrade", checked: true },
+            { id: "splithttp", checked: true },
+            { id: "xhttp", checked: true },
             { id: "h2", checked: false },
             { id: "quic", checked: false }
         ];
         
         const PRESETS = {
-            default: "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt",
+            matin: "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt",
             barry: "https://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt\nhttps://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/Sub2.txt",
             ali: "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt",
             all: "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt\nhttps://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt\nhttps://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt"
@@ -691,10 +693,13 @@
             renderChecks('protocolGrid', PROTOCOLS, 'proto');
             renderChecks('transportGrid', TRANSPORTS, 'net');
             loadSettings();
-            logTerm('Quantum Ultra Engine v6.0 initialized successfully.', 'info');
+            
+            // Auto-load your special link by default for maximum convenience
+            document.getElementById('mainInput').value = PRESETS.matin;
+            logTerm('Quantum Nexus Elite v7.0 initialized with Matin Special Gist link.', 'info');
             
             setInterval(() => {
-                const randomPing = Math.floor(Math.random() * 6) + 10;
+                const randomPing = Math.floor(Math.random() * 5) + 8;
                 document.getElementById('statLatency').innerText = randomPing + 'ms';
             }, 4000);
         });
@@ -809,7 +814,7 @@
             let combined = text;
             text.split(/\r?\n/).forEach(line => {
                 let s = line.trim();
-                if (s.length > 50 && !s.includes('://') && /^[A-Za-z0-9+/=_-]+$/.test(s)) {
+                if (s.length > 40 && !s.includes('://') && /^[A-Za-z0-9+/=_-]+$/.test(s)) {
                     try { const dec = safeAtobUnicode(s); if (dec.includes('://')) combined += '\n' + dec; } catch(e){}
                 }
             });
@@ -819,7 +824,7 @@
         async function startEngine() {
             const btn = document.getElementById('processBtn');
             btn.disabled = true;
-            btn.innerHTML = 'Quantum Processing...';
+            btn.innerHTML = 'Quantum Nexus Processing...';
             document.getElementById('statEngineState').innerText = 'RUNNING';
             updateProgress(15, 'FETCHING');
             
@@ -830,16 +835,16 @@
                 const rawInput = document.getElementById('mainInput').value.trim();
                 const allowedProtos = new Set(Array.from(document.querySelectorAll('input[name="proto"]:checked')).map(e => e.value));
                 const customScheme = document.getElementById('customSchemeInput').value.trim() || 'MatinTech [INDEX]';
-                const maxOut = parseInt(document.getElementById('maxOutput').value) || 2500;
+                const maxOut = parseInt(document.getElementById('maxOutput').value) || 5000;
 
-                let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : [PRESETS.default];
+                let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : [PRESETS.matin];
                 let combinedData = rawInput;
 
                 for (const url of sources) {
                     try {
                         const data = await fetchWithFallback(url);
                         combinedData += '\n' + data;
-                        logTerm(`Fetched subscription node list successfully`, 'ok');
+                        logTerm(`Successfully fetched nodes from target source`, 'ok');
                     } catch(e) {
                         logTerm(`Skipped unreachable network endpoint`, 'err');
                     }
@@ -880,7 +885,7 @@
                 });
 
                 updateProgress(100, 'COMPLETED');
-                logTerm(`Quantum Ultra successfully generated ${finalProcessedConfigs.length} optimized configurations.`, 'ok');
+                logTerm(`Quantum Nexus Elite successfully generated ${finalProcessedConfigs.length} optimized configurations.`, 'ok');
                 updateResults(finalProcessedConfigs.length);
                 document.getElementById('statEngineState').innerText = 'IDLE';
             } catch(e) {
@@ -888,7 +893,7 @@
                 document.getElementById('statEngineState').innerText = 'ERROR';
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = 'Initialize Processing Engine';
+                btn.innerHTML = 'Initialize Quantum Nexus Engine';
                 setTimeout(() => updateProgress(0, 'STANDBY'), 1500);
             }
         }
@@ -954,14 +959,14 @@
             const blob = new Blob([finalProcessedConfigs.join('\n')], { type: 'text/plain;charset=utf-8' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `MatinTech_Quantum_Configs_${Date.now()}.txt`;
+            a.download = `MatinTech_Elite_Configs_${Date.now()}.txt`;
             a.click();
             logTerm('Configuration file package downloaded successfully.', 'ok');
             showToast('Configuration file downloaded!');
         }
 
         const root = document.documentElement;
-        const defaultUI = { bg: '#010204', accent: '#00f2fe', accent2: '#4facfe', blur: '28', radius: '20', font: "'Plus Jakarta Sans', sans-serif", termH: '480' };
+        const defaultUI = { bg: '#010205', accent: '#00f2fe', accent2: '#4facfe', blur: '32', radius: '22', font: "'Plus Jakarta Sans', sans-serif", termH: '520' };
 
         function toggleSettings() { document.getElementById('settingsPanel').classList.toggle('open'); }
         function hexToRgb(hex) {
@@ -1001,12 +1006,12 @@
                 font: document.getElementById('selectFont').value,
                 termH: document.getElementById('rangeTermH').value
             };
-            localStorage.setItem('matinTechQuantumSettingsV6', JSON.stringify(s));
+            localStorage.setItem('matinTechNexusSettingsV7', JSON.stringify(s));
             applySettings(s);
         }
 
         function loadSettings() {
-            const saved = localStorage.getItem('matinTechQuantumSettingsV6');
+            const saved = localStorage.getItem('matinTechNexusSettingsV7');
             applySettings(saved ? JSON.parse(saved) : defaultUI);
         }
 
@@ -1014,7 +1019,8 @@
             document.getElementById(id).addEventListener('input', saveSettings);
         });
 
-        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechQuantumSettingsV6'); logTerm('UI theme settings reset to default.', 'info'); }
+        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechNexusSettingsV7'); logTerm('UI theme settings reset to default.', 'info'); }
     </script>
 </body>
 </html>
+
