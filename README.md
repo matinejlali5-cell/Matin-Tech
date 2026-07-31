@@ -1,12 +1,8 @@
-<h1 align="center">MATIN VPN</h1>
+# MATIN VPN
 
-<p align="center">
-  🛡️ <strong>SECURE</strong>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  ⚡ <strong>FAST</strong>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  🌐 <strong>GLOBAL</strong>
-</p>
+🛡️ **SECURE** &nbsp;&nbsp;|&nbsp;&nbsp; ⚡ **FAST** &nbsp;&nbsp;|&nbsp;&nbsp; 🌐 **GLOBAL**
+
+> **Stay Private. Stay Connected.**
 
 <p align="center">
   <em>Stay Private. Stay Connected.</em>
