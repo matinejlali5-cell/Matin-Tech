@@ -133,3 +133,150 @@ Or deploy the project on GitHub Pages or any web server.
 5. Copy or download the generated output.
 
 ---
+# ✨ Features
+
+| 🇮🇷 فارسی | 🇬🇧 English |
+|-----------|------------|
+| ⚡ موتور پردازش Quantum Nexus | ⚡ Quantum Nexus Processing Engine |
+| 🌍 دریافت هم‌زمان از چندین منبع | 🌍 Multi-Source Loader |
+| 🧠 امتیازدهی هوشمند کانفیگ‌ها | 🧠 Smart Configuration Scoring |
+| 🔍 فیلتر پیشرفته پروتکل‌ها | 🔍 Advanced Protocol Filtering |
+| 🌐 فیلتر کامل Transportها | 🌐 Advanced Transport Filtering |
+| 🧹 حذف هوشمند کانفیگ‌های تکراری | 🧹 Smart Duplicate Detection |
+| 📊 داشبورد زنده | 📊 Live Dashboard |
+| 🖥 کنسول پردازش لحظه‌ای | 🖥 Live Processing Terminal |
+| 🎨 شخصی‌سازی کامل رابط کاربری | 🎨 Full UI Customization |
+| 📋 کپی خروجی با یک کلیک | 📋 One-Click Copy |
+| 📥 دانلود فایل خروجی | 📥 TXT Export |
+| 💾 ذخیره خودکار تنظیمات | 💾 Auto-Save Settings |
+| 📱 سازگار با موبایل و دسکتاپ | 📱 Fully Responsive |
+| 🔒 پردازش کاملاً سمت کاربر | 🔒 100% Client-Side Processing |
+
+---
+
+# 🧠 Processing Engine
+
+### 🇮🇷 فارسی
+
+موتور **Quantum Nexus** داده‌ها را در چند مرحله پردازش می‌کند تا سریع‌ترین و بهینه‌ترین خروجی ممکن تولید شود.
+
+```text
+Input
+   │
+   ▼
+Source Loader
+   │
+   ▼
+Base64 Decoder
+   │
+   ▼
+URI Extractor
+   │
+   ▼
+Protocol Filter
+   │
+   ▼
+Transport Filter
+   │
+   ▼
+Smart Scoring
+   │
+   ▼
+Duplicate Removal
+   │
+   ▼
+Output Builder
+```
+
+---
+
+### 🇬🇧 English
+
+The **Quantum Nexus Engine** processes data through multiple optimized stages to generate the fastest and highest-quality output.
+
+```text
+Input
+   │
+   ▼
+Source Loader
+   │
+   ▼
+Base64 Decoder
+   │
+   ▼
+URI Extractor
+   │
+   ▼
+Protocol Filter
+   │
+   ▼
+Transport Filter
+   │
+   ▼
+Smart Scoring
+   │
+   ▼
+Duplicate Removal
+   │
+   ▼
+Output Builder
+```
+
+---
+
+# 🚀 Supported Protocols
+
+| 🇮🇷 فارسی | 🇬🇧 English |
+|-----------|------------|
+| ✅ VLESS | ✅ VLESS |
+| ✅ VMess | ✅ VMess |
+| ✅ Trojan | ✅ Trojan |
+| ✅ Shadowsocks | ✅ Shadowsocks |
+| ✅ Hysteria | ✅ Hysteria |
+| ✅ Hysteria2 | ✅ Hysteria2 |
+
+---
+
+# 🌐 Supported Transports
+
+- WS
+- gRPC
+- TCP
+- TLS
+- HTTPUpgrade
+- SplitHTTP
+- XHTTP
+- HTTP/2
+- QUIC
+
+---
+
+# 🎨 Interface
+
+### 🇮🇷 فارسی
+
+رابط کاربری **Quantum Nexus Elite** با طراحی Cyberpunk امکانات شخصی‌سازی کاملی را در اختیار شما قرار می‌دهد.
+
+- 🎨 Theme Manager
+- 🌈 Accent Color
+- 🖋 Font Switcher
+- 📐 Border Radius
+- 🌫 Glass Blur
+- 📏 Console Height
+- 💾 Auto Save Settings
+
+---
+
+### 🇬🇧 English
+
+The **Quantum Nexus Elite** interface features a modern Cyberpunk design with complete UI customization.
+
+- 🎨 Theme Manager
+- 🌈 Accent Colors
+- 🖋 Font Switcher
+- 📐 Border Radius
+- 🌫 Glass Blur
+- 📏 Console Height
+- 💾 Automatic Settings Save
+
+---
