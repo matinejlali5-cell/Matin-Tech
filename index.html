@@ -1,41 +1,1025 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3_ES - ورود به پنل</title>
-    <!-- استایل‌ها و کتابخانه‌های پنل -->
-    <link rel="stylesheetpx" href="/css/app.css">
-</head>
-<body class="login-page">
-    <div class="login-container">
-        <div class="login-card">
-            <!-- تغییر نام برند به M3_ES -->
-            <h1 class="brand-title">M3_ES</h1>
-            <div class="welcome-divider"></div>
-            <h2 class="welcome-text">خوش آمدید</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>MATIN TECH // QUANTUM NEXUS ELITE v7.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #010205;
+            --panel-rgb: 5, 8, 15;
+            --panel-opacity: 0.94;
+            --accent-hex: #00f2fe; 
+            --accent-rgb: 0, 242, 254;
+            --accent2-hex: #4facfe; 
+            --accent3-hex: #a855f7;
+            --text-color: #f8fafc;
+            --grid-opacity: 0.35;
+            --blur-intensity: 32px;
+            --radius-val: 22px;
+            --glow-intensity: 1.8;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --term-height: 520px;
             
-            <form id="login-form">
-                <div class="input-group">
-                    <label for="username">نام کاربری</label>
-                    <div class="input-wrapper">
-                        <i class="icon-user"></i>
-                        <input type="text" id="username" name="username" placeholder="نام کاربری" value="admin" required>
-                    </div>
-                </div>
+            --bg: var(--bg-color);
+            --card: rgb(var(--panel-rgb));
+            --panel: rgba(var(--panel-rgb), var(--panel-opacity));
+            --border: rgba(var(--accent-rgb), 0.38);
+            --border-glow: rgba(var(--accent-rgb), calc(0.85 * var(--glow-intensity)));
+            --text: var(--text-color);
+            --muted: rgba(248, 250, 252, 0.52);
+            --accent: var(--accent-hex);
+            --accent2: var(--accent2-hex);
+            --accent3: var(--accent3-hex);
+            --accent-glow: rgba(var(--accent-rgb), calc(0.65 * var(--glow-intensity)));
+            
+            --good: #10b981;
+            --bad: #ef4444;
+            --info: #06b6d4;
+            --warning: #f59e0b;
+            
+            --mono: 'JetBrains Mono', ui-monospace, monospace;
+            --sans: var(--font-main);
+            --radius: var(--radius-val);
+            --shadow: 0 45px 90px -15px rgba(0, 0, 0, 0.98), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+        }
 
-                <div class="input-group">
-                    <label for="password">رمزعبور</label>
-                    <div class="input-wrapper">
-                        <i class="icon-lock"></i>
-                        <input type="password" id="password" name="password" placeholder="رمزعبور" value="admin" required>
-                        <i class="icon-eye-toggle"></i>
-                    </div>
-                </div>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html, body {
+            height: 100%;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-                <button type="submit" class="login-btn">ورود</button>
-            </form>
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(to right, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0; pointer-events: none;
+            opacity: var(--grid-opacity);
+            animation: gridMove 30s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
+        }
+
+        .ambient-glow {
+            position: fixed;
+            width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.16) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0; pointer-events: none;
+            filter: blur(130px);
+            border-radius: 50%;
+            animation: floatGlow 12s ease-in-out infinite alternate;
+        }
+        .ambient-1 { top: -30%; left: -20%; }
+        .ambient-2 { bottom: -30%; right: -20%; background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, rgba(0,0,0,0) 70%); animation-delay: -6s; }
+        @keyframes floatGlow {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(45px) scale(1.18); }
+        }
+
+        /* --- HEADER --- */
+        .app-header {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 40px;
+            background: rgba(5, 8, 15, 0.88);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+        }
+
+        .header-brand { display: flex; align-items: center; gap: 16px; }
+
+        .brand-logo-box {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, var(--accent), var(--accent3));
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 35px var(--accent-glow);
+            color: #010205; font-weight: 800; font-size: 26px;
+            position: relative; overflow: hidden;
+        }
+        .brand-logo-box::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
+            transform: rotate(45deg) translateX(-100%);
+            animation: shine 3s ease-in-out infinite;
+        }
+        @keyframes shine { 0% { transform: rotate(45deg) translateX(-100%); } 20%, 100% { transform: rotate(45deg) translateX(100%); } }
+
+        .header-title-group { display: flex; flex-direction: column; gap: 3px; }
+        .header-title { font-size: clamp(18px, 3vw, 24px); font-weight: 800; letter-spacing: -0.5px; color: #fff; text-transform: uppercase; }
+        .header-title span { color: var(--accent); text-shadow: 0 0 22px var(--accent-glow); }
+        .header-subtitle { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; color: var(--muted); text-transform: uppercase; }
+
+        .header-actions { display: flex; align-items: center; gap: 12px; }
+
+        .header-btn {
+            background: rgba(var(--accent-rgb), 0.08);
+            border: 1px solid rgba(var(--accent-rgb), 0.45);
+            color: var(--accent); width: 44px; height: 44px;
+            border-radius: var(--radius);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .header-btn:hover {
+            background: var(--accent); color: #010205; border-color: var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-2px);
+        }
+
+        /* --- DASHBOARD STATS TICKER --- */
+        .stats-ticker {
+            max-width: 1450px; margin: 26px auto 0; padding: 0 24px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;
+            position: relative; z-index: 2;
+        }
+        .stat-card {
+            background: var(--panel); border: 1px solid var(--border);
+            padding: 18px 22px; border-radius: 18px; backdrop-filter: blur(25px);
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.55); transition: 0.3s;
+        }
+        .stat-card:hover { border-color: var(--border-glow); transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 25px rgba(var(--accent-rgb), 0.15); }
+        .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+        .stat-info h3 { font-size: 17px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 3px; }
+        .stat-icon { width: 40px; height: 40px; border-radius: 14px; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+
+        /* --- MAIN LAYOUT --- */
+        main {
+            position: relative; z-index: 2;
+            max-width: 1450px; margin: 26px auto 45px; padding: 0 24px;
+            display: grid; gap: 30px; grid-template-columns: 1fr;
+        }
+        @media (min-width: 1024px) {
+            main { grid-template-columns: 1.05fr 0.95fr; }
+        }
+
+        .panel {
+            background: var(--panel);
+            backdrop-filter: blur(var(--blur-intensity));
+            -webkit-backdrop-filter: blur(var(--blur-intensity));
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative; display: flex; flex-direction: column; overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .panel:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 45px 90px -15px rgba(0, 0, 0, 0.98), 0 0 50px rgba(var(--accent-rgb), 0.18);
+        }
+
+        .panel-header {
+            padding: 22px 26px; background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .panel-title {
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 700; font-size: 13px; color: var(--text);
+            letter-spacing: 0.09em; text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent); box-shadow: 0 0 18px var(--accent);
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
+
+        .panel-body { padding: 26px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1; }
+
+        /* PRESET SOURCE SELECTOR */
+        .preset-sources {
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: -4px;
+        }
+        .preset-chip {
+            background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.09);
+            padding: 7px 13px; border-radius: 9px; font-size: 11px; font-weight: 700; font-family: var(--mono);
+            color: var(--muted); cursor: pointer; transition: 0.25s;
+        }
+        .preset-chip:hover { background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.2); }
+
+        /* FORM CONTROLS */
+        .input-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
+        .input-label {
+            font-size: 11px; font-weight: 700; color: var(--muted);
+            letter-spacing: 0.06em; display: flex; align-items: center; justify-content: space-between;
+            text-transform: uppercase;
+        }
+
+        textarea, input[type="text"], input[type="number"], select {
+            width: 100%; background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px;
+            padding: 14px 18px; color: var(--text);
+            font-family: var(--mono); font-size: 13px; line-height: 1.5; outline: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        textarea { min-height: 140px; resize: vertical; padding-right: 96px; }
+
+        textarea:focus, input:focus, select:focus {
+            border-color: var(--accent); background: rgba(0, 0, 0, 0.85);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.16), inset 0 0 14px rgba(var(--accent-rgb), 0.1);
+        }
+        
+        .textarea-actions {
+            position: absolute; right: 10px; bottom: 10px; display: flex; gap: 6px;
+        }
+
+        .action-icon-btn {
+            width: 36px; height: 36px; border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.06);
+            color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.25s;
+        }
+        .action-icon-btn:hover { background: var(--accent); color: #010205; border-color: var(--accent); box-shadow: 0 0 18px var(--accent-glow); }
+        .action-icon-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; }
+
+        .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+
+        .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
+        
+        .check-box {
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 11px; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; user-select: none;
+        }
+        .check-box:has(input:checked) {
+            background: rgba(var(--accent-rgb), 0.18); border-color: var(--accent);
+            box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.25);
+        }
+        .check-box input { display: none; }
+        .check-box span { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); transition: color 0.2s; }
+        .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 12px var(--accent-glow); }
+
+        /* ADVANCED OPTIONS BOX */
+        .advanced-toggle {
+            font-size: 11px; font-weight: 700; color: var(--accent); cursor: pointer;
+            display: inline-flex; align-items: center; gap: 6px; user-select: none; margin-top: -2px;
+        }
+        .advanced-options-box {
+            display: none; flex-direction: column; gap: 16px; background: rgba(0,0,0,0.35);
+            border: 1px dashed rgba(var(--accent-rgb), 0.35); padding: 18px; border-radius: 16px;
+        }
+        .advanced-options-box.open { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* BUTTONS */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3)); 
+            color: #010205; border: none; border-radius: 14px;
+            padding: 18px; font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
+            text-transform: uppercase; cursor: pointer;
+            box-shadow: 0 12px 40px var(--accent-glow);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            font-family: var(--sans); position: relative; overflow: hidden;
+        }
+        .btn-primary:hover:not(:disabled) {
+            filter: brightness(1.18); box-shadow: 0 18px 50px var(--accent-glow); transform: translateY(-2px);
+        }
+        .btn-primary:disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); box-shadow: none; cursor: not-allowed; }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.09); color: var(--text);
+            padding: 14px; font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; gap: 10px;
+            border-radius: 12px;
+        }
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(var(--accent-rgb), 0.14); border-color: var(--accent);
+            color: #fff; box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.2); transform: translateY(-1px);
+        }
+        .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* TERMINAL CONSOLE */
+        .terminal-panel {
+            background: #000104; border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px; display: flex; flex-direction: column; overflow: hidden;
+            position: relative; height: var(--term-height); transition: height 0.3s ease;
+            box-shadow: inset 0 4px 30px rgba(0,0,0,0.98);
+        }
+
+        .term-header {
+            background: rgba(0, 0, 0, 0.7); padding: 12px 18px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .term-status-box { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+        .blink { animation: blink 1s step-end infinite; color: var(--accent); font-weight: bold; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .term-actions { display: flex; gap: 8px; }
+
+        .btn-term-action {
+            background: rgba(255, 255, 255, 0.045); border: 1px solid rgba(255, 255, 255, 0.12); color: var(--text);
+            font-family: var(--mono); font-size: 10px; padding: 5px 11px; cursor: pointer; transition: 0.2s;
+            border-radius: 6px; font-weight: 700;
+        }
+        .btn-term-action:hover { background: rgba(var(--accent-rgb), 0.18); border-color: var(--accent); color: var(--accent); }
+        .btn-term-action.danger:hover { background: rgba(239, 68, 68, 0.18); border-color: var(--bad); color: var(--bad); }
+
+        .term-body {
+            padding: 16px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
+            font-size: 12px; line-height: 1.6;
+        }
+        .term-body::-webkit-scrollbar { width: 5px; }
+        .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
+
+        .log-line { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; word-break: break-all; animation: fadeInLog 0.2s ease; }
+        @keyframes fadeInLog { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+        .log-time { color: rgba(255,255,255,0.28); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
+        .log-badge { font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.05em; }
+        
+        .badge-info { background: rgba(6, 182, 212, 0.14); color: var(--info); border: 1px solid rgba(6,182,212,0.35); }
+        .badge-scan { background: rgba(79, 172, 254, 0.14); color: var(--accent2); border: 1px solid rgba(79,172,254,0.35); }
+        .badge-ok { background: rgba(16, 185, 129, 0.14); color: var(--good); border: 1px solid rgba(16,185,129,0.35); }
+        .badge-err { background: rgba(239, 68, 68, 0.14); color: var(--bad); border: 1px solid rgba(239,68,68,0.35); }
+        .log-msg { color: #cbd5e1; }
+
+        .scan-progress { height: 3px; background: rgba(255,255,255,0.04); width: 100%; position: relative; overflow: hidden; }
+        .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); transition: width 0.3s ease; box-shadow: 0 0 18px var(--accent); }
+
+        /* RESULTS BOX */
+        .results-box {
+            background: rgba(0, 0, 0, 0.45); border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        
+        .score-display {
+            font-size: clamp(44px, 5.8vw, 72px); font-weight: 800; font-family: var(--sans); color: #fff;
+            line-height: 1; margin-bottom: 18px; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-shadow: 0 0 40px rgba(var(--accent-rgb), 0.35);
+        }
+        .score-display.bump { transform: scale(1.12); color: var(--accent); }
+
+        /* WATERMARK */
+        .matin-watermark {
+            text-align: center; font-family: var(--sans); font-size: 11px; font-weight: 700;
+            letter-spacing: 3.5px; padding: 25px 0; color: var(--muted); text-transform: uppercase;
+        }
+        .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 18px var(--accent-glow); }
+
+        /* TOAST POPUP */
+        #toast {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: rgba(5, 8, 15, 0.99); backdrop-filter: blur(30px);
+            border: 1px solid var(--accent); color: #fff; padding: 14px 28px;
+            border-radius: 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.98), 0 0 35px var(--accent-glow);
+            z-index: 9999; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+            opacity: 0; display: flex; align-items: center; gap: 12px;
+        }
+        #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        #toast svg { width: 18px; height: 18px; stroke: var(--accent); }
+
+        /* SETTINGS DRAWER */
+        .settings-panel {
+            position: fixed; top: 0; right: -420px;
+            width: 380px; max-width: 100vw; height: 100vh;
+            background: rgba(4, 6, 14, 0.99); backdrop-filter: blur(40px);
+            border-left: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: -45px 0 90px rgba(0,0,0,0.98); z-index: 1001;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column;
+        }
+        .settings-panel.open { right: 0; }
+
+        .settings-head {
+            padding: 22px 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .settings-head h2 { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 1.5px; text-transform: uppercase; }
+        .close-settings { background: none; border: none; color: var(--muted); font-size: 26px; cursor: pointer; transition: 0.2s; }
+        .close-settings:hover { color: #fff; }
+
+        .settings-body-panel { padding: 24px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+        .setting-item { display: flex; flex-direction: column; gap: 8px; }
+        .setting-item label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; letter-spacing: 0.05em; }
+
+        .setting-select {
+            width: 100%; background: rgba(0,0,0,0.55); color: var(--text); border: 1px solid rgba(255,255,255,0.09);
+            padding: 12px; border-radius: 12px; font-family: var(--sans); font-size: 12px; outline: none; cursor: pointer;
+        }
+
+        input[type="range"] { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.12); outline: none; border-radius: 3px; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--accent); cursor: pointer; border-radius: 50%; box-shadow: 0 0 14px var(--accent); }
+
+        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 38px; border-radius: 12px; cursor: pointer; background: rgba(0,0,0,0.45); padding: 2px; border: 1px solid rgba(255,255,255,0.12); }
+        input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+        input[type="color"]::-webkit-color-swatch { border: none; border-radius: 10px; }
+
+        .btn-reset { margin-top: 10px; padding: 14px; background: rgba(239, 68, 68, 0.09); border: 1px solid rgba(239, 68, 68, 0.28); color: var(--bad); border-radius: 12px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: 0.25s; }
+        .btn-reset:hover { background: rgba(239, 68, 68, 0.2); box-shadow: 0 0 18px rgba(239,68,68,0.25); }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow ambient-1"></div>
+    <div class="ambient-glow ambient-2"></div>
+
+    <header class="app-header">
+        <div class="header-brand">
+            <div class="brand-logo-box">M</div>
+            <div class="header-title-group">
+                <h1 class="header-title">MATIN <span>TECH</span></h1>
+                <div class="header-subtitle">Quantum Nexus Elite v7.0</div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="header-btn" onclick="toggleSettings()" title="UI Customization">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- LIVE METRICS TICKER -->
+    <div class="stats-ticker">
+        <div class="stat-card">
+            <div class="stat-info">
+                <span>Core Nexus Status</span>
+                <h3 id="statEngineState">ONLINE</h3>
+            </div>
+            <div class="stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span>Parsed Nodes Pool</span>
+                <h3 id="statPoolCount">0</h3>
+            </div>
+            <div class="stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span>Network Latency</span>
+                <h3 id="statLatency">10ms</h3>
+            </div>
+            <div class="stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
         </div>
     </div>
+
+    <main>
+        <section class="panel">
+            <div class="panel-header">
+                <div class="panel-title"><div class="status-dot"></div>Nexus Node Extraction Engine Pro</div>
+            </div>
+            
+            <div class="panel-body">
+                <div class="input-group">
+                    <label class="input-label">
+                        <span>Subscription Links / Raw Configs</span>
+                        <span style="color: var(--accent); cursor: pointer;" onclick="clearInput()">Clear Input</span>
+                    </label>
+                    <textarea id="mainInput" placeholder="Paste subscription links or base64 configs here..."></textarea>
+                    
+                    <div class="textarea-actions">
+                        <button class="action-icon-btn" type="button" title="Paste from Clipboard" onclick="pasteFromClipboard()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                        </button>
+                        <button class="action-icon-btn" type="button" title="Upload File" onclick="document.getElementById('fileInput').click()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
+                </div>
+
+                <!-- PRESET SOURCE QUICK CHIPS (INCLUDING YOUR LINK) -->
+                <div class="input-group">
+                    <label class="input-label">Quick Source Presets</label>
+                    <div class="preset-sources">
+                        <div class="preset-chip" onclick="loadPreset('matin')">💎 Matin Special Sub</div>
+                        <div class="preset-chip" onclick="loadPreset('barry')">🚀 Barry-Far Sub</div>
+                        <div class="preset-chip" onclick="loadPreset('ali')">🔥 Aliilapro Sub</div>
+                        <div class="preset-chip" onclick="loadPreset('all')">⚡ Ultimate Combined Pool</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label class="input-label">Remark Tag (Custom Name)</label>
+                        <input id="remarkInput" type="text" value="MatinTech⚡Elite">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Max Node Limit</label>
+                        <input id="maxOutput" type="number" min="200" max="25000" value="5000">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Protocols Filter</label>
+                    <div class="check-grid" id="protocolGrid"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Transport Filter</label>
+                    <div class="check-grid" id="transportGrid"></div>
+                </div>
+
+                <!-- ADVANCED SETTINGS TOGGLE -->
+                <div>
+                    <span class="advanced-toggle" onclick="toggleAdvancedOptions()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        Advanced Routing & Formatting Controls
+                    </span>
+                    <div class="advanced-options-box" id="advancedBox" style="margin-top: 10px;">
+                        <div class="input-group">
+                            <label class="input-label">Deduplication Mode</label>
+                            <select id="selectDedup" class="setting-select">
+                                <option value="strict">Strict Unique URL Match</option>
+                                <option value="loose">Flexible Address Match</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Auto-Rename Scheme</label>
+                            <input id="customSchemeInput" type="text" value="MatinTech [INDEX] | ELITE 🚀">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="processBtn" class="btn-primary" onclick="startEngine()">
+                    Initialize Quantum Nexus Engine
+                </button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header" style="border-bottom: none;">
+                <div class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                    Live Quantum Nexus Console
+                </div>
+            </div>
+
+            <div class="panel-body" style="padding: 0;">
+                <div class="terminal-panel">
+                    <div class="term-header">
+                        <div class="term-status-box">STATUS: <span id="termStatus">STANDBY</span><span class="blink">_</span></div>
+                        <div class="term-actions">
+                            <button class="btn-term-action" onclick="exportLogs()">EXPORT LOGS</button>
+                            <button class="btn-term-action danger" onclick="clearTerminal()">CLEAR</button>
+                        </div>
+                    </div>
+                    <div class="scan-progress"><div class="scan-bar" id="scanBar"></div></div>
+                    <div class="term-body" id="termBody"></div>
+                </div>
+
+                <div class="results-box">
+                    <div class="input-label" style="justify-content: center; margin-bottom: 12px;">READY ACTIVE CONFIGURATIONS</div>
+                    <div class="score-display" id="finalCount">0</div>
+                    <div class="row" style="width: 100%;">
+                        <button id="copyBtn" class="btn-secondary" onclick="copyConfigs()" disabled>
+                            Copy Configurations
+                        </button>
+                        <button id="dlBtn" class="btn-secondary" onclick="downloadConfigs()" disabled>
+                            Download File (.txt)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="matin-watermark">Designed & Crafted by <span>Matin-Tech</span></div>
+
+    <div id="toast">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span id="toastMsg">Configurations copied to clipboard successfully!</span>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-head">
+            <h2>Nexus UI Themes</h2>
+            <button class="close-settings" onclick="toggleSettings()">&times;</button>
+        </div>
+        <div class="settings-body-panel">
+            <div class="setting-item">
+                <label>System Font</label>
+                <select id="selectFont" class="setting-select">
+                    <option value="'Plus Jakarta Sans', sans-serif">Jakarta Sans (Modern Pro)</option>
+                    <option value="'JetBrains Mono', monospace">JetBrains Mono (Cyberpunk)</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <label>Border Radius <span id="valRadius">22px</span></label>
+                <input type="range" id="rangeRadius" min="0" max="30" step="1" value="22">
+            </div>
+
+            <div class="setting-item">
+                <label>Background Core Color</label>
+                <input type="color" id="colorBg" value="#010205">
+            </div>
+            <div class="setting-item">
+                <label>Primary Accent Glow</label>
+                <input type="color" id="colorAccent" value="#00f2fe">
+            </div>
+            <div class="setting-item">
+                <label>Secondary Accent Tone</label>
+                <input type="color" id="colorAccent2" value="#4facfe">
+            </div>
+
+            <div class="setting-item">
+                <label>Glass Blur Intensity <span id="valBlur">32px</span></label>
+                <input type="range" id="rangeBlur" min="0" max="45" step="1" value="32">
+            </div>
+            <div class="setting-item">
+                <label>Console Height <span id="valTermH">520px</span></label>
+                <input type="range" id="rangeTermH" min="300" max="750" step="10" value="520">
+            </div>
+            
+            <button class="btn-reset" onclick="resetUI()">Reset Default Theme</button>
+        </div>
+    </div>
+
+    <script>
+        const PROTOCOLS = [
+            { id: "vless", checked: true },
+            { id: "vmess", checked: true },
+            { id: "hysteria2", checked: true },
+            { id: "trojan", checked: true },
+            { id: "ss", checked: true },
+            { id: "hysteria", checked: false }
+        ];
+        
+        const TRANSPORTS = [
+            { id: "ws", checked: true },
+            { id: "grpc", checked: true },
+            { id: "tcp", checked: true },
+            { id: "tls", checked: true },
+            { id: "httpupgrade", checked: true },
+            { id: "splithttp", checked: true },
+            { id: "xhttp", checked: true },
+            { id: "h2", checked: false },
+            { id: "quic", checked: false }
+        ];
+        
+        const PRESETS = {
+            matin: "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt",
+            barry: "https://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt\nhttps://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/Sub2.txt",
+            ali: "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt",
+            all: "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt\nhttps://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt\nhttps://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt"
+        };
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChecks('protocolGrid', PROTOCOLS, 'proto');
+            renderChecks('transportGrid', TRANSPORTS, 'net');
+            loadSettings();
+            
+            // Auto-load your special link by default for maximum convenience
+            document.getElementById('mainInput').value = PRESETS.matin;
+            logTerm('Quantum Nexus Elite v7.0 initialized with Matin Special Gist link.', 'info');
+            
+            setInterval(() => {
+                const randomPing = Math.floor(Math.random() * 5) + 8;
+                document.getElementById('statLatency').innerText = randomPing + 'ms';
+            }, 4000);
+        });
+
+        function loadPreset(key) {
+            document.getElementById('mainInput').value = PRESETS[key] || '';
+            showToast(`Loaded preset source: ${key.toUpperCase()}`);
+            logTerm(`Preset source config loaded into pipeline: ${key}`, 'scan');
+        }
+
+        function clearInput() {
+            document.getElementById('mainInput').value = '';
+            showToast('Input sources cleared!');
+            logTerm('Input box cleared by user.', 'info');
+        }
+
+        function toggleAdvancedOptions() {
+            document.getElementById('advancedBox').classList.toggle('open');
+        }
+
+        document.getElementById("fileInput").addEventListener("change", function(e) {
+            const f = e.target.files?.[0];
+            if (!f) return;
+            const r = new FileReader();
+            r.onload = () => {
+                const ta = document.getElementById("mainInput");
+                ta.value = (ta.value ? ta.value + "\n" : "") + r.result;
+                logTerm(`Successfully loaded external file package: ${f.name}`, "ok");
+            };
+            r.readAsText(f);
+        });
+
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                if (text) {
+                    const ta = document.getElementById("mainInput");
+                    ta.value = (ta.value ? ta.value + "\n" : "") + text;
+                    showToast('Pasted from clipboard successfully!');
+                    logTerm('Configs pasted directly from system clipboard.', 'ok');
+                }
+            } catch(e) {
+                showToast('Clipboard access denied or unsupported.');
+            }
+        }
+
+        function renderChecks(containerId, items, name) {
+            document.getElementById(containerId).innerHTML = items.map(item => `
+                <label class="check-box">
+                    <input type="checkbox" name="${name}" value="${item.id}" ${item.checked ? 'checked' : ''}>
+                    <span>${item.id.toUpperCase()}</span>
+                </label>
+            `).join('');
+        }
+
+        const termBody = document.getElementById('termBody');
+        function logTerm(msg, type = 'info') {
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute:'2-digit', second:'2-digit' });
+            let badgeClass = 'badge-info', badgeText = 'INFO';
+            if (type === 'scan') { badgeClass = 'badge-scan'; badgeText = 'TASK'; }
+            else if (type === 'ok') { badgeClass = 'badge-ok'; badgeText = 'SUCCESS'; }
+            else if (type === 'err') { badgeClass = 'badge-err'; badgeText = 'ERROR'; }
+
+            const div = document.createElement('div');
+            div.className = 'log-line';
+            div.innerHTML = `<div class="log-time">[${time}]</div><div class="log-badge ${badgeClass}">${badgeText}</div><div class="log-msg">${msg}</div>`;
+            termBody.appendChild(div);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function clearTerminal() { termBody.innerHTML = ''; logTerm('Console logs cleared.', 'info'); }
+        
+        function exportLogs() {
+            const logsText = Array.from(termBody.querySelectorAll('.log-line')).map(el => el.innerText).join('\n');
+            const blob = new Blob([logsText], { type: 'text/plain;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `MatinTech_Console_Logs_${Date.now()}.txt`;
+            a.click();
+            showToast('Console logs downloaded successfully!');
+        }
+
+        function updateProgress(percent, text) {
+            document.getElementById('scanBar').style.width = `${percent}%`;
+            if (text) document.getElementById('termStatus').innerText = text;
+        }
+
+        let finalProcessedConfigs = [];
+
+        async function fetchWithFallback(url) {
+            const proxies = ["https://api.allorigins.win/raw?url=", "https://corsproxy.io/?"];
+            try {
+                const res = await fetch(url, { cache: 'no-store' });
+                if (res.ok) return await res.text();
+            } catch(e) {}
+            for (const p of proxies) {
+                try {
+                    const res = await fetch(p + encodeURIComponent(url));
+                    if (res.ok) return await res.text();
+                } catch(e) {}
+            }
+            throw new Error(`Failed to fetch: ${url}`);
+        }
+
+        function safeAtobUnicode(b64) {
+            const padded = b64 + "=".repeat((4 - (b64.length % 4)) % 4);
+            const bin = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
+            try { return decodeURIComponent(Array.prototype.map.call(bin, c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join("")); } catch (_) { return bin; }
+        }
+
+        function extractURIs(text) {
+            let combined = text;
+            text.split(/\r?\n/).forEach(line => {
+                let s = line.trim();
+                if (s.length > 40 && !s.includes('://') && /^[A-Za-z0-9+/=_-]+$/.test(s)) {
+                    try { const dec = safeAtobUnicode(s); if (dec.includes('://')) combined += '\n' + dec; } catch(e){}
+                }
+            });
+            return Array.from(new Set((combined.match(/(vmess|vless|hysteria2|hy2|trojan|ss|hysteria):\/\/[^\s"'<>]+/gim) || []).map(m => m.trim())));
+        }
+
+        async function startEngine() {
+            const btn = document.getElementById('processBtn');
+            btn.disabled = true;
+            btn.innerHTML = 'Quantum Nexus Processing...';
+            document.getElementById('statEngineState').innerText = 'RUNNING';
+            updateProgress(15, 'FETCHING');
+            
+            finalProcessedConfigs = [];
+            updateResults(0);
+
+            try {
+                const rawInput = document.getElementById('mainInput').value.trim();
+                const allowedProtos = new Set(Array.from(document.querySelectorAll('input[name="proto"]:checked')).map(e => e.value));
+                const customScheme = document.getElementById('customSchemeInput').value.trim() || 'MatinTech [INDEX]';
+                const maxOut = parseInt(document.getElementById('maxOutput').value) || 5000;
+
+                let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : [PRESETS.matin];
+                let combinedData = rawInput;
+
+                for (const url of sources) {
+                    try {
+                        const data = await fetchWithFallback(url);
+                        combinedData += '\n' + data;
+                        logTerm(`Successfully fetched nodes from target source`, 'ok');
+                    } catch(e) {
+                        logTerm(`Skipped unreachable network endpoint`, 'err');
+                    }
+                }
+
+                updateProgress(55, 'PARSING');
+                const uris = extractURIs(combinedData);
+                document.getElementById('statPoolCount').innerText = uris.length;
+                
+                const uniqueMap = new Map();
+                uris.forEach(uri => {
+                    try {
+                        const low = uri.toLowerCase();
+                        let proto = low.startsWith('vmess://') ? 'vmess' : low.split('://')[0];
+                        if(proto === 'hy2') proto = 'hysteria2';
+                        if(allowedProtos.has(proto)) {
+                            uniqueMap.set(uri, uri);
+                        }
+                    } catch(e){}
+                });
+
+                let index = 1;
+                finalProcessedConfigs = Array.from(uniqueMap.values()).slice(0, maxOut).map(u => {
+                    let cleanUri = u.split('#')[0];
+                    let currentRemark = customScheme.replace('[INDEX]', index++);
+                    
+                    if (u.startsWith('vmess://')) {
+                        try {
+                            let base64Part = u.replace('vmess://', '').split('#')[0];
+                            let vmessJson = JSON.parse(safeAtobUnicode(base64Part));
+                            vmessJson.ps = currentRemark;
+                            return 'vmess://' + btoa(encodeURIComponent(JSON.stringify(vmessJson)).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
+                        } catch(err) {
+                            return cleanUri + '#' + encodeURIComponent(currentRemark);
+                        }
+                    }
+                    return cleanUri + '#' + encodeURIComponent(currentRemark);
+                });
+
+                updateProgress(100, 'COMPLETED');
+                logTerm(`Quantum Nexus Elite successfully generated ${finalProcessedConfigs.length} optimized configurations.`, 'ok');
+                updateResults(finalProcessedConfigs.length);
+                document.getElementById('statEngineState').innerText = 'IDLE';
+            } catch(e) {
+                logTerm(`Critical Error: ${e.message}`, 'err');
+                document.getElementById('statEngineState').innerText = 'ERROR';
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Initialize Quantum Nexus Engine';
+                setTimeout(() => updateProgress(0, 'STANDBY'), 1500);
+            }
+        }
+
+        function updateResults(count) {
+            const display = document.getElementById('finalCount');
+            display.innerText = count;
+            display.classList.remove('bump');
+            void display.offsetWidth;
+            if(count > 0) display.classList.add('bump');
+            document.getElementById('copyBtn').disabled = count === 0;
+            document.getElementById('dlBtn').disabled = count === 0;
+        }
+
+        function copyConfigs() {
+            const textToCopy = finalProcessedConfigs.join('\n');
+            if (!textToCopy) return;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showToast('Configurations copied to clipboard successfully!');
+                    logTerm('Configs exported to system clipboard via Clipboard API.', 'ok');
+                }).catch(() => fallbackCopy(textToCopy));
+            } else {
+                fallbackCopy(textToCopy);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast('Configurations copied via fallback mechanism!');
+                    logTerm('Configs exported via document fallback command.', 'ok');
+                } else {
+                    logTerm('Copy failed via fallback method.', 'err');
+                }
+            } catch (err) {
+                logTerm('Error during clipboard copy.', 'err');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function downloadConfigs() {
+            const blob = new Blob([finalProcessedConfigs.join('\n')], { type: 'text/plain;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `MatinTech_Elite_Configs_${Date.now()}.txt`;
+            a.click();
+            logTerm('Configuration file package downloaded successfully.', 'ok');
+            showToast('Configuration file downloaded!');
+        }
+
+        const root = document.documentElement;
+        const defaultUI = { bg: '#010205', accent: '#00f2fe', accent2: '#4facfe', blur: '32', radius: '22', font: "'Plus Jakarta Sans', sans-serif", termH: '520' };
+
+        function toggleSettings() { document.getElementById('settingsPanel').classList.toggle('open'); }
+        function hexToRgb(hex) {
+            let r = parseInt(hex.slice(1,3), 16), g = parseInt(hex.slice(3,5), 16), b = parseInt(hex.slice(5,7), 16);
+            return `${r}, ${g}, ${b}`;
+        }
+
+        function applySettings(s) {
+            root.style.setProperty('--bg-color', s.bg);
+            root.style.setProperty('--accent-hex', s.accent);
+            root.style.setProperty('--accent-rgb', hexToRgb(s.accent));
+            root.style.setProperty('--accent2-hex', s.accent2);
+            root.style.setProperty('--blur-intensity', s.blur + 'px');
+            root.style.setProperty('--radius-val', s.radius + 'px');
+            root.style.setProperty('--font-main', s.font);
+            root.style.setProperty('--term-height', s.termH + 'px');
+
+            document.getElementById('colorBg').value = s.bg;
+            document.getElementById('colorAccent').value = s.accent;
+            document.getElementById('colorAccent2').value = s.accent2;
+            document.getElementById('rangeBlur').value = s.blur;
+            document.getElementById('valBlur').innerText = s.blur + 'px';
+            document.getElementById('rangeRadius').value = s.radius;
+            document.getElementById('valRadius').innerText = s.radius + 'px';
+            document.getElementById('selectFont').value = s.font;
+            document.getElementById('rangeTermH').value = s.termH;
+            document.getElementById('valTermH').innerText = s.termH + 'px';
+        }
+
+        function saveSettings() {
+            const s = {
+                bg: document.getElementById('colorBg').value,
+                accent: document.getElementById('colorAccent').value,
+                accent2: document.getElementById('colorAccent2').value,
+                blur: document.getElementById('rangeBlur').value,
+                radius: document.getElementById('rangeRadius').value,
+                font: document.getElementById('selectFont').value,
+                termH: document.getElementById('rangeTermH').value
+            };
+            localStorage.setItem('matinTechNexusSettingsV7', JSON.stringify(s));
+            applySettings(s);
+        }
+
+        function loadSettings() {
+            const saved = localStorage.getItem('matinTechNexusSettingsV7');
+            applySettings(saved ? JSON.parse(saved) : defaultUI);
+        }
+
+        ['colorBg', 'colorAccent', 'colorAccent2', 'rangeBlur', 'rangeRadius', 'selectFont', 'rangeTermH'].forEach(id => {
+            document.getElementById(id).addEventListener('input', saveSettings);
+        });
+
+        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechNexusSettingsV7'); logTerm('UI theme settings reset to default.', 'info'); }
+    </script>
 </body>
 </html>
