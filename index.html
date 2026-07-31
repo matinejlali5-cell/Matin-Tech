@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>M3_ES // MATIN TECH - QUANTUM NEXUS ELITE v7.0</title>
+    <title>M3_ES // MATIN TECH - Quantum Nexus Elite v7.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -264,7 +264,7 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.55); transition: 0.3s;
         }
         .stat-card:hover { border-color: var(--border-glow); transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 25px rgba(var(--accent-rgb), 0.15); }
-        .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+        .stat-info span { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
         .stat-info h3 { font-size: 17px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 3px; }
         .stat-icon { width: 40px; height: 40px; border-radius: 14px; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; color: var(--accent); }
 
@@ -559,13 +559,13 @@
                 </div>
 
                 <div class="auth-input-group">
-                    <label for="password">رمزعبور</label>
+                    <label for="password">رمز عبور</label>
                     <div class="auth-input-wrapper">
-                        <input type="password" id="password" name="password" placeholder="رمزعبور" value="" required>
+                        <input type="password" id="password" name="password" placeholder="رمز عبور" value="" required>
                     </div>
                 </div>
 
-                <button type="submit" class="login-btn">ورود</button>
+                <button type="submit" class="login-btn">ورود به پنل</button>
                 <div id="authError" class="auth-error">نام کاربری یا رمز عبور اشتباه است! (admin / admin)</div>
             </form>
         </div>
@@ -588,7 +588,7 @@
                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line>
                 </svg>
             </button>
-            <button class="header-btn" onclick="toggleSettings()" title="تنظیمات پوسته UI">
+            <button class="header-btn" onclick="toggleSettings()" title="شخصی‌سازی پوسته مدیریت">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                 </svg>
@@ -600,7 +600,7 @@
     <div class="stats-ticker">
         <div class="stat-card">
             <div class="stat-info">
-                <span>Core Nexus Status</span>
+                <span>وضعیت هسته مرکزی</span>
                 <h3 id="statEngineState">ONLINE</h3>
             </div>
             <div class="stat-icon">
@@ -609,7 +609,7 @@
         </div>
         <div class="stat-card">
             <div class="stat-info">
-                <span>Parsed Nodes Pool</span>
+                <span>تعداد نودهای استخراج شده</span>
                 <h3 id="statPoolCount">0</h3>
             </div>
             <div class="stat-icon">
@@ -618,7 +618,7 @@
         </div>
         <div class="stat-card">
             <div class="stat-info">
-                <span>Network Latency</span>
+                <span>پینگ و تاخیر شبکه</span>
                 <h3 id="statLatency">10ms</h3>
             </div>
             <div class="stat-icon">
@@ -630,22 +630,22 @@
     <main>
         <section class="panel">
             <div class="panel-header">
-                <div class="panel-title"><div class="status-dot"></div>Nexus Node Extraction Engine Pro</div>
+                <div class="panel-title"><div class="status-dot"></div>موتور پیشرفته استخراج و بهینه‌سازی نودها</div>
             </div>
             
             <div class="panel-body">
                 <div class="input-group">
                     <label class="input-label">
-                        <span>Subscription Links / Raw Configs</span>
-                        <span style="color: var(--accent); cursor: pointer;" onclick="clearInput()">Clear Input</span>
+                        <span>لینک‌های اشتراک یا کانفیگ‌های خام</span>
+                        <span style="color: var(--accent); cursor: pointer;" onclick="clearInput()">پاکسازی ورودی</span>
                     </label>
-                    <textarea id="mainInput" placeholder="Paste subscription links or base64 configs here..."></textarea>
+                    <textarea id="mainInput" placeholder="لینک‌های سابسکریپشن یا کانفیگ‌های بیس‌پنجاه‌چهار را اینجا وارد کنید..."></textarea>
                     
                     <div class="textarea-actions">
-                        <button class="action-icon-btn" type="button" title="Paste from Clipboard" onclick="pasteFromClipboard()">
+                        <button class="action-icon-btn" type="button" title="جاگذاری از کلیپ‌بورد" onclick="pasteFromClipboard()">
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                         </button>
-                        <button class="action-icon-btn" type="button" title="Upload File" onclick="document.getElementById('fileInput').click()">
+                        <button class="action-icon-btn" type="button" title="آپلود فایل" onclick="document.getElementById('fileInput').click()">
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
                             </svg>
@@ -656,7 +656,7 @@
 
                 <!-- PRESET SOURCE QUICK CHIPS -->
                 <div class="input-group">
-                    <label class="input-label">Quick Source Presets</label>
+                    <label class="input-label">منابع پیش‌فرض سریع</label>
                     <div class="preset-sources">
                         <div class="preset-chip" onclick="loadPreset('matin')">💎 Matin Special Sub</div>
                         <div class="preset-chip" onclick="loadPreset('barry')">🚀 Barry-Far Sub</div>
@@ -667,22 +667,22 @@
 
                 <div class="row">
                     <div class="input-group">
-                        <label class="input-label">Remark Tag (Custom Name)</label>
+                        <label class="input-label">تگ ریمارک (نام‌گذاری سفارشی)</label>
                         <input id="remarkInput" type="text" value="MatinTech⚡Elite">
                     </div>
                     <div class="input-group">
-                        <label class="input-label">Max Node Limit</label>
+                        <label class="input-label">حداکثر تعداد نود خروجی</label>
                         <input id="maxOutput" type="number" min="200" max="25000" value="5000">
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <label class="input-label">Protocols Filter</label>
+                    <label class="input-label">فیلتر پروتکل‌های اتصال</label>
                     <div class="check-grid" id="protocolGrid"></div>
                 </div>
 
                 <div class="input-group">
-                    <label class="input-label">Transport Filter</label>
+                    <label class="input-label">فیلتر لایه انتقال (Transport)</label>
                     <div class="check-grid" id="transportGrid"></div>
                 </div>
 
@@ -690,25 +690,25 @@
                 <div>
                     <span class="advanced-toggle" onclick="toggleAdvancedOptions()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        Advanced Routing & Formatting Controls
+                        تنظیمات پیشرفته مسیریابی و قالب‌بندی
                     </span>
                     <div class="advanced-options-box" id="advancedBox" style="margin-top: 10px;">
                         <div class="input-group">
-                            <label class="input-label">Deduplication Mode</label>
+                            <label class="input-label">حالت حذف موارد تکراری</label>
                             <select id="selectDedup" class="setting-select">
-                                <option value="strict">Strict Unique URL Match</option>
-                                <option value="loose">Flexible Address Match</option>
+                                <option value="strict">تطابق دقیق و سخت‌گیرانه لینک</option>
+                                <option value="loose">تطابق انعطاف‌پذیر آدرس‌ها</option>
                             </select>
                         </div>
                         <div class="input-group">
-                            <label class="input-label">Auto-Rename Scheme</label>
+                            <label class="input-label">الگوی تغییر نام خودکار</label>
                             <input id="customSchemeInput" type="text" value="MatinTech [INDEX] | ELITE 🚀">
                         </div>
                     </div>
                 </div>
 
                 <button id="processBtn" class="btn-primary" onclick="startEngine()">
-                    Initialize Quantum Nexus Engine
+                    راه‌اندازی موتور کوانتومی نکسوس
                 </button>
             </div>
         </section>
@@ -717,17 +717,17 @@
             <div class="panel-header" style="border-bottom: none;">
                 <div class="panel-title">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                    Live Quantum Nexus Console
+                    کنسول زنده پردازش کوانتومی
                 </div>
             </div>
 
             <div class="panel-body" style="padding: 0;">
                 <div class="terminal-panel">
                     <div class="term-header">
-                        <div class="term-status-box">STATUS: <span id="termStatus">STANDBY</span><span class="blink">_</span></div>
+                        <div class="term-status-box">وضعیت: <span id="termStatus">آماده به کار</span><span class="blink">_</span></div>
                         <div class="term-actions">
-                            <button class="btn-term-action" onclick="exportLogs()">EXPORT LOGS</button>
-                            <button class="btn-term-action danger" onclick="clearTerminal()">CLEAR</button>
+                            <button class="btn-term-action" onclick="exportLogs()">ذخیره لاگ‌ها</button>
+                            <button class="btn-term-action danger" onclick="clearTerminal()">پاکسازی صفحه</button>
                         </div>
                     </div>
                     <div class="scan-progress"><div class="scan-bar" id="scanBar"></div></div>
@@ -735,14 +735,14 @@
                 </div>
 
                 <div class="results-box">
-                    <div class="input-label" style="justify-content: center; margin-bottom: 12px;">READY ACTIVE CONFIGURATIONS</div>
+                    <div class="input-label" style="justify-content: center; margin-bottom: 12px;">تعداد کانفیگ‌های فعال و آماده استفاده</div>
                     <div class="score-display" id="finalCount">0</div>
                     <div class="row" style="width: 100%;">
                         <button id="copyBtn" class="btn-secondary" onclick="copyConfigs()" disabled>
-                            Copy Configurations
+                            کپی تمام کانفیگ‌ها
                         </button>
                         <button id="dlBtn" class="btn-secondary" onclick="downloadConfigs()" disabled>
-                            Download File (.txt)
+                            دانلود فایل خروجی (.txt)
                         </button>
                     </div>
                 </div>
@@ -750,55 +750,55 @@
         </section>
     </main>
 
-    <div class="matin-watermark">Designed & Crafted by <span>Matin-Tech</span> // M3_ES Panel</div>
+    <div class="matin-watermark">طراحی و توسعه توسط <span>Matin-Tech</span> // پنل مدیریتی M3_ES</div>
 
     <div id="toast">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <span id="toastMsg">Configurations copied to clipboard successfully!</span>
+        <span id="toastMsg">کانفیگ‌ها با موفقیت در حافظه موقت کپی شدند!</span>
     </div>
 
     <div class="settings-panel" id="settingsPanel">
         <div class="settings-head">
-            <h2>Nexus UI Themes</h2>
+            <h2>شخصی‌سازی پوسته مدیریت</h2>
             <button class="close-settings" onclick="toggleSettings()">&times;</button>
         </div>
         <div class="settings-body-panel">
             <div class="setting-item">
-                <label>System Font</label>
+                <label>فونت سامانه</label>
                 <select id="selectFont" class="setting-select">
-                    <option value="'Plus Jakarta Sans', sans-serif">Jakarta Sans (Modern Pro)</option>
-                    <option value="'JetBrains Mono', monospace">JetBrains Mono (Cyberpunk)</option>
+                    <option value="'Plus Jakarta Sans', sans-serif">Jakarta Sans (مدرن و حرفه‌ای)</option>
+                    <option value="'JetBrains Mono', monospace">JetBrains Mono (سایبرپانک)</option>
                 </select>
             </div>
 
             <div class="setting-item">
-                <label>Border Radius <span id="valRadius">22px</span></label>
+                <label>میزان گردی لباها <span id="valRadius">22px</span></label>
                 <input type="range" id="rangeRadius" min="0" max="30" step="1" value="22">
             </div>
 
             <div class="setting-item">
-                <label>Background Core Color</label>
+                <label>رنگ زمینه اصلی پس‌زمینه</label>
                 <input type="color" id="colorBg" value="#010205">
             </div>
             <div class="setting-item">
-                <label>Primary Accent Glow</label>
+                <label>رنگ نور پس‌زمینه اصلی</label>
                 <input type="color" id="colorAccent" value="#00f2fe">
             </div>
             <div class="setting-item">
-                <label>Secondary Accent Tone</label>
+                <label>رنگ طیف ثانویه</label>
                 <input type="color" id="colorAccent2" value="#4facfe">
             </div>
 
             <div class="setting-item">
-                <label>Glass Blur Intensity <span id="valBlur">32px</span></label>
+                <label>شدت تار کردن شیشه‌ای (Blur) <span id="valBlur">32px</span></label>
                 <input type="range" id="rangeBlur" min="0" max="45" step="1" value="32">
             </div>
             <div class="setting-item">
-                <label>Console Height <span id="valTermH">520px</span></label>
+                <label>ارتفاع کادر کنسول <span id="valTermH">520px</span></label>
                 <input type="range" id="rangeTermH" min="300" max="750" step="10" value="520">
             </div>
             
-            <button class="btn-reset" onclick="resetUI()">Reset Default Theme</button>
+            <button class="btn-reset" onclick="resetUI()">بازنشانی به تنظیمات پیش‌فرض</button>
         </div>
     </div>
 
@@ -880,13 +880,13 @@
 
         function loadPreset(key) {
             document.getElementById('mainInput').value = PRESETS[key] || '';
-            showToast(`Loaded preset source: ${key.toUpperCase()}`);
+            showToast(`منبع پیش‌فرض بارگذاری شد: ${key.toUpperCase()}`);
             logTerm(`Preset source config loaded into pipeline: ${key}`, 'scan');
         }
 
         function clearInput() {
             document.getElementById('mainInput').value = '';
-            showToast('Input sources cleared!');
+            showToast('کادر ورودی با موفقیت پاک شد!');
             logTerm('Input box cleared by user.', 'info');
         }
 
@@ -912,11 +912,11 @@
                 if (text) {
                     const ta = document.getElementById("mainInput");
                     ta.value = (ta.value ? ta.value + "\n" : "") + text;
-                    showToast('Pasted from clipboard successfully!');
+                    showToast('با موفقیت از کلیپ‌بورد جاگذاری شد!');
                     logTerm('Configs pasted directly from system clipboard.', 'ok');
                 }
             } catch(e) {
-                showToast('Clipboard access denied or unsupported.');
+                showToast('دسترسی به کلیپ‌بورد امکان‌پذیر نیست.');
             }
         }
 
@@ -932,10 +932,10 @@
         const termBody = document.getElementById('termBody');
         function logTerm(msg, type = 'info') {
             const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute:'2-digit', second:'2-digit' });
-            let badgeClass = 'badge-info', badgeText = 'INFO';
-            if (type === 'scan') { badgeClass = 'badge-scan'; badgeText = 'TASK'; }
-            else if (type === 'ok') { badgeClass = 'badge-ok'; badgeText = 'SUCCESS'; }
-            else if (type === 'err') { badgeClass = 'badge-err'; badgeText = 'ERROR'; }
+            let badgeClass = 'badge-info', badgeText = 'اطلاعات';
+            if (type === 'scan') { badgeClass = 'badge-scan'; badgeText = 'پردازش'; }
+            else if (type === 'ok') { badgeClass = 'badge-ok'; badgeText = 'موفق'; }
+            else if (type === 'err') { badgeClass = 'badge-err'; badgeText = 'خطا'; }
 
             const div = document.createElement('div');
             div.className = 'log-line';
@@ -953,7 +953,7 @@
             a.href = URL.createObjectURL(blob);
             a.download = `MatinTech_Console_Logs_${Date.now()}.txt`;
             a.click();
-            showToast('Console logs downloaded successfully!');
+            showToast('لاگ‌های کنسول با موفقیت دانلود شدند!');
         }
 
         function updateProgress(percent, text) {
@@ -998,9 +998,9 @@
         async function startEngine() {
             const btn = document.getElementById('processBtn');
             btn.disabled = true;
-            btn.innerHTML = 'Quantum Nexus Processing...';
+            btn.innerHTML = 'در حال پردازش کوانتومی...';
             document.getElementById('statEngineState').innerText = 'RUNNING';
-            updateProgress(15, 'FETCHING');
+            updateProgress(15, 'در حال دریافت اطلاعات');
             
             finalProcessedConfigs = [];
             updateResults(0);
@@ -1024,7 +1024,7 @@
                     }
                 }
 
-                updateProgress(55, 'PARSING');
+                updateProgress(55, 'در حال تجزیه و تحلیل');
                 const uris = extractURIs(combinedData);
                 document.getElementById('statPoolCount').innerText = uris.length;
                 
@@ -1058,7 +1058,7 @@
                     return cleanUri + '#' + encodeURIComponent(currentRemark);
                 });
 
-                updateProgress(100, 'COMPLETED');
+                updateProgress(100, 'تکمیل شد');
                 logTerm(`Quantum Nexus Elite successfully generated ${finalProcessedConfigs.length} optimized configurations.`, 'ok');
                 updateResults(finalProcessedConfigs.length);
                 document.getElementById('statEngineState').innerText = 'IDLE';
@@ -1067,8 +1067,8 @@
                 document.getElementById('statEngineState').innerText = 'ERROR';
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = 'Initialize Quantum Nexus Engine';
-                setTimeout(() => updateProgress(0, 'STANDBY'), 1500);
+                btn.innerHTML = 'راه‌اندازی موتور کوانتومی نکسوس';
+                setTimeout(() => updateProgress(0, 'آماده به کار'), 1500);
             }
         }
 
@@ -1088,7 +1088,7 @@
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(textToCopy).then(() => {
-                    showToast('Configurations copied to clipboard successfully!');
+                    showToast('کانفیگ‌ها با موفقیت در کلیپ‌بورد کپی شدند!');
                     logTerm('Configs exported to system clipboard via Clipboard API.', 'ok');
                 }).catch(() => fallbackCopy(textToCopy));
             } else {
@@ -1109,7 +1109,7 @@
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    showToast('Configurations copied via fallback mechanism!');
+                    showToast('کانفیگ‌ها با موفقیت کپی شدند!');
                     logTerm('Configs exported via document fallback command.', 'ok');
                 } else {
                     logTerm('Copy failed via fallback method.', 'err');
@@ -1136,7 +1136,7 @@
             a.download = `M3_ES_Configs_${Date.now()}.txt`;
             a.click();
             logTerm('Configuration file package downloaded successfully.', 'ok');
-            showToast('Configuration file downloaded!');
+            showToast('فایل کانفیگ‌ها دانلود شد!');
         }
 
         const root = document.documentElement;
