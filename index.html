@@ -4,121 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M3_ES - ورود به پنل</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Tahoma, sans-serif;
-        }
-        body {
-            background-color: #0b0f19;
-            background-image: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-        }
-        .login-card {
-            background: rgba(17, 24, 39, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px 30px;
-            border-radius: 16px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            text-align: center;
-        }
-        .brand-title {
-            font-size: 32px;
-            font-weight: bold;
-            color: #3b82f6;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        .welcome-divider {
-            width: 50px;
-            height: 3px;
-            background-color: #3b82f6;
-            margin: 0 auto 15px auto;
-            border-radius: 2px;
-        }
-        .welcome-text {
-            font-size: 20px;
-            margin-bottom: 30px;
-            color: #e5e7eb;
-        }
-        .input-group {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #9ca3af;
-        }
-        .input-wrapper {
-            position: relative;
-        }
-        .input-wrapper input {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(31, 41, 55, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .input-wrapper input:focus {
-            border-color: #3b82f6;
-        }
-        .login-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #2563eb;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-        .login-btn:hover {
-            background-color: #1d4ed8;
-        }
-    </style>
+    <!-- استایل‌ها و کتابخانه‌های پنل -->
+    <link rel="stylesheetpx" href="/css/app.css">
 </head>
-<body>
-    <div class="login-card">
-        <div class="brand-title">M3_ES</div>
-        <div class="welcome-divider"></div>
-        <div class="welcome-text">خوش آمدید</div>
-        
-        <form id="login-form" action="/login" method="POST">
-            <div class="input-group">
-                <label for="username">نام کاربری</label>
-                <div class="input-wrapper">
-                    <input type="text" id="username" name="username" placeholder="نام کاربری" value="admin" required>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <!-- تغییر نام برند به M3_ES -->
+            <h1 class="brand-title">M3_ES</h1>
+            <div class="welcome-divider"></div>
+            <h2 class="welcome-text">خوش آمدید</h2>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">نام کاربری</label>
+                    <div class="input-wrapper">
+                        <i class="icon-user"></i>
+                        <input type="text" id="username" name="username" placeholder="نام کاربری" value="admin" required>
+                    </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label for="password">رمزعبور</label>
-                <div class="input-wrapper">
-                    <input type="password" id="password" name="password" placeholder="رمزعبور" value="admin" required>
+                <div class="input-group">
+                    <label for="password">رمزعبور</label>
+                    <div class="input-wrapper">
+                        <i class="icon-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="رمزعبور" value="admin" required>
+                        <i class="icon-eye-toggle"></i>
+                    </div>
                 </div>
-            </div>
 
-            <button type="submit" class="login-btn">ورود</button>
-        </form>
+                <button type="submit" class="login-btn">ورود</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
-
