@@ -512,7 +512,7 @@
                     <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
                 </div>
 
-                <!-- PRESET SOURCE QUICK CHIPS (INCLUDING YOUR LINK) -->
+                <!-- PRESET SOURCE QUICK CHIPS -->
                 <div class="input-group">
                     <label class="input-label">Quick Source Presets</label>
                     <div class="preset-sources">
@@ -694,7 +694,6 @@
             renderChecks('transportGrid', TRANSPORTS, 'net');
             loadSettings();
             
-            // Auto-load your special link by default for maximum convenience
             document.getElementById('mainInput').value = PRESETS.matin;
             logTerm('Quantum Nexus Elite v7.0 initialized with Matin Special Gist link.', 'info');
             
@@ -1023,4 +1022,3 @@
     </script>
 </body>
 </html>
-
