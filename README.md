@@ -132,4 +132,178 @@ You can also deploy the project on GitHub Pages or any web server.
 - Copy or download the generated output after the process is complete.
 
 ---
+# ✨ ویژگی‌ها
 
+## ⚡ Quantum Nexus Engine
+
+موتور اختصاصی **Quantum Nexus** هسته اصلی پروژه است که تمامی عملیات دریافت، پردازش، فیلتر و تولید خروجی را با سرعت بالا انجام می‌دهد.
+
+---
+
+## 🚀 امکانات اصلی
+
+- ⚡ پردازش سریع و بهینه
+- 🌍 دریافت هم‌زمان از چندین منبع (Multi Source)
+- 🧠 امتیازدهی هوشمند کانفیگ‌ها
+- 🔍 فیلتر پیشرفته پروتکل‌ها
+- 🌐 فیلتر بر اساس Transport
+- 🧹 حذف خودکار کانفیگ‌های تکراری
+- 📊 داشبورد زنده (Live Dashboard)
+- 🖥 کنسول پردازش لحظه‌ای (Live Terminal)
+- 🎨 شخصی‌سازی کامل رابط کاربری
+- 💾 ذخیره خودکار تنظیمات
+- 📋 کپی خروجی با یک کلیک
+- 📥 دانلود فایل خروجی
+- 📱 سازگار با موبایل، تبلت و دسکتاپ
+- 🔒 پردازش کاملاً سمت کاربر (100% Client-Side)
+
+---
+
+## 🧠 نحوه عملکرد
+
+```text
+Input
+   │
+   ▼
+Source Loader
+   │
+   ▼
+Configuration Analyzer
+   │
+   ▼
+Base64 Decoder
+   │
+   ▼
+URI Extractor
+   │
+   ▼
+Protocol Filter
+   │
+   ▼
+Transport Filter
+   │
+   ▼
+Smart Scoring
+   │
+   ▼
+Duplicate Removal
+   │
+   ▼
+Output Builder
+```
+
+---
+
+## 🌐 پروتکل‌های پشتیبانی‌شده
+
+- ✅ VLESS
+- ✅ VMess
+- ✅ Trojan
+- ✅ Shadowsocks
+- ✅ Hysteria
+- ✅ Hysteria2
+
+---
+
+## 🔗 Transportهای پشتیبانی‌شده
+
+- WS
+- gRPC
+- TCP
+- TLS
+- HTTPUpgrade
+- SplitHTTP
+- XHTTP
+- HTTP/2
+- QUIC
+
+---
+
+# 🇬🇧 English
+
+# ✨ Features
+
+## ⚡ Quantum Nexus Engine
+
+The **Quantum Nexus Engine** is the core of the project, designed to fetch, process, filter, and generate high-quality V2Ray configurations with maximum performance.
+
+---
+
+## 🚀 Key Features
+
+- ⚡ Fast & Optimized Processing
+- 🌍 Multi-Source Configuration Loader
+- 🧠 Smart Configuration Scoring
+- 🔍 Advanced Protocol Filtering
+- 🌐 Advanced Transport Filtering
+- 🧹 Automatic Duplicate Detection
+- 📊 Live Dashboard
+- 🖥 Live Processing Terminal
+- 🎨 Full UI Customization
+- 💾 Automatic Settings Saving
+- 📋 One-Click Copy
+- 📥 TXT Export
+- 📱 Responsive Design
+- 🔒 100% Client-Side Processing
+
+---
+
+## 🧠 How It Works
+
+```text
+Input
+   │
+   ▼
+Source Loader
+   │
+   ▼
+Configuration Analyzer
+   │
+   ▼
+Base64 Decoder
+   │
+   ▼
+URI Extractor
+   │
+   ▼
+Protocol Filter
+   │
+   ▼
+Transport Filter
+   │
+   ▼
+Smart Scoring
+   │
+   ▼
+Duplicate Removal
+   │
+   ▼
+Output Builder
+```
+
+---
+
+## 🌐 Supported Protocols
+
+- ✅ VLESS
+- ✅ VMess
+- ✅ Trojan
+- ✅ Shadowsocks
+- ✅ Hysteria
+- ✅ Hysteria2
+
+---
+
+## 🔗 Supported Transports
+
+- WS
+- gRPC
+- TCP
+- TLS
+- HTTPUpgrade
+- SplitHTTP
+- XHTTP
+- HTTP/2
+- QUIC
+
+---
