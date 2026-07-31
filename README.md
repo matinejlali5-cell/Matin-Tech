@@ -307,3 +307,146 @@ Output Builder
 - QUIC
 
 ---
+# 🛠 Deployment
+
+## 🇮🇷 فارسی
+
+### GitHub Pages
+
+برای انتشار پروژه روی GitHub Pages:
+
+1. پروژه را در یک Repository عمومی قرار دهید.
+2. وارد **Settings → Pages** شوید.
+3. گزینه **Deploy from a Branch** را انتخاب کنید.
+4. شاخه **main** و مسیر **/(root)** را انتخاب کنید.
+5. روی **Save** کلیک کنید.
+
+پس از چند دقیقه پروژه در آدرس زیر در دسترس خواهد بود:
+
+```text
+https://matinejlali5-cell.github.io/Matin-Tech/
+```
+
+---
+
+## 📂 ساختار پروژه
+
+```text
+Matin-Tech
+│
+├── index.html
+├── README.md
+└── LICENSE
+```
+
+---
+
+## 🔒 حریم خصوصی
+
+- ✅ تمام پردازش‌ها داخل مرورگر انجام می‌شوند.
+- ✅ هیچ اطلاعاتی به سرور ارسال نمی‌شود.
+- ✅ بدون Backend
+- ✅ بدون Database
+- ✅ ذخیره تنظیمات فقط در Local Storage
+
+---
+
+## 📄 مجوز
+
+این پروژه تحت مجوز **MIT License** منتشر شده است.
+
+استفاده، ویرایش و توسعه پروژه با حفظ نام توسعه‌دهنده مجاز است.
+
+---
+
+## 👨‍💻 توسعه‌دهنده
+
+**Mohammad Matin Ejlali**
+
+📢 Telegram: **@Mr_Matin_official**
+
+💻 GitHub: **github.com/matinejlali5-cell**
+
+---
+
+## ⭐ حمایت از پروژه
+
+اگر از **MATIN TECH** خوشتان آمده است، با دادن یک **⭐ Star** در GitHub از پروژه حمایت کنید.
+
+از حمایت شما سپاسگزارم ❤️
+
+---
+
+# 🇬🇧 English
+
+# 🛠 Deployment
+
+## GitHub Pages
+
+To deploy the project using GitHub Pages:
+
+1. Upload the project to a public repository.
+2. Open **Settings → Pages**.
+3. Select **Deploy from a Branch**.
+4. Choose the **main** branch and **/(root)**.
+5. Click **Save**.
+
+After a few minutes, your project will be available at:
+
+```text
+https://matinejlali5-cell.github.io/Matin-Tech/
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+Matin-Tech
+│
+├── index.html
+├── README.md
+└── LICENSE
+```
+
+---
+
+## 🔒 Privacy
+
+- ✅ Everything runs inside your browser.
+- ✅ No data is transmitted to any server.
+- ✅ No Backend Required
+- ✅ No Database
+- ✅ Settings are stored locally using Local Storage.
+
+---
+
+## 📄 License
+
+This project is released under the **MIT License**.
+
+You are free to use, modify, and contribute while preserving the original credits.
+
+---
+
+## 👨‍💻 Developer
+
+**Mohammad Matin Ejlali**
+
+📢 Telegram: **@Mr_Matin_official**
+
+💻 GitHub: **github.com/matinejlali5-cell**
+
+---
+
+## ⭐ Support
+
+If you like **MATIN TECH**, don't forget to leave a **⭐ Star** on GitHub.
+
+Your support helps the project grow and motivates future updates.
+
+<p align="center">
+
+### ❤️ Thank You for Using MATIN TECH ❤️
+
+</p>
