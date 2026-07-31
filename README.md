@@ -1,4 +1,16 @@
+<h1 align="center">MATIN VPN</h1>
 
+<p align="center">
+  🛡️ <strong>SECURE</strong>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  ⚡ <strong>FAST</strong>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  🌐 <strong>GLOBAL</strong>
+</p>
+
+<p align="center">
+  <em>Stay Private. Stay Connected.</em>
+</p>
 <p align="center">
   <a href="https://t.me/Mr_Matin_official">
     <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=38&pause=1000&color=00F7FF&center=true&vCenter=true&width=950&height=90&lines=M3_ES+•+MATIN+TECH;Quantum+Nexus+Elite+v7.0;Professional+V2Ray+Management+Platform;Fast+•+Secure+•+Powerful" />
