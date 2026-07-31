@@ -3,45 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>MATIN TECH // QUANTUM CORE ENGINE X</title>
+    <title>MATIN TECH // QUANTUM ULTRA v6.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #020306;
-            --panel-rgb: 8, 10, 16;
-            --panel-opacity: 0.90;
+            --bg-color: #010204;
+            --panel-rgb: 6, 8, 14;
+            --panel-opacity: 0.92;
             --accent-hex: #00f2fe; 
             --accent-rgb: 0, 242, 254;
             --accent2-hex: #4facfe; 
             --text-color: #f8fafc;
-            --grid-opacity: 0.25;
-            --blur-intensity: 25px;
-            --radius-val: 18px;
-            --glow-intensity: 1.4;
+            --grid-opacity: 0.3;
+            --blur-intensity: 28px;
+            --radius-val: 20px;
+            --glow-intensity: 1.6;
             --font-main: 'Plus Jakarta Sans', sans-serif;
-            --term-height: 440px;
+            --term-height: 480px;
             
             --bg: var(--bg-color);
             --card: rgb(var(--panel-rgb));
             --panel: rgba(var(--panel-rgb), var(--panel-opacity));
-            --border: rgba(var(--accent-rgb), 0.3);
-            --border-glow: rgba(var(--accent-rgb), calc(0.7 * var(--glow-intensity)));
+            --border: rgba(var(--accent-rgb), 0.35);
+            --border-glow: rgba(var(--accent-rgb), calc(0.8 * var(--glow-intensity)));
             --text: var(--text-color);
-            --muted: rgba(248, 250, 252, 0.5);
+            --muted: rgba(248, 250, 252, 0.55);
             --accent: var(--accent-hex);
             --accent2: var(--accent2-hex);
-            --accent-glow: rgba(var(--accent-rgb), calc(0.5 * var(--glow-intensity)));
+            --accent-glow: rgba(var(--accent-rgb), calc(0.6 * var(--glow-intensity)));
             
             --good: #10b981;
             --bad: #ef4444;
             --info: #06b6d4;
+            --warning: #f59e0b;
             
             --mono: 'JetBrains Mono', ui-monospace, monospace;
             --sans: var(--font-main);
             --radius: var(--radius-val);
-            --shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.9), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            --shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.95), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,158 +56,117 @@
             scroll-behavior: smooth;
         }
 
-        /* Holographic Cyber Grid با انیمیشن حرکت */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: 
-                linear-gradient(to right, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 0;
-            pointer-events: none;
+                linear-gradient(to right, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px);
+            background-size: 45px 45px;
+            z-index: 0; pointer-events: none;
             opacity: var(--grid-opacity);
-            animation: gridMove 30s linear infinite;
+            animation: gridMove 25s linear infinite;
         }
         @keyframes gridMove {
             0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
+            100% { background-position: 45px 45px; }
         }
 
-        /* Ambient Glow Spheres پیشرفته */
         .ambient-glow {
             position: fixed;
-            width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.12) 0%, rgba(0,0,0,0) 70%);
+            width: 55vw; height: 55vw;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, rgba(0,0,0,0) 70%);
             z-index: 0; pointer-events: none;
-            filter: blur(100px);
+            filter: blur(120px);
             border-radius: 50%;
-            animation: floatGlow 12s ease-in-out infinite alternate;
+            animation: floatGlow 10s ease-in-out infinite alternate;
         }
-        .ambient-1 { top: -20%; left: -10%; }
-        .ambient-2 { bottom: -20%; right: -10%; background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, rgba(0,0,0,0) 70%); animation-delay: -6s; }
+        .ambient-1 { top: -25%; left: -15%; }
+        .ambient-2 { bottom: -25%; right: -15%; background: radial-gradient(circle, rgba(79, 172, 254, 0.12) 0%, rgba(0,0,0,0) 70%); animation-delay: -5s; }
         @keyframes floatGlow {
             0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(30px) scale(1.1); }
+            100% { transform: translateY(40px) scale(1.15); }
         }
 
-        /* --- LUXURY HEADER --- */
+        /* --- HEADER --- */
         .app-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 36px;
-            background: rgba(8, 10, 16, 0.82);
+            position: sticky; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 40px;
+            background: rgba(6, 8, 14, 0.85);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(var(--accent-rgb), 0.25);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
         }
 
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+        .header-brand { display: flex; align-items: center; gap: 16px; }
 
         .brand-logo-box {
-            width: 48px; height: 48px;
+            width: 50px; height: 50px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
-            border-radius: 14px;
+            border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 25px var(--accent-glow);
-            color: #020306; font-weight: 800; font-size: 22px;
+            box-shadow: 0 0 30px var(--accent-glow);
+            color: #010204; font-weight: 800; font-size: 24px;
             position: relative; overflow: hidden;
         }
         .brand-logo-box::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
             transform: rotate(45deg) translateX(-100%);
-            animation: shine 4s ease-in-out infinite;
+            animation: shine 3.5s ease-in-out infinite;
         }
         @keyframes shine { 0% { transform: rotate(45deg) translateX(-100%); } 20%, 100% { transform: rotate(45deg) translateX(100%); } }
 
         .header-title-group { display: flex; flex-direction: column; gap: 3px; }
-
-        .header-title {
-            font-size: clamp(18px, 3vw, 24px);
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        .header-title span {
-            color: var(--accent);
-            text-shadow: 0 0 20px var(--accent-glow);
-        }
-        
-        .header-subtitle {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            color: var(--muted);
-            text-transform: uppercase;
-        }
+        .header-title { font-size: clamp(18px, 3vw, 24px); font-weight: 800; letter-spacing: -0.5px; color: #fff; text-transform: uppercase; }
+        .header-title span { color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
+        .header-subtitle { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
 
         .header-actions { display: flex; align-items: center; gap: 12px; }
 
         .header-btn {
             background: rgba(var(--accent-rgb), 0.08);
-            border: 1px solid rgba(var(--accent-rgb), 0.35);
-            color: var(--accent);
-            width: 44px; height: 44px;
+            border: 1px solid rgba(var(--accent-rgb), 0.4);
+            color: var(--accent); width: 44px; height: 44px;
             border-radius: var(--radius);
             display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .header-btn:hover {
-            background: var(--accent);
-            color: #020306;
-            border-color: var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
-            transform: translateY(-2px);
+            background: var(--accent); color: #010204; border-color: var(--accent);
+            box-shadow: 0 0 35px var(--accent-glow); transform: translateY(-2px);
         }
 
-        /* --- QUICK STATS TICKER --- */
+        /* --- DASHBOARD STATS TICKER --- */
         .stats-ticker {
             max-width: 1400px; margin: 24px auto 0; padding: 0 24px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
             position: relative; z-index: 2;
         }
         .stat-card {
             background: var(--panel); border: 1px solid var(--border);
-            padding: 16px 20px; border-radius: 14px; backdrop-filter: blur(20px);
+            padding: 16px 20px; border-radius: 16px; backdrop-filter: blur(20px);
             display: flex; align-items: center; justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s;
         }
         .stat-card:hover { border-color: var(--border-glow); transform: translateY(-2px); }
         .stat-info span { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
         .stat-info h3 { font-size: 16px; font-weight: 800; color: #fff; font-family: var(--mono); margin-top: 2px; }
-        .stat-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(var(--accent-rgb), 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+        .stat-icon { width: 38px; height: 38px; border-radius: 12px; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; color: var(--accent); }
 
         /* --- MAIN LAYOUT --- */
         main {
             position: relative; z-index: 2;
-            max-width: 1400px;
-            margin: 24px auto 36px;
-            padding: 0 24px;
-            display: grid;
-            gap: 28px;
-            grid-template-columns: 1fr;
+            max-width: 1400px; margin: 24px auto 40px; padding: 0 24px;
+            display: grid; gap: 28px; grid-template-columns: 1fr;
         }
-
         @media (min-width: 1024px) {
             main { grid-template-columns: 1.05fr 0.95fr; }
         }
 
-        /* Glass Cards */
         .panel {
             background: var(--panel);
             backdrop-filter: blur(var(--blur-intensity));
@@ -214,21 +174,17 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            position: relative;
-            display: flex; flex-direction: column;
-            overflow: hidden;
+            position: relative; display: flex; flex-direction: column; overflow: hidden;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-
         .panel:hover {
             border-color: var(--border-glow);
-            box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.95), 0 0 40px rgba(var(--accent-rgb), 0.12);
+            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.95), 0 0 45px rgba(var(--accent-rgb), 0.15);
         }
 
         .panel-header {
-            padding: 20px 24px;
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px 24px; background: rgba(0, 0, 0, 0.35);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             display: flex; justify-content: space-between; align-items: center;
         }
 
@@ -240,16 +196,25 @@
 
         .status-dot {
             width: 8px; height: 8px; border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 15px var(--accent);
+            background: var(--accent); box-shadow: 0 0 15px var(--accent);
             animation: pulse-dot 2s infinite;
         }
-
         @keyframes pulse-dot { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.85); } 100% { opacity: 1; transform: scale(1); } }
 
         .panel-body { padding: 24px; display: flex; flex-direction: column; gap: 20px; flex-grow: 1; }
 
-        /* Form Controls */
+        /* PRESET SOURCE SELECTOR (NEW FEATURE) */
+        .preset-sources {
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: -4px;
+        }
+        .preset-chip {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; font-family: var(--mono);
+            color: var(--muted); cursor: pointer; transition: 0.2s;
+        }
+        .preset-chip:hover { background: rgba(var(--accent-rgb), 0.1); border-color: var(--accent); color: var(--accent); }
+
+        /* FORM CONTROLS */
         .input-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
         .input-label {
             font-size: 11px; font-weight: 700; color: var(--muted);
@@ -258,59 +223,66 @@
         }
 
         textarea, input[type="text"], input[type="number"] {
-            width: 100%; background: rgba(0, 0, 0, 0.5);
+            width: 100%; background: rgba(0, 0, 0, 0.55);
             border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px;
             padding: 14px 18px; color: var(--text);
-            font-family: var(--mono); font-size: 13px;
-            line-height: 1.5; outline: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: var(--mono); font-size: 13px; line-height: 1.5; outline: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        textarea { min-height: 130px; resize: vertical; padding-right: 56px; }
+        textarea { min-height: 130px; resize: vertical; padding-right: 96px; }
 
         textarea:focus, input:focus {
-            border-color: var(--accent);
-            background: rgba(0, 0, 0, 0.75);
+            border-color: var(--accent); background: rgba(0, 0, 0, 0.8);
             box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15), inset 0 0 12px rgba(var(--accent-rgb), 0.08);
         }
         
         .textarea-actions {
-            position: absolute; right: 10px; bottom: 10px;
-            display: flex; gap: 6px;
+            position: absolute; right: 10px; bottom: 10px; display: flex; gap: 6px;
         }
 
         .action-icon-btn {
             width: 36px; height: 36px; border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04);
-            color: var(--text); cursor: pointer;
-            display: flex; align-items: center; justify-content: center; transition: all 0.25s;
+            border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05);
+            color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.25s;
         }
-        .action-icon-btn:hover { background: var(--accent); color: #020306; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+        .action-icon-btn:hover { background: var(--accent); color: #010204; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
         .action-icon-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; }
 
         .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
 
-        /* Checkbox Grid System */
         .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
         
         .check-box {
             display: flex; align-items: center; justify-content: center;
-            background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 11px; border-radius: 12px;
-            cursor: pointer; transition: all 0.25s ease; user-select: none;
+            background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 11px; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; user-select: none;
         }
         .check-box:has(input:checked) {
-            background: rgba(var(--accent-rgb), 0.15); border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.18);
+            background: rgba(var(--accent-rgb), 0.16); border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.2);
         }
         .check-box input { display: none; }
         .check-box span { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); transition: color 0.2s; }
         .check-box:has(input:checked) span { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
 
-        /* Action Buttons */
+        /* ADVANCED OPTIONS TOGGLE (NEW FEATURE) */
+        .advanced-toggle {
+            font-size: 11px; font-weight: 700; color: var(--accent); cursor: pointer;
+            display: inline-flex; align-items: center; gap: 6px; user-select: none; margin-top: -4px;
+        }
+        .advanced-options-box {
+            display: none; flex-direction: column; gap: 16px; background: rgba(0,0,0,0.3);
+            border: 1px dashed rgba(var(--accent-rgb), 0.3); padding: 16px; border-radius: 14px;
+        }
+        .advanced-options-box.open { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* BUTTONS */
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), var(--accent2)); 
-            color: #020306;
-            border: none; border-radius: 14px;
+            color: #010204; border: none; border-radius: 14px;
             padding: 18px; font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
             text-transform: uppercase; cursor: pointer;
             box-shadow: 0 10px 35px var(--accent-glow);
@@ -318,13 +290,9 @@
             display: flex; align-items: center; justify-content: center; gap: 12px;
             font-family: var(--sans); position: relative; overflow: hidden;
         }
-
         .btn-primary:hover:not(:disabled) {
-            filter: brightness(1.15);
-            box-shadow: 0 15px 40px var(--accent-glow);
-            transform: translateY(-2px);
+            filter: brightness(1.15); box-shadow: 0 15px 45px var(--accent-glow); transform: translateY(-2px);
         }
-
         .btn-primary:disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); box-shadow: none; cursor: not-allowed; }
 
         .btn-secondary {
@@ -333,23 +301,22 @@
             cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; gap: 10px;
             border-radius: 12px;
         }
-
         .btn-secondary:hover:not(:disabled) {
             background: rgba(var(--accent-rgb), 0.12); border-color: var(--accent);
             color: #fff; box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.18); transform: translateY(-1px);
         }
         .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        /* Terminal Console */
+        /* TERMINAL CONSOLE */
         .terminal-panel {
-            background: #010204; border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #000103; border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 14px; display: flex; flex-direction: column; overflow: hidden;
             position: relative; height: var(--term-height); transition: height 0.3s ease;
-            box-shadow: inset 0 4px 25px rgba(0,0,0,0.9);
+            box-shadow: inset 0 4px 25px rgba(0,0,0,0.95);
         }
 
         .term-header {
-            background: rgba(0, 0, 0, 0.6); padding: 12px 18px;
+            background: rgba(0, 0, 0, 0.65); padding: 12px 18px;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -372,72 +339,62 @@
             padding: 16px; overflow-y: auto; flex-grow: 1; font-family: var(--mono);
             font-size: 12px; line-height: 1.6;
         }
-        
         .term-body::-webkit-scrollbar { width: 5px; }
         .term-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
 
-        .log-line {
-            display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
-            word-break: break-all; animation: fadeInLog 0.2s ease;
-        }
+        .log-line { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; word-break: break-all; animation: fadeInLog 0.2s ease; }
         @keyframes fadeInLog { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
         .log-time { color: rgba(255,255,255,0.25); font-size: 10px; flex-shrink: 0; padding-top: 1px; }
-        .log-badge {
-            font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px;
-            text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.05em;
-        }
+        .log-badge { font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.05em; }
         
         .badge-info { background: rgba(6, 182, 212, 0.12); color: var(--info); border: 1px solid rgba(6,182,212,0.3); }
         .badge-scan { background: rgba(79, 172, 254, 0.12); color: var(--accent2); border: 1px solid rgba(79,172,254,0.3); }
         .badge-ok { background: rgba(16, 185, 129, 0.12); color: var(--good); border: 1px solid rgba(16,185,129,0.3); }
         .badge-err { background: rgba(239, 68, 68, 0.12); color: var(--bad); border: 1px solid rgba(239,68,68,0.3); }
-
         .log-msg { color: #cbd5e1; }
 
-        /* Progress Bar */
         .scan-progress { height: 3px; background: rgba(255,255,255,0.03); width: 100%; position: relative; overflow: hidden; }
         .scan-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.3s ease; box-shadow: 0 0 15px var(--accent); }
 
-        /* Results Box */
+        /* RESULTS BOX */
         .results-box {
-            background: rgba(0, 0, 0, 0.35); border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         
         .score-display {
             font-size: clamp(42px, 5.5vw, 68px); font-weight: 800; font-family: var(--sans); color: #fff;
-            line-height: 1; margin-bottom: 18px;
-            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            line-height: 1; margin-bottom: 18px; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-shadow: 0 0 35px rgba(var(--accent-rgb), 0.3);
         }
         .score-display.bump { transform: scale(1.12); color: var(--accent); }
 
-        /* Watermark */
+        /* WATERMARK */
         .matin-watermark {
             text-align: center; font-family: var(--sans); font-size: 11px; font-weight: 700;
             letter-spacing: 3px; padding: 25px 0; color: var(--muted); text-transform: uppercase;
         }
         .matin-watermark span { color: var(--accent); font-weight: 800; text-shadow: 0 0 15px var(--accent-glow); }
 
-        /* Toast Notification Popup */
+        /* TOAST POPUP */
         #toast {
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: rgba(8, 10, 16, 0.96); backdrop-filter: blur(25px);
+            background: rgba(6, 8, 14, 0.98); backdrop-filter: blur(25px);
             border: 1px solid var(--accent); color: #fff; padding: 14px 28px;
             border-radius: 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.9), 0 0 30px var(--accent-glow);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.95), 0 0 30px var(--accent-glow);
             z-index: 9999; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
             opacity: 0; display: flex; align-items: center; gap: 12px;
         }
         #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
         #toast svg { width: 18px; height: 18px; stroke: var(--accent); }
 
-        /* Settings Drawer Sidebar */
+        /* SETTINGS DRAWER */
         .settings-panel {
             position: fixed; top: 0; right: -420px;
             width: 380px; max-width: 100vw; height: 100vh;
-            background: rgba(6, 8, 14, 0.98); backdrop-filter: blur(35px);
+            background: rgba(4, 6, 12, 0.99); backdrop-filter: blur(35px);
             border-left: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: -40px 0 80px rgba(0,0,0,0.95); z-index: 1001;
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -454,7 +411,6 @@
         .close-settings:hover { color: #fff; }
 
         .settings-body-panel { padding: 24px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
-        
         .setting-item { display: flex; flex-direction: column; gap: 8px; }
         .setting-item label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; display: flex; justify-content: space-between; letter-spacing: 0.05em; }
 
@@ -484,7 +440,7 @@
             <div class="brand-logo-box">M</div>
             <div class="header-title-group">
                 <h1 class="header-title">MATIN <span>TECH</span></h1>
-                <div class="header-subtitle">Quantum Core Engine X</div>
+                <div class="header-subtitle">Quantum Ultra Engine v6.0</div>
             </div>
         </div>
         <div class="header-actions">
@@ -496,11 +452,11 @@
         </div>
     </header>
 
-    <!-- QUICK LIVE METRICS TICKER -->
+    <!-- LIVE METRICS TICKER -->
     <div class="stats-ticker">
         <div class="stat-card">
             <div class="stat-info">
-                <span>Active Engine Status</span>
+                <span>Core Engine Status</span>
                 <h3 id="statEngineState">ONLINE</h3>
             </div>
             <div class="stat-icon">
@@ -518,8 +474,8 @@
         </div>
         <div class="stat-card">
             <div class="stat-info">
-                <span>System Latency</span>
-                <h3 id="statLatency">14ms</h3>
+                <span>Network Latency</span>
+                <h3 id="statLatency">12ms</h3>
             </div>
             <div class="stat-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -530,12 +486,15 @@
     <main>
         <section class="panel">
             <div class="panel-header">
-                <div class="panel-title"><div class="status-dot"></div>Node Source Engine</div>
+                <div class="panel-title"><div class="status-dot"></div>Node Source Engine Ultra</div>
             </div>
             
             <div class="panel-body">
                 <div class="input-group">
-                    <label class="input-label">Subscription Links / Raw Configs</label>
+                    <label class="input-label">
+                        <span>Subscription Links / Raw Configs</span>
+                        <span style="color: var(--accent); cursor: pointer;" onclick="clearInput()">Clear Input</span>
+                    </label>
                     <textarea id="mainInput" placeholder="Paste subscription links or base64 configs here..."></textarea>
                     
                     <div class="textarea-actions">
@@ -549,6 +508,17 @@
                         </button>
                     </div>
                     <input id="fileInput" type="file" style="display: none;" accept=".txt,.conf,.json">
+                </div>
+
+                <!-- PRESET SOURCE QUICK CHIPS (NEW FEATURE) -->
+                <div class="input-group">
+                    <label class="input-label">Quick Source Presets</label>
+                    <div class="preset-sources">
+                        <div class="preset-chip" onclick="loadPreset('default')">⚡ Default Pool</div>
+                        <div class="preset-chip" onclick="loadPreset('barry')">🚀 Barry-Far Sub</div>
+                        <div class="preset-chip" onclick="loadPreset('ali')">🔥 Aliilapro Sub</div>
+                        <div class="preset-chip" onclick="loadPreset('all')">💎 Combine All Sources</div>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -572,6 +542,27 @@
                     <div class="check-grid" id="transportGrid"></div>
                 </div>
 
+                <!-- ADVANCED SETTINGS TOGGLE (NEW FEATURE) -->
+                <div>
+                    <span class="advanced-toggle" onclick="toggleAdvancedOptions()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        Advanced Routing Settings
+                    </span>
+                    <div class="advanced-options-box" id="advancedBox" style="margin-top: 10px;">
+                        <div class="input-group">
+                            <label class="input-label">Deduplication Mode</label>
+                            <select id="selectDedup" class="setting-select">
+                                <option value="strict">Strict Unique URL Match</option>
+                                <option value="loose">Flexible Address Match</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Auto-Rename Scheme</label>
+                            <input id="customSchemeInput" type="text" value="MatinTech [INDEX] | PRO">
+                        </div>
+                    </div>
+                </div>
+
                 <button id="processBtn" class="btn-primary" onclick="startEngine()">
                     Initialize Processing Engine
                 </button>
@@ -582,7 +573,7 @@
             <div class="panel-header" style="border-bottom: none;">
                 <div class="panel-title">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                    Live Quantum Console
+                    Live Quantum Console Ultra
                 </div>
             </div>
 
@@ -637,13 +628,13 @@
             </div>
 
             <div class="setting-item">
-                <label>Border Radius <span id="valRadius">18px</span></label>
-                <input type="range" id="rangeRadius" min="0" max="28" step="1" value="18">
+                <label>Border Radius <span id="valRadius">20px</span></label>
+                <input type="range" id="rangeRadius" min="0" max="28" step="1" value="20">
             </div>
 
             <div class="setting-item">
                 <label>Background Core Color</label>
-                <input type="color" id="colorBg" value="#020306">
+                <input type="color" id="colorBg" value="#010204">
             </div>
             <div class="setting-item">
                 <label>Primary Accent Glow</label>
@@ -655,12 +646,12 @@
             </div>
 
             <div class="setting-item">
-                <label>Glass Blur Intensity <span id="valBlur">25px</span></label>
-                <input type="range" id="rangeBlur" min="0" max="40" step="1" value="25">
+                <label>Glass Blur Intensity <span id="valBlur">28px</span></label>
+                <input type="range" id="rangeBlur" min="0" max="40" step="1" value="28">
             </div>
             <div class="setting-item">
-                <label>Console Height <span id="valTermH">440px</span></label>
-                <input type="range" id="rangeTermH" min="300" max="700" step="10" value="440">
+                <label>Console Height <span id="valTermH">480px</span></label>
+                <input type="range" id="rangeTermH" min="300" max="700" step="10" value="480">
             </div>
             
             <button class="btn-reset" onclick="resetUI()">Reset Default Theme</button>
@@ -689,25 +680,40 @@
             { id: "quic", checked: false }
         ];
         
-        const DEFAULT_SOURCES = [
-            "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt",
-            "https://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt",
-            "https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/Sub2.txt",
-            "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt"
-        ];
+        const PRESETS = {
+            default: "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt",
+            barry: "https://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt\nhttps://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/Sub2.txt",
+            ali: "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt",
+            all: "https://gist.github.com/matinejlali5-cell/b856db7546b80cbf7336bd9302e97396/raw/daf1238386d1e3c85583fd125f59356525bf27ba/gistfile1.txt\nhttps://raw.githubusercontent.com/barry-far/V2ray-config/refs/heads/main/Sub1.txt\nhttps://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/refs/heads/main/sub.txt"
+        };
         
         document.addEventListener('DOMContentLoaded', () => {
             renderChecks('protocolGrid', PROTOCOLS, 'proto');
             renderChecks('transportGrid', TRANSPORTS, 'net');
             loadSettings();
-            logTerm('Quantum Engine v10.X initialized. Ready for high-speed routing.', 'info');
+            logTerm('Quantum Ultra Engine v6.0 initialized successfully.', 'info');
             
-            // شبیه‌سازی پینگ پویا
             setInterval(() => {
-                const randomPing = Math.floor(Math.random() * 8) + 12;
+                const randomPing = Math.floor(Math.random() * 6) + 10;
                 document.getElementById('statLatency').innerText = randomPing + 'ms';
-            }, 5000);
+            }, 4000);
         });
+
+        function loadPreset(key) {
+            document.getElementById('mainInput').value = PRESETS[key] || '';
+            showToast(`Loaded preset source: ${key.toUpperCase()}`);
+            logTerm(`Preset source config loaded into pipeline: ${key}`, 'scan');
+        }
+
+        function clearInput() {
+            document.getElementById('mainInput').value = '';
+            showToast('Input sources cleared!');
+            logTerm('Input box cleared by user.', 'info');
+        }
+
+        function toggleAdvancedOptions() {
+            document.getElementById('advancedBox').classList.toggle('open');
+        }
 
         document.getElementById("fileInput").addEventListener("change", function(e) {
             const f = e.target.files?.[0];
@@ -716,7 +722,7 @@
             r.onload = () => {
                 const ta = document.getElementById("mainInput");
                 ta.value = (ta.value ? ta.value + "\n" : "") + r.result;
-                logTerm(`Successfully loaded external file: ${f.name}`, "ok");
+                logTerm(`Successfully loaded external file package: ${f.name}`, "ok");
             };
             r.readAsText(f);
         });
@@ -728,10 +734,10 @@
                     const ta = document.getElementById("mainInput");
                     ta.value = (ta.value ? ta.value + "\n" : "") + text;
                     showToast('Pasted from clipboard successfully!');
-                    logTerm('Configs pasted directly from clipboard.', 'ok');
+                    logTerm('Configs pasted directly from system clipboard.', 'ok');
                 }
             } catch(e) {
-                showToast('Clipboard permission denied or unavailable.');
+                showToast('Clipboard access denied or unsupported.');
             }
         }
 
@@ -768,7 +774,7 @@
             a.href = URL.createObjectURL(blob);
             a.download = `MatinTech_Console_Logs_${Date.now()}.txt`;
             a.click();
-            showToast('Console logs exported!');
+            showToast('Console logs downloaded successfully!');
         }
 
         function updateProgress(percent, text) {
@@ -823,10 +829,10 @@
             try {
                 const rawInput = document.getElementById('mainInput').value.trim();
                 const allowedProtos = new Set(Array.from(document.querySelectorAll('input[name="proto"]:checked')).map(e => e.value));
-                const remarkTag = document.getElementById('remarkInput').value.trim() || 'MatinTech⚡';
+                const customScheme = document.getElementById('customSchemeInput').value.trim() || 'MatinTech [INDEX]';
                 const maxOut = parseInt(document.getElementById('maxOutput').value) || 2500;
 
-                let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : DEFAULT_SOURCES;
+                let sources = rawInput ? rawInput.split(/[\s\n]+/).filter(t => t.startsWith('http')) : [PRESETS.default];
                 let combinedData = rawInput;
 
                 for (const url of sources) {
@@ -858,7 +864,7 @@
                 let index = 1;
                 finalProcessedConfigs = Array.from(uniqueMap.values()).slice(0, maxOut).map(u => {
                     let cleanUri = u.split('#')[0];
-                    let currentRemark = `${remarkTag} #${index++}`;
+                    let currentRemark = customScheme.replace('[INDEX]', index++);
                     
                     if (u.startsWith('vmess://')) {
                         try {
@@ -874,7 +880,7 @@
                 });
 
                 updateProgress(100, 'COMPLETED');
-                logTerm(`Quantum pipeline successfully generated ${finalProcessedConfigs.length} high-speed configurations.`, 'ok');
+                logTerm(`Quantum Ultra successfully generated ${finalProcessedConfigs.length} optimized configurations.`, 'ok');
                 updateResults(finalProcessedConfigs.length);
                 document.getElementById('statEngineState').innerText = 'IDLE';
             } catch(e) {
@@ -955,7 +961,7 @@
         }
 
         const root = document.documentElement;
-        const defaultUI = { bg: '#020306', accent: '#00f2fe', accent2: '#4facfe', blur: '25', radius: '18', font: "'Plus Jakarta Sans', sans-serif", termH: '440' };
+        const defaultUI = { bg: '#010204', accent: '#00f2fe', accent2: '#4facfe', blur: '28', radius: '20', font: "'Plus Jakarta Sans', sans-serif", termH: '480' };
 
         function toggleSettings() { document.getElementById('settingsPanel').classList.toggle('open'); }
         function hexToRgb(hex) {
@@ -987,7 +993,6 @@
 
         function saveSettings() {
             const s = {
-                bg: document.getElementById('colorBg5') || document.getElementById('colorBg').value,
                 bg: document.getElementById('colorBg').value,
                 accent: document.getElementById('colorAccent').value,
                 accent2: document.getElementById('colorAccent2').value,
@@ -996,12 +1001,12 @@
                 font: document.getElementById('selectFont').value,
                 termH: document.getElementById('rangeTermH').value
             };
-            localStorage.setItem('matinTechQuantumSettingsX', JSON.stringify(s));
+            localStorage.setItem('matinTechQuantumSettingsV6', JSON.stringify(s));
             applySettings(s);
         }
 
         function loadSettings() {
-            const saved = localStorage.getItem('matinTechQuantumSettingsX');
+            const saved = localStorage.getItem('matinTechQuantumSettingsV6');
             applySettings(saved ? JSON.parse(saved) : defaultUI);
         }
 
@@ -1009,8 +1014,7 @@
             document.getElementById(id).addEventListener('input', saveSettings);
         });
 
-        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechQuantumSettingsX'); logTerm('UI theme settings reset to default.', 'info'); }
+        function resetUI() { applySettings(defaultUI); localStorage.removeItem('matinTechQuantumSettingsV6'); logTerm('UI theme settings reset to default.', 'info'); }
     </script>
 </body>
 </html>
-
