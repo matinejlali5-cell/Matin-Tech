@@ -200,3 +200,342 @@ Transportهای مورد نظر را انتخاب کنید.
 این پروژه یک **Enterprise Grade V2Ray Management Platform** است که برای مدیریت، پردازش، فیلتر، تحلیل و شخصی‌سازی کانفیگ‌ها طراحی شده و تمامی امکانات موردنیاز را در قالب یک فایل HTML در اختیار شما قرار می‌دهد.
 
 ---
+# ✨ Enterprise Features
+
+نسخه **Quantum Nexus Elite v7.0** تنها یک ابزار استخراج کانفیگ نیست؛ بلکه مجموعه‌ای از قابلیت‌های حرفه‌ای را در قالب یک پنل مدرن و قدرتمند ارائه می‌دهد.
+
+| بخش | توضیحات |
+|------|---------|
+| ⚡ Quantum Processing Engine | موتور پردازش نسل جدید با سرعت بسیار بالا |
+| 🌍 Multi Source Loader | دریافت هم‌زمان اطلاعات از ده‌ها منبع معتبر |
+| 🚀 Parallel Processing | پردازش موازی منابع برای افزایش سرعت |
+| 🧠 Smart Score Engine | امتیازدهی هوشمند به کانفیگ‌ها |
+| 🔍 Advanced Protocol Filter | فیلتر دقیق بر اساس پروتکل |
+| 🌐 Advanced Transport Filter | فیلتر کامل بر اساس Transport |
+| 🧹 Smart Deduplication | حذف خودکار کانفیگ‌های تکراری |
+| 🏷 Dynamic Remark Engine | تغییر خودکار نام تمام کانفیگ‌ها |
+| 📊 Live Dashboard | نمایش وضعیت لحظه‌ای سیستم |
+| 🖥 Live Processing Console | مشاهده کامل روند پردازش |
+| 📈 Real Time Statistics | آمار زنده پردازش |
+| 🔐 Authentication System | سیستم ورود کاربران |
+| 🎨 Quantum Theme Manager | شخصی‌سازی کامل رابط کاربری |
+| 💾 Local Storage | ذخیره خودکار تنظیمات |
+| 📂 TXT Import | بارگذاری فایل متنی |
+| 📥 TXT Export | دانلود خروجی |
+| 📋 Clipboard Support | کپی خروجی با یک کلیک |
+| 🌙 Glass UI | رابط کاربری مدرن Glassmorphism |
+| 📱 Responsive Layout | سازگار با موبایل و دسکتاپ |
+| 🔒 Privacy First | بدون ارسال اطلاعات به سرور |
+
+---
+
+# 🧠 Quantum Processing Engine
+
+موتور Quantum Nexus اطلاعات را طی چندین مرحله پردازش می‌کند تا بهترین خروجی ممکن تولید شود.
+
+```
+
+Input Sources
+│
+
+▼
+
+Preset Loader
+│
+
+▼
+
+Multi Source Fetch
+│
+
+▼
+
+Base64 Decoder
+│
+
+▼
+
+URI Extractor
+│
+
+▼
+
+Protocol Analyzer
+│
+
+▼
+
+Transport Analyzer
+│
+
+▼
+
+Quality Score Engine
+│
+
+▼
+
+Duplicate Detection
+│
+
+▼
+
+Sorting Engine
+│
+
+▼
+
+Remark Generator
+│
+
+▼
+
+Output Builder
+│
+
+▼
+
+Copy / Download
+
+```
+
+---
+
+# ⚙ Processing Workflow
+
+در هنگام اجرای موتور، مراحل زیر به ترتیب انجام می‌شوند:
+
+✅ بررسی اطلاعات ورودی
+
+↓
+
+✅ بارگذاری منابع
+
+↓
+
+✅ دانلود هم‌زمان Subscriptionها
+
+↓
+
+✅ پردازش فایل‌های متنی
+
+↓
+
+✅ تشخیص Base64
+
+↓
+
+✅ استخراج URI
+
+↓
+
+✅ اعتبارسنجی ساختار کانفیگ
+
+↓
+
+✅ تشخیص پروتکل
+
+↓
+
+✅ تشخیص Transport
+
+↓
+
+✅ امتیازدهی
+
+↓
+
+✅ حذف موارد تکراری
+
+↓
+
+✅ مرتب‌سازی نهایی
+
+↓
+
+✅ تغییر نام کانفیگ‌ها
+
+↓
+
+✅ ساخت خروجی
+
+↓
+
+✅ آماده‌سازی دانلود
+
+---
+
+# 📊 Smart Score System
+
+تمام کانفیگ‌ها به صورت خودکار امتیازدهی می‌شوند.
+
+پارامترهای امتیازدهی شامل:
+
+- نوع پروتکل
+- نوع امنیت
+- Transport
+- پورت
+- کیفیت ساختار
+- ویژگی‌های اختصاصی
+
+نمونه امتیازدهی:
+
+| ویژگی | امتیاز |
+|---------|-------:|
+| Reality | +30 |
+| TLS | +20 |
+| VLESS | +25 |
+| Hysteria2 | +20 |
+| Trojan | +15 |
+| VMess | +10 |
+| gRPC | +15 |
+| XHTTP | +15 |
+| SplitHTTP | +15 |
+| WS | +10 |
+| Port 443 | +15 |
+| Port 8443 | +15 |
+| Port 2053 | +15 |
+
+---
+
+# 🛡 Smart Duplicate Detection
+
+سیستم حذف کانفیگ‌های تکراری تنها آدرس را بررسی نمی‌کند.
+
+برای هر کانفیگ یک شناسه یکتا ساخته می‌شود که شامل موارد زیر است:
+
+- Protocol
+- Address
+- Port
+
+در صورت مشاهده کانفیگ مشابه، نسخه‌ای که امتیاز بیشتری داشته باشد نگهداری خواهد شد.
+
+---
+
+# 📊 Live Dashboard
+
+داشبورد اصلی اطلاعات سیستم را به صورت لحظه‌ای نمایش می‌دهد.
+
+نمایش موارد:
+
+- وضعیت موتور
+- تعداد Nodeها
+- تعداد منابع
+- وضعیت پردازش
+- درصد پیشرفت
+- وضعیت استخراج
+- زمان اجرا
+- اطلاعات سیستم
+
+---
+
+# 🖥 Live Terminal
+
+تمام عملیات موتور به صورت زنده داخل کنسول نمایش داده می‌شود.
+
+مواردی که ثبت می‌شوند:
+
+- شروع پردازش
+- دریافت منابع
+- دانلود فایل‌ها
+- استخراج URI
+- حذف موارد تکراری
+- مرتب‌سازی
+- ساخت خروجی
+- پایان عملیات
+
+---
+
+# 🔐 Authentication System
+
+برای جلوگیری از استفاده غیرمجاز، پنل دارای سیستم احراز هویت داخلی است.
+
+ویژگی‌ها:
+
+- Login Page
+- Session Management
+- Secure Authentication
+- Logout
+- Dashboard Protection
+
+---
+
+# 🌍 Multi Source Loader
+
+در صورت خالی بودن ورودی، موتور به صورت خودکار از منابع پیش‌فرض استفاده می‌کند.
+
+پشتیبانی از:
+
+- GitHub Repositories
+- Subscription Links
+- Cloudflare Pages
+- Cloudflare Workers
+- TXT Files
+- Raw Configs
+
+---
+
+# ⚡ Parallel Processing
+
+برای افزایش سرعت، تمام منابع به صورت هم‌زمان پردازش می‌شوند.
+
+مزایا:
+
+- سرعت بیشتر
+- کاهش زمان انتظار
+- استفاده بهتر از منابع مرورگر
+- تجربه کاربری بهتر
+
+---
+
+# 🔒 Privacy
+
+حریم خصوصی یکی از مهم‌ترین اهداف پروژه است.
+
+بنابراین:
+
+- هیچ اطلاعاتی به سرور ارسال نمی‌شود.
+- هیچ دیتابیسی استفاده نمی‌شود.
+- هیچ API اختصاصی وجود ندارد.
+- تمام عملیات در مرورگر انجام می‌شود.
+- تمام تنظیمات تنها در LocalStorage ذخیره می‌شوند.
+
+---
+
+# 🚀 Architecture
+
+```
+
+User
+
+↓
+
+Authentication
+
+↓
+
+Dashboard
+
+↓
+
+Quantum Engine
+
+↓
+
+Processing Pipeline
+
+↓
+
+Live Terminal
+
+↓
+
+Output Builder
+
+↓
+
+Download / Copy
+
+```
+
+---
