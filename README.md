@@ -87,3 +87,191 @@ index.html
 - 🔒 100% Client-Side Processing
 
 ---
+## 🧠 How It Works
+
+MATIN TECH داده‌ها را در چند مرحله پردازش می‌کند تا بهترین نتیجه ممکن را ارائه دهد.
+
+```text
+Input
+   │
+   ▼
+Multi Source Loader
+   │
+   ▼
+Base64 Decoder
+   │
+   ▼
+URI Extractor
+   │
+   ▼
+Protocol & Transport Filter
+   │
+   ▼
+Smart Scoring
+   │
+   ▼
+Duplicate Removal
+   │
+   ▼
+Output Builder
+```
+
+---
+
+## 🚀 Supported Protocols
+
+- ✅ VLESS
+- ✅ VMess
+- ✅ Trojan
+- ✅ Shadowsocks
+- ✅ Hysteria
+- ✅ Hysteria2
+
+---
+
+## 🌐 Supported Transports
+
+- WS
+- gRPC
+- TCP
+- TLS
+- HTTPUpgrade
+- SplitHTTP
+- XHTTP
+- HTTP/2
+- QUIC
+
+---
+
+## 🎨 Interface
+
+نسخه **Quantum Nexus Elite** با یک رابط کاربری مدرن طراحی شده است و امکانات زیر را در اختیار شما قرار می‌دهد.
+
+- 🎨 Dynamic Theme Manager
+- 🌈 Custom Accent Colors
+- 🖋 Font Switcher
+- 📐 Border Radius Control
+- 🌫 Glass Blur Effect
+- 📏 Console Height Adjustment
+- 💾 Auto Save Settings
+
+---
+
+## 📊 Dashboard
+
+داشبورد زنده اطلاعات مهم را به صورت لحظه‌ای نمایش می‌دهد.
+
+- ⚡ Engine Status
+- 📊 Processing Statistics
+- 🖥 Live Terminal
+- 📈 Progress Bar
+- 📋 Output Information
+
+---
+
+## 🔒 Privacy
+
+تمام پردازش‌ها به صورت **Client-Side** انجام می‌شوند.
+
+- ✅ بدون Backend
+- ✅ بدون Database
+- ✅ بدون API اختصاصی
+- ✅ بدون ارسال اطلاعات کاربران
+- ✅ ذخیره تنظیمات فقط در Local Storage
+
+---
+
+## 💡 Highlights
+
+- 🚀 High Performance Engine
+- ⚡ Parallel Processing
+- 🧠 Smart Quality Scoring
+- 🧹 Advanced Deduplication
+- 🎨 Modern Cyberpunk UI
+- 📱 Responsive Design
+- 🌍 Multi Source Support
+- 🔒 Privacy First
+
+---
+## 🚀 Deploy
+
+### GitHub Pages
+
+1. Upload the project to a public repository.
+2. Go to **Settings → Pages**.
+3. Select **Deploy from Branch**.
+4. Choose **main** branch and **/(root)**.
+5. Save the changes.
+
+After a few moments your project will be available at:
+
+```text
+https://matinejlali5-cell.github.io/Matin-Tech/
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+Matin-Tech
+│
+├── index.html
+├── README.md
+└── LICENSE
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+Feel free to use, modify and contribute while keeping the original credits.
+
+---
+
+## 👨‍💻 Developer
+
+**Mohammad Matin Ejlali**
+
+<p align="left">
+
+<a href="https://t.me/Mr_Matin_official">
+<img src="https://img.shields.io/badge/Telegram-@Mr_Matin_official-26A5E4?style=for-the-badge&logo=telegram&logoColor=white">
+</a>
+
+<a href="https://github.com/matinejlali5-cell">
+<img src="https://img.shields.io/badge/GitHub-matinejlali5--cell-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+</p>
+
+---
+
+## ⭐ Support
+
+If you like **MATIN TECH**, don't forget to leave a **⭐ Star** on GitHub.
+
+Your support helps the project grow and motivates future updates.
+
+<p align="center">
+
+### ❤️ Thanks for using MATIN TECH ❤️
+
+</p>
+## 📸 Preview
+
+<p align="center">
+
+<img src="assets/login.png" width="900">
+
+<br><br>
+
+<img src="assets/dashboard.png" width="900">
+
+<br><br>
+
+<img src="assets/settings.png" width="900">
+
+</p>
