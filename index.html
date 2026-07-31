@@ -238,6 +238,18 @@
             background: var(--accent); color: #010205; border-color: var(--accent);
             box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-2px);
         }
+        
+        .header-btn.logout-btn-custom {
+            color: #ef4444;
+            border-color: rgba(239, 68, 68, 0.45);
+            background: rgba(239, 68, 68, 0.08);
+        }
+        .header-btn.logout-btn-custom:hover {
+            background: #ef4444;
+            color: #fff;
+            border-color: #ef4444;
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.5);
+        }
 
         /* --- DASHBOARD STATS TICKER --- */
         .stats-ticker {
@@ -531,7 +543,7 @@
 </head>
 <body>
 
-    <!-- AUTH OVERLAY -->
+    <!-- AUTH LOGIN SCREEN -->
     <div id="auth-overlay">
         <div class="login-card">
             <div class="brand-title-auth">M3_ES</div>
@@ -542,19 +554,19 @@
                 <div class="auth-input-group">
                     <label for="username">نام کاربری</label>
                     <div class="auth-input-wrapper">
-                        <input type="text" id="username" name="username" placeholder="نام کاربری" value="admin" required>
+                        <input type="text" id="username" name="username" placeholder="نام کاربری" value="" required>
                     </div>
                 </div>
 
                 <div class="auth-input-group">
                     <label for="password">رمزعبور</label>
                     <div class="auth-input-wrapper">
-                        <input type="password" id="password" name="password" placeholder="رمزعبور" value="admin" required>
+                        <input type="password" id="password" name="password" placeholder="رمزعبور" value="" required>
                     </div>
                 </div>
 
                 <button type="submit" class="login-btn">ورود</button>
-                <div id="authError" class="auth-error">نام کاربری یا رمز عبور اشتباه است!</div>
+                <div id="authError" class="auth-error">نام کاربری یا رمز عبور اشتباه است! (admin / admin)</div>
             </form>
         </div>
     </div>
@@ -571,6 +583,11 @@
             </div>
         </div>
         <div class="header-actions">
+            <button class="header-btn logout-btn-custom" onclick="handleLogout()" title="خروج از حساب کاربری">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+            </button>
             <button class="header-btn" onclick="toggleSettings()" title="تنظیمات پوسته UI">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
@@ -788,23 +805,34 @@
     <script>
         function handleLogin(e) {
             e.preventDefault();
-            const u = document.getElementById('username').value;
-            const p = document.getElementById('password').value;
+            const u = document.getElementById('username').value.trim();
+            const p = document.getElementById('password').value.trim();
             const err = document.getElementById('authError');
             
             if (u === 'admin' && p === 'admin') {
                 document.getElementById('auth-overlay').classList.add('hidden');
                 localStorage.setItem('m3_es_auth', 'true');
+                err.style.display = 'none';
                 showToast('با موفقیت وارد پنل M3_ES شدید!');
             } else {
                 err.style.display = 'block';
             }
         }
 
+        function handleLogout() {
+            localStorage.removeItem('m3_es_auth');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('auth-overlay').classList.remove('hidden');
+            showToast('با موفقیت از حساب کاربری خارج شدید.');
+        }
+
         // Check if already authenticated in session
         window.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('m3_es_auth') === 'true') {
                 document.getElementById('auth-overlay').classList.add('hidden');
+            } else {
+                document.getElementById('auth-overlay').classList.remove('hidden');
             }
         });
 
